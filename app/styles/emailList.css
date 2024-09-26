@@ -1,0 +1,100 @@
+.email-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-up {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--color1);
+  font-size: 18px;
+  z-index: 999;
+  font-family: "__Inter_e66fe9", "__Inter_Fallback_e66fe9";
+  text-decoration: none;
+  color: salmon;
+}
+
+.emailListInput {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  color: white;
+  box-sizing: border-box;
+}
+
+.email-list-input-div {
+  width: 100%;
+  margin: 0 5px 0 0;
+  height: 100%;
+  border: 0.5px solid white;
+}
+
+.email-list-container p,
+.email-list-input-div,
+.email-list-button-div {
+  font-size: 18px;
+}
+
+.email-list-form {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+}
+
+.newsletter:hover {
+  cursor: default;
+  color: lavender !important;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.sign-up-form span {
+  color: white;
+  padding-bottom: 5px;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.sign-up-form-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+}
+
+.send-2 {
+  border: 1px solid white;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, "Lucida Console", "DejaVu Sans Mono",
+    monospace;
+  padding: 3px;
+}
+
+.send-2:hover {
+  background-color: ivory !important;
+  color: black !important;
+  cursor: pointer;
+  border-color: black !important;
+}
+
+.email-logo {
+  width: 150px;
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .email-logo {
+    color: white;
+  }
+}

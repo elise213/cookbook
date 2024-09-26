@@ -1,0 +1,51 @@
+.video-container {
+  width: 100%;
+  height: 1vh;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 600px;
+  align-self: center;
+  /* margin-top: 90px; */
+  min-height: 350px;
+  /* width: 90% !important; */
+
+  -webkit-mask-image: url("../../public/img/CCEAMASK.png");
+  mask-image: url("../../public/img/CCEAMASK.png");
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+}
+
+.home-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+@media screen and (max-width: 500px) {
+  .video-container {
+    max-width: 480px;
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .video-container {
+    max-width: 380px;
+  }
+}

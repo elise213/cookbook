@@ -1,0 +1,46 @@
+/* Import the font */
+@import url("https://fonts.googleapis.com/css2?family=Modak&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+.events-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.event-heading {
+  font-family: "Lexend", sans-serif;
+  letter-spacing: 2px;
+  font-size: 25px;
+  margin: 30px 30px 10px;
+}
+
+.events-page::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.events-page::-webkit-scrollbar-thumb {
+  background-color: #90ee90;
+  border-radius: 10px;
+  z-index: 999999999;
+}
+
+.events-page::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .event-heading {
+    text-align: center !important;
+  }
+}
