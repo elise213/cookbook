@@ -43,7 +43,7 @@ const Footer = () => {
           <EmailList />
         </div>
       </div>
-      <p className="footer-text">CENTER FOR CINEMATIC AND EXPERIMENTAL ARTS</p>
+      <p className="footer-text">THE THEOSOPHY HALL</p>
     </footer>
   );
 };
