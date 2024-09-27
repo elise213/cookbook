@@ -23,8 +23,8 @@ const Footer = () => {
           <Link href="/about" passHref>
             ABOUT
           </Link>
-          <Link href="/fiscal-sponsorship" passHref>
-            FISCAL SPONSORSHIP
+          <Link href="/rentals" passHref>
+            RENTALS
           </Link>
           <Link href="/events" passHref>
             EVENTS
@@ -43,7 +43,9 @@ const Footer = () => {
           <EmailList />
         </div>
       </div>
-      <p className="footer-text">THE THEOSOPHY HALL</p>
+      <p classNam e="footer-text">
+        THE THEOSOPHY HALLEVENTS AND RENTALS
+      </p>
     </footer>
   );
 };

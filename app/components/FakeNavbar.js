@@ -14,7 +14,7 @@ const FakeNavbar = () => {
           passHref
           style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
         >
-          <img src="/img/CCEA99.png" alt="CCEA Logo" className="navbar-logo" />
+          <img src="/img/TH.png" alt="CCEA Logo" className="navbar-logo" />
         </Link>
       </div>
     </>

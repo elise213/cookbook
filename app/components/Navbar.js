@@ -76,16 +76,6 @@ const Navbar = () => {
               actions.setIsNavOpen(false);
             }}
           >
-            <Link href="/fiscal-sponsorship" passHref>
-              FISCAL SPONSORSHIP
-            </Link>
-          </span>
-          <span
-            className="nav-item"
-            onClick={() => {
-              actions.setIsNavOpen(false);
-            }}
-          >
             <Link href="/events" passHref>
               EVENTS
             </Link>

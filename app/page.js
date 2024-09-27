@@ -92,7 +92,7 @@ const Home = () => {
   return (
     <>
       <div className={` home-body content`}>
-        <FakeNavBar />
+        {/* <FakeNavBar /> */}
         <svg width="0" height="0">
           <defs>
             <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
@@ -100,7 +100,9 @@ const Home = () => {
             </clipPath>
           </defs>
         </svg>
-        <Video />
+
+        <img src="/img/TH.png" alt="CCEA Logo" className="TH-logo" />
+        {/* <Video /> */}
         {/* <div
           ref={scrollRef}
           className="scroll-search-results"

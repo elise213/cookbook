@@ -13,6 +13,12 @@
   --color5: rgb(183, 227, 168);
 }
 
+.TH-logo {
+  width: 70%;
+  height: auto;
+  margin: 50p 0x;
+}
+
 .fake-navbar {
   width: 100%;
   display: flex;
