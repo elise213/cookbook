@@ -13,52 +13,62 @@
   align-items: center;
 }
 
-footer {
-  width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 10px 120px 10px !important;
-  border-top: 1px solid #866060;
+.border-bl {
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.border-br {
+  right: 0;
+  transform: scaleX(-1) scaleY(-1);
 }
 
 .fa-instagram {
   font-size: x-large;
 }
 
-.footer-text {
-  font-size: 18px;
-  text-align: center;
-  letter-spacing: 1px;
-  margin: 50px 0 0 0;
-  padding: 10px;
-  color: white;
-}
-
-.footer-div-2 {
-  width: 100%;
-}
-
-.footer-div-1,
 .footer-div-2 {
   display: flex;
-  flex-direction: row !important;
-  max-width: 1000px !important;
-  color: white;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.footer-div-1 {
-  width: 100%;
+footer {
+  display: grid;
+  grid-template-areas:
+    "border"
+    "footer-div-2";
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
-@media screen and (max-width: 800px) {
-  .footer-div-2 {
-    flex-direction: column !important;
-  }
+.border {
+  grid-area: border;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  position: relative;
+  z-index: 0;
+}
+
+.footer-div-2 {
+  grid-area: footer-div-2;
+  width: 100%;
+  margin-top: -200px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.border-br,
+.border-bl {
+  margin: 10px;
+  width: 40%;
+  height: auto;
+  z-index: 0;
 }
 
 .socials {
@@ -66,19 +76,17 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 30px;
-  width: 100%;
+  margin-right: 70px;
 }
 
 .socials p {
-  color: white;
   margin: 5px;
   text-align: center;
   font-size: 14px;
 }
 
 .socials i {
-  color: white;
+  color: black;
 }
 
 .socials a {
@@ -94,12 +102,8 @@ footer {
   width: 240px;
 }
 
-.sitemap p {
-  color: white;
-}
-
 .sitemap a {
-  color: white;
+  color: black;
   padding: 5px 0;
   text-decoration: none;
   display: block;
@@ -113,5 +117,17 @@ footer {
 
   .footer-div-1 {
     flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .socials p {
+    font-size: 12px !important;
+  }
+  .footer-div-2 {
+    flex-direction: column !important;
+  }
+  .socials {
+    margin-right: 0px !important;
   }
 }

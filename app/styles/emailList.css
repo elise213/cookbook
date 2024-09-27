@@ -20,7 +20,7 @@
   border: none;
   background-color: transparent;
   height: 100%;
-  color: white;
+  color: black;
   box-sizing: border-box;
 }
 
@@ -28,7 +28,7 @@
   width: 100%;
   margin: 0 5px 0 0;
   height: 100%;
-  border: 0.5px solid white;
+  border: 0.5px solid black;
 }
 
 .email-list-container p,
@@ -41,6 +41,8 @@
   display: flex;
   padding: 10px;
   justify-content: flex-end;
+  /* width: 100%; */
+  margin-left: 70px;
 }
 
 .newsletter:hover {
@@ -55,7 +57,7 @@
 }
 
 .sign-up-form span {
-  color: white;
+  color: black;
   padding-bottom: 5px;
   font-size: 14px;
   text-align: center;
@@ -70,10 +72,10 @@
 }
 
 .send-2 {
-  border: 1px solid white;
+  border: 1px solid black;
   font-size: 14px;
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: black;
   letter-spacing: 1px;
   border-radius: 4px;
   font-family: "Courier New", Courier, "Lucida Console", "DejaVu Sans Mono",
@@ -95,6 +97,16 @@
 
 @media screen and (max-width: 1000px) {
   .email-logo {
-    color: white;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .email-list-form {
+    margin-left: 0px;
+    justify-content: center;
+  }
+  .sign-up-form span {
+    font-size: 12px;
   }
 }

@@ -25,7 +25,7 @@ function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <div className="wrapper">
-          <Navbar />
+          {/* <Navbar /> */}
           <main className="content">{children}</main>
           {/* <Footer /> */}
         </div>

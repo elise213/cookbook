@@ -92,68 +92,10 @@ const Home = () => {
   return (
     <>
       <div className={` home-body content`}>
-        {/* <FakeNavBar /> */}
-        <svg width="0" height="0">
-          <defs>
-            <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
-              <path d="M 0,0 L 1,0 L 1,1 Q 0.5,1 0,1 Z" />
-            </clipPath>
-          </defs>
-        </svg>
-
-        <img src="/img/TH.png" alt="CCEA Logo" className="TH-logo" />
-        {/* <Video /> */}
-        {/* <div
-          ref={scrollRef}
-          className="scroll-search-results"
-          style={{
-            justifyContent: isOverflowing ? "flex-start" : "center",
-          }}
-        >
-          <ul>
-            {upcomingEvents.map((result, i) => {
-              return (
-                <li
-                  key={i}
-                  style={
-                    i === store.events.length - 1 ? { paddingRight: "" } : {}
-                  }
-                >
-                  <div
-                    className="event-container"
-                    onClick={() => actions.toggleModal(result.id)}
-                    style={{ padding: result.title ? "10px" : "0" }}
-                  >
-                    <Image
-                      style={{ filter: "grayscale(100%)" }}
-                      width={result.title ? 200 : 220}
-                      height={result.title ? 300 : 340}
-                      quality={90}
-                      className="movie"
-                      src={
-                        result.image
-                          ? result.image
-                          : "/path-to-default-image.jpg"
-                      }
-                      alt={result.title || "Default Image"}
-                    />
-
-                    {result.title && (
-                      <p className="highlight-title">{result.title}</p>
-                    )}
-
-                    {store.modalIsOpen && store.activeEventId === result.id && (
-                      <>
-                        <div className="modal-overlay"></div>
-                        <MovieCard result={getActiveEvent()} />
-                      </>
-                    )}
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div> */}
+        <FakeNavBar />
+        <div className="image-div">
+          <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
+        </div>
         <Footer />
       </div>
     </>

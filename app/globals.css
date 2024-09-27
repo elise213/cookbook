@@ -22,17 +22,17 @@
 .fake-navbar {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   box-sizing: border-box;
   top: 0;
-  height: 75px;
   margin: 0px !important;
 }
 
 .navbar-logo {
-  width: auto;
-  height: 50px;
-  margin: 10px;
+  width: 60%;
+  height: auto;
+  margin: 30px 0px;
+  max-width: 400px;
 }
 
 .FAQ-link:hover {
@@ -52,7 +52,13 @@ body {
   height: 100%;
   padding: 0px;
   margin: 0px;
-  background-color: #fffdf3;
+  /* background-color: #fffdf3; */
+}
+body {
+  background-image: url("/img/paper.jpg"); /* Reference the image */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
 }
 
 body.navbar-open {
@@ -79,6 +85,23 @@ body.no-scroll {
 body,
 label {
   color: black;
+}
+
+.navbar-large {
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  background-color: white;
+}
+
+.home-image {
+  width: 100%;
+}
+
+.image-div {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .home-body {
@@ -302,21 +325,17 @@ body.modal-open {
     flex-direction: column;
   }
 
-  .fake-navbar {
+  /* .fake-navbar {
     height: 75px !important;
     position: relative !important;
-  }
-
-  .navbar-logo {
-    height: 45px !important;
-  }
+  } */
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .navbar-logo {
-    height: 30px !important;
+    height: 60px !important;
   }
-}
+} */
 
 .sticker {
   display: none !important;

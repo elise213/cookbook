@@ -15,37 +15,19 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="footer-div-1">
-        <div className="sitemap">
-          <Link href="/" passHref>
-            HOME
+      <div className="border">
+        <img src="/img/border.png" alt="CCEA Logo" className="border-bl" />
+        <img src="/img/border.png" alt="CCEA Logo" className="border-br" />
+      </div>
+      <div className="footer-div-2">
+        <EmailList />
+        <div className="socials">
+          <p>FOLLOW</p>
+          <Link href="https://www.instagram.com/ccexarts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            <i className="fa-brands fa-instagram" />
           </Link>
-          <Link href="/about" passHref>
-            ABOUT
-          </Link>
-          <Link href="/rentals" passHref>
-            RENTALS
-          </Link>
-          <Link href="/events" passHref>
-            EVENTS
-          </Link>
-          <Link href="/contact" passHref>
-            CONTACT
-          </Link>
-        </div>
-        <div className="footer-div-2">
-          <div className="socials">
-            <p>FOLLOW</p>
-            <Link href="https://www.instagram.com/ccexarts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-              <i className="fa-brands fa-instagram" />
-            </Link>
-          </div>
-          <EmailList />
         </div>
       </div>
-      <p classNam e="footer-text">
-        THE THEOSOPHY HALLEVENTS AND RENTALS
-      </p>
     </footer>
   );
 };
