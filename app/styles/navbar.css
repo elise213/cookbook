@@ -55,10 +55,12 @@
   width: 400px;
   height: auto;
   z-index: 1;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   justify-self: center;
   margin-right: -200px;
   margin-left: -200px;
+  align-self: center;
+  margin-bottom: 35px;
 }
 
 .navbar-large {
@@ -70,7 +72,6 @@
   margin-top: -40px;
   justify-content: space-around;
   background-color: white;
-  /* max-width: 900px; */
   align-items: center;
   border: 2px solid maroon;
 }
@@ -82,7 +83,7 @@
 @media (max-width: 800px) {
   .navbar-logo {
     width: 300px;
-    margin-top: 35px !important;
+    /* margin-top: 35px !important; */
   }
 
   .nav-item,
@@ -95,15 +96,17 @@
   .navbar-large {
     flex-wrap: wrap;
   }
+
   .nav-item {
     flex-grow: 1;
     flex-basis: 30%;
-    padding: 5px;
+    padding: 3px;
     text-align: center;
   }
+
   .navbar-logo {
     width: 250px;
-    margin-top: 25px !important;
+    /* margin-top: 25px !important; */
   }
   .navbar-large {
     margin-top: -20px !important;

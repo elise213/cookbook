@@ -21,10 +21,11 @@
   font-family: "Lexend", sans-serif;
   letter-spacing: 2px;
   font-size: 25px;
-  margin: 30px 30px 10px;
+  margin: 50px 30px 10px;
+  text-align: center !important;
 }
 
-.events-page::-webkit-scrollbar-track {
+/* .events-page::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
@@ -37,10 +38,4 @@
 .events-page::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-}
-
-@media screen and (max-width: 900px) {
-  .event-heading {
-    text-align: center !important;
-  }
-}
+} */

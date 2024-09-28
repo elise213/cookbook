@@ -34,7 +34,6 @@
   float: left;
   margin: 15px 15px 0 0;
   width: 150px !important;
-  height: 150px !important;
   filter: grayscale(100%);
 }
 
@@ -74,7 +73,6 @@
 
   .person-image {
     width: 120px !important;
-    height: 120px !important;
   }
 
   .ccea-full-image {

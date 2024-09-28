@@ -32,7 +32,6 @@
 
 .person-image {
   float: left;
-
   margin: 25px 15px 0 0;
   width: 200px !important;
   height: auto !important;
@@ -75,7 +74,6 @@
 
   .person-image {
     width: 120px !important;
-    height: 120px !important;
   }
 
   .ccea-full-image {
