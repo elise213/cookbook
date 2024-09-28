@@ -92,8 +92,8 @@ const events = () => {
       <FakeNavbar />
 
       {/* Upcoming Events */}
-      <p className="event-heading">UPCOMING EVENTS</p>
-      <div
+      <p className="event-heading">COMING SOON</p>
+      {/* <div
         ref={scrollRef}
         className="scroll-search-results"
         style={{
@@ -141,11 +141,11 @@ const events = () => {
             );
           })}
         </ul>
-      </div>
+      </div> */}
 
       {/* Past Events */}
-      <p className="event-heading">PAST EVENTS</p>
-      <div className="scroll-search-results">
+      {/* <p className="event-heading">PAST EVENTS</p> */}
+      {/* <div className="scroll-search-results">
         <ul>
           {pastEvents.map((result, i) => {
             return (
@@ -187,7 +187,7 @@ const events = () => {
             );
           })}
         </ul>
-      </div>
+      </div> */}
 
       <Footer />
     </div>

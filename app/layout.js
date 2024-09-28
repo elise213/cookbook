@@ -13,15 +13,9 @@ function RootLayout({ children }) {
   return (
     <html>
       <head>
-        <meta property="og:title" content="CCEA" />
-        <meta
-          property="og:description"
-          content="The Center For Cinematic and Experimental Arts"
-        />
-        <meta
-          property="og:image"
-          content="https://ccearts.org/img/CCEA99.png"
-        />
+        <meta property="og:title" content="THEOSOPHY HALL" />
+        <meta property="og:description" content="The Theosophy Hall" />
+        <meta property="og:image" content="/img/HALL2.png" />
       </head>
       <body className={inter.className}>
         <div className="wrapper">
