@@ -15,7 +15,7 @@ function RootLayout({ children }) {
       <head>
         <meta property="og:title" content="THEOSOPHY HALL" />
         <meta property="og:description" content="The Theosophy Hall" />
-        <meta property="og:image" content="/img/HALL2.png" />
+        <meta property="og:image" content="/img/HALL3.png" />
       </head>
       <body className={inter.className}>
         <div className="wrapper">
