@@ -35,7 +35,7 @@
   justify-self: center;
   grid-area: footer-div-2;
   width: 100%;
-  margin-top: -110px;
+  margin-top: -200px;
   z-index: 1;
 }
 
@@ -74,7 +74,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .socials p {
@@ -107,19 +107,12 @@ footer {
   display: block;
 }
 
-@media screen and (max-width: 850px) {
-  .footer-div-2 {
-    margin-top: -200px;
-    justify-content: space-around !important;
-  }
-}
-
 @media screen and (max-width: 500px) {
   .socials p {
     font-size: 12px !important;
   }
   .footer-div-2 {
-    margin-top: -150px;
+    margin-top: -130px;
   }
   .socials {
     margin-right: 0px !important;

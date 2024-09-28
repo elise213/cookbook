@@ -32,8 +32,10 @@
   width: 100%;
   height: auto;
   z-index: 0;
-  margin: 10px 0;
-  box-sizing: border-box;
+  margin: 10px;
+
+  height: auto;
+  z-index: 0;
   max-width: 450px;
 }
 
@@ -93,28 +95,29 @@
   .navbar-large {
     flex-wrap: wrap;
   }
-
   .nav-item {
     flex-grow: 1;
     flex-basis: 30%;
     padding: 5px;
     text-align: center;
   }
-
   .navbar-logo {
     width: 250px;
     margin-top: 25px !important;
   }
   .navbar-large {
-    margin-top: -30px !important;
+    margin-top: -20px !important;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .navbar-logo {
     width: 200px;
   }
-  .navbar-large {
-    margin-top: -20px !important;
+}
+
+@media (max-width: 330px) {
+  .navbar-logo {
+    width: 150px;
   }
 }
