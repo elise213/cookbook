@@ -1,98 +1,16 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
-
-.new-navbar {
-  border-radius: 0 15px 0 0;
-  position: absolute;
-  width: 350px;
-  z-index: 799999999;
-  top: 0;
-  left: -360px;
-  display: flex;
-  transition: left 0.3s ease;
-  background-color: #fffdf3;
-  height: 100vh;
-  border: 2px solid #866060;
-  border-left: none;
-  border-top: none;
-  align-items: flex-end;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 2px 2px 4px rgba(134, 96, 96, 0.5);
-}
-
-.navbar-large {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-@media (max-width: 400px) {
-  .navbar-large {
-    justify-content: center;
-  }
-
-  .navbar-large .nav-item:nth-child(1),
-  .navbar-large .nav-item:nth-child(2) {
-    flex-basis: 30%;
-    text-align: center;
-  }
-
-  .navbar-large .nav-item:nth-child(3),
-  .navbar-large .nav-item:nth-child(4),
-  .navbar-large .nav-item:nth-child(5) {
-    flex-basis: 30%;
-    text-align: center;
-  }
-}
-
-.new-navbar.open {
-  left: 0;
-}
-
-body.no-scroll {
-  overflow: hidden;
-}
-
-.border-right,
-.border-left {
-  position: absolute;
+.fake-navbar {
+  display: grid;
+  grid-template-areas:
+    "border-left logo border-right"
+    "navbar navbar navbar";
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0px;
+  position: relative;
   z-index: 1;
-  width: 40%;
-  top: 0;
-  height: auto;
-  margin: 10px;
-}
-
-.border-left {
-  left: 0;
-}
-
-.border-right {
-  right: 0;
-  transform: scaleX(-1);
-}
-
-.nav-footer {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  background: linear-gradient(to bottom, #464646, #000000);
-}
-
-.navbar-content {
-  align-self: center;
-  display: flex;
-  max-height: 400px;
-  justify-content: space-between;
-  flex-direction: column;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-}
-
-.active {
-  text-decoration: underline;
 }
 
 .nav-item,
@@ -101,8 +19,6 @@ body.no-scroll {
   color: black;
   text-decoration: none;
   z-index: 999;
-  text-align: center;
-  padding: 5px 0;
 }
 
 .nav-item:hover,
@@ -111,127 +27,76 @@ body.no-scroll {
   text-shadow: 2px 2px 4px rgba(134, 96, 96, 0.5); /* Brown shadow with blur */
 }
 
-.nav-btn:active {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #ffc400;
+.border-left,
+.border-right {
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  margin: 10px 0;
+  box-sizing: border-box;
+  max-width: 450px;
 }
 
-.icons {
-  color: white;
+.border-left {
+  grid-area: border-left;
+  justify-self: start;
 }
 
-.open-icon {
-  top: 60px;
-  font-size: 40px;
+.border-right {
+  grid-area: border-right;
+  transform: scaleX(-1);
+  justify-self: end;
 }
 
-.close-icon,
-.open-icon {
-  position: absolute;
-  transition: 0.3s ease !important;
-  z-index: 9997;
-  left: -60px;
-  color: black;
+.navbar-logo {
+  grid-area: logo;
+  width: 400px;
+  height: auto;
+  z-index: 1;
+  margin-top: 25px;
+  justify-self: center;
+  margin-right: -200px;
+  margin-left: -200px;
 }
 
-.open-icon.closed {
-  left: 435px;
-  transition: left 0.3s ease;
-}
-
-.modal-contact {
+.navbar-large {
+  grid-area: navbar;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  position: fixed;
-  z-index: 9998;
-  border: none;
-}
-
-.modal-open {
-  overflow: hidden;
-  height: 100%;
-}
-
-.modal-content-contact {
+  flex-wrap: wrap; /* Ensure items can wrap to a new line */
+  z-index: 1;
   width: 100%;
-  height: 100%;
-  z-index: 9999;
+  margin-top: 20px;
 }
 
-.close-div {
-  display: flex;
-  justify-content: flex-end;
+.nav-item {
+  padding: 10px;
 }
 
-.open-icon:hover,
-.close-icon:hover {
-  cursor: pointer;
-  color: #866060 !important;
-}
-
-.new-navbar.open {
-  left: 0 !important;
-  transition: left 0.3s ease;
-}
-
-.nav-container {
-  position: absolute;
-  width: 100vw;
-}
-
-.nav-container {
-  position: absolute;
-}
-
-.new-navbar.open {
-  left: 0;
-}
-
-/* .nav-item {
-  margin: 15px 0;
-} */
-
-.close-icon,
-.open-icon {
-  transition: left 0.3s ease;
-}
-
-.close-icon {
-  left: -60px !important;
-}
-
-.close-icon.open {
-  top: 5px;
-  left: 320px !important;
-  transition: left 0.3s ease;
-  font-size: 25px;
-}
-
-@media screen and (max-width: 700px) {
-  .modal-content-contact {
-    width: 100%;
-  }
-
-  .close {
-    right: 20px;
-  }
-
-  .open-icon {
-    top: 30px !important;
-  }
-
-  .open-icon.closed {
-    left: 400px !important;
+@media (max-width: 700px) {
+  .navbar-logo {
+    width: 300px; /* Reduce logo size on smaller screens */
   }
 
   .nav-item,
   .nav-item a {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar-large {
+    flex-wrap: wrap; /* Allow items to wrap into two rows */
+  }
+
+  .nav-item {
+    flex-grow: 1;
+    flex-basis: 30%;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .navbar-logo {
+    width: 200px;
   }
 }

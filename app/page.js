@@ -1,10 +1,8 @@
 "use client";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "./context/appContext";
-import Video from "./components/Video";
 import styles from "./globals.css";
 import Image from "next/image";
-import MovieCard from "./components/MovieCard";
 import Link from "next/link";
 import FakeNavBar from "./components/FakeNavbar";
 import { auto } from "@popperjs/core";

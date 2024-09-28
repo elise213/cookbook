@@ -161,7 +161,7 @@ const events = () => {
                   style={{ padding: result.title ? "10px" : "0" }}
                 >
                   <Image
-                    style={{ filter: "grayscale(100%)" }}
+                    // style={{ filter: "grayscale(100%)" }}
                     width={result.title ? 200 : 220}
                     height={result.title ? 300 : 340}
                     quality={90}

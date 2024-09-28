@@ -32,7 +32,6 @@
 
 .person-image {
   float: left;
-  border-radius: 100%;
   margin: 15px 15px 0 0;
   width: 150px !important;
   height: 150px !important;
