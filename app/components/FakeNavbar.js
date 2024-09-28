@@ -28,11 +28,11 @@ const FakeNavbar = () => {
               ABOUT
             </Link>
           </span>
-          {/* <span className="nav-item">
+          <span className="nav-item">
             <Link href="/events" passHref>
               EVENTS
             </Link>
-          </span> */}
+          </span>
           <span className="nav-item">
             <Link href="/contact" passHref>
               CONTACT
