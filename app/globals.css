@@ -20,7 +20,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.45); /* Transparent track */
+  background: rgba(0, 0, 0, 0.3); /* Transparent track */
 }
 
 *::-webkit-scrollbar-thumb {
@@ -28,7 +28,8 @@
   border-radius: 10px; /* Rounded corners for the thumb */
   border: 2px solid transparent; /* Adds spacing around the thumb */
   /* color: maroon; */
-  background: lightblue;
+  /* background: lightblue; */
+  background: rgba(0, 0, 0, 0.3);
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -450,6 +451,7 @@ body.modal-open {
 .store-page {
   overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 }
 
 .event-heading {
