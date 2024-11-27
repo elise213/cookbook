@@ -13,9 +13,41 @@
   --color5: rgb(183, 227, 168);
 }
 
+/* Global Scrollbar Styling */
+*::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.45); /* Transparent track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color3); /* Set to a variable color or specify one */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid transparent; /* Adds spacing around the thumb */
+  /* color: maroon; */
+  background: lightblue;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color2); /* Change thumb color on hover */
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent; /* Transparent corner for overlapping scrollbars */
+}
+
 .FAQ-link:hover {
   color: #709f93 !important;
   cursor: pointer;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 html,
@@ -72,7 +104,7 @@ label {
 
 .image-div {
   height: 100%;
-  width: 100%;
+
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
@@ -81,14 +113,11 @@ label {
 
 .home-body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  align-items: center;
 }
 
 .landing-container::-webkit-scrollbar-track,
@@ -191,7 +220,7 @@ textarea {
   display: flex;
   margin: 0;
   padding: 15px 0 23px 0;
-  min-height: 340px;
+  min-height: 310px;
 }
 
 .scroll-search-results ul {
@@ -231,8 +260,10 @@ textarea {
 .retreat-li,
 .event-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 220px;
-  height: 340px;
+  /* width: 220px;
+  height: 340px; */
+  width: 170px;
+  height: 280px;
   background-color: rgb(245, 245, 250);
   display: flex;
   flex-direction: column;
@@ -277,41 +308,258 @@ body.modal-open {
   border-radius: 3px 3px 0 0;
 }
 
+.home-text-div {
+  width: 100%;
+  align-self: center;
+}
+
+.person-image {
+  float: left;
+  width: 200px !important;
+  float: left;
+  margin-right: 20px;
+  margin: 0;
+  width: 200px !important;
+  height: auto !important;
+  border-radius: 2px;
+  /* border: 1px solid maroon; */
+}
+
+.person-bio {
+  text-align: justify;
+  line-height: 1.6;
+  margin: 0px !important;
+  font-size: 14px !important;
+}
+
+.ccea-bio,
+.person-bio {
+  text-align: justify;
+  line-height: 1.6;
+}
+.home-text {
+  margin: 20px;
+}
+.home-text,
+.person-bio {
+  line-height: 30px;
+  text-align: justify;
+  font-size: 14px;
+
+  max-width: 700px;
+}
+
+.sticker {
+  display: none !important;
+}
+
+.home-div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+.fake-navbar {
+  display: grid;
+  grid-template-areas:
+    "border-left logo border-right"
+    "navbar navbar navbar";
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item,
+.nav-item a {
+  letter-spacing: 2px;
+  color: black;
+  text-decoration: none;
+  z-index: 999;
+  font-size: 12px;
+}
+
+.nav-item:hover,
+.nav-item a:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(134, 96, 96, 0.5); /* Brown shadow with blur */
+}
+
+.border-left,
+.border-right {
+  width: 65%;
+  height: auto;
+  z-index: 0;
+  margin: 10px;
+  box-sizing: border-box;
+  height: auto;
+  z-index: 0;
+  max-width: 450px;
+}
+
+.border-left {
+  grid-area: border-left;
+  justify-self: start;
+}
+
+.border-right {
+  grid-area: border-right;
+  transform: scaleX(-1);
+  justify-self: end;
+}
+
+.navbar-logo {
+  grid-area: logo;
+  width: 300px;
+  height: 150px;
+  z-index: 1;
+  justify-self: center;
+  margin-right: -200px;
+  margin-left: -200px;
+  align-self: center;
+}
+
+.about-content-div {
+  max-width: 800px;
+  align-self: center;
+  margin: 20px;
+}
+
+.event-content-container {
+  max-width: 800px;
+  align-self: center;
+  margin-top: 25px;
+}
+
+.books-image,
+.books-image:hover {
+  cursor: pointer;
+}
+
+.store-container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.event-heading {
+  font-family: "Lexend", sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+.navbar-large {
+  grid-area: navbar;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: -10px;
+  background-color: white;
+  align-items: center;
+  border: 2px solid maroon;
+  justify-content: space-around;
+}
+
+.nav-item {
+  flex: 0 1 auto;
+  text-align: center;
+  padding: 5px;
+  max-width: 150px;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 900px) {
+  .home-div {
+    max-width: 700px !important;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .scroll-search-results {
     width: 100%;
     overflow: hidden !important;
     flex-direction: column;
-    min-height: 720px !important;
     justify-content: center;
     margin: 0;
     padding: 0 !important;
     justify-content: flex-start !important;
   }
 
-  .scroll-search-results ul {
-    flex-direction: column;
-    margin: 0 !important;
-    align-items: center;
-    margin: 0 !important;
-  }
-
   .movie-scroll-labels {
     flex-direction: column;
   }
 
-  /* .fake-navbar {
-    height: 75px !important;
-    position: relative !important;
-  } */
+  .home-div {
+    max-width: 600px !important;
+  }
+
+  .navbar-logo {
+    width: 200px !important;
+    height: 90px !important;
+  }
+
+  .nav-item,
+  .nav-item a {
+    font-size: 10px;
+  }
 }
 
-/* @media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+  .home-div {
+    max-width: 500px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-div {
+    max-width: 400px !important;
+  }
+
+  .scroll-search-results ul {
+    margin: 0 !important;
+    align-items: center;
+    margin: 0 !important;
+    flex-direction: column !important;
+  }
+
+  .home-text,
+  .person-bio {
+    font-size: 12px !important;
+    line-height: 25px !important;
+  }
+
+  .person-image {
+    width: 120px !important;
+  }
+}
+
+@media (max-width: 500px) {
   .navbar-logo {
+    width: 200px !important;
+    height: 90px;
+  }
+  .home-text,
+  .person-bio {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-logo {
+    width: 130px !important;
     height: 60px !important;
   }
-} */
-
-.sticker {
-  display: none !important;
 }

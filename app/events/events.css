@@ -17,25 +17,16 @@
   width: 100vw;
 }
 
-.event-heading {
-  font-family: "Lexend", sans-serif;
-  letter-spacing: 2px;
-  font-size: 25px;
-  margin: 50px 30px 10px;
-  text-align: center !important;
+.events-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  align-items: center;
 }
 
-/* .events-page::-webkit-scrollbar-track {
-  background-color: transparent;
+@media (max-width: 800px) {
+  .events-div {
+    flex-direction: column;
+    justify-content: unset;
+  }
 }
-
-.events-page::-webkit-scrollbar-thumb {
-  background-color: #90ee90;
-  border-radius: 10px;
-  z-index: 999999999;
-}
-
-.events-page::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-} */

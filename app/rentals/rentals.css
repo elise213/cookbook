@@ -19,11 +19,8 @@
 }
 .modal-content {
   position: relative;
-  background: white;
-  border: 1px solid black;
-  padding: 10px;
+  background: transparent;
   border-radius: 4px;
-  width: 75%;
   height: auto;
 }
 .close-button {
@@ -66,33 +63,9 @@
   margin: 20px;
 }
 
-.person-image {
-  float: left;
-  margin: 25px 15px 0 0;
-  width: 200px !important;
-  height: auto !important;
-  border-radius: 2px;
-  border: 1px solid black;
-}
-
-.ccea-bio {
-  margin: 15px 20px 0 20px;
-}
-
-.person-bio {
-  margin-top: 15px;
-}
-
-.ccea-bio,
-.person-bio {
-  text-align: justify;
-  line-height: 1.6;
-}
-
-.ccea-full-image {
-  width: 400px !important;
-  height: auto !important;
-  align-self: center;
+.about-person img {
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .download-section {
@@ -102,19 +75,5 @@
 @media screen and (max-width: 600px) {
   .about span {
     margin: 30px 20px;
-  }
-
-  .about-div span,
-  .person-bio {
-    font-size: medium;
-  }
-
-  .person-image {
-    width: 120px !important;
-  }
-
-  .ccea-full-image {
-    width: 300px !important;
-    height: auto !important;
   }
 }

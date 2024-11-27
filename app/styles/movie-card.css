@@ -24,7 +24,7 @@ p {
   font-size: x-large;
   display: flex;
   justify-content: flex-end;
-  padding: 10px 15px 5px 0;
+  padding: 5px;
   margin: 0;
   box-sizing: border-box;
 }
@@ -54,7 +54,7 @@ p {
   color: transparent;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 40px;
+  padding: 0 20px;
   height: auto;
 }
 

@@ -5,14 +5,6 @@
   width: 100%;
 }
 
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .border-bl {
   left: 0;
   transform: scaleY(-1);
@@ -74,7 +66,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin-right: 20px; */
+  /* height: 100px; */
 }
 
 .socials p {
@@ -89,6 +81,7 @@ footer {
 
 .socials a {
   text-align: center;
+  color: black;
 }
 
 .sitemap {
@@ -114,17 +107,14 @@ footer {
   .footer-div-2 {
     margin-top: -130px;
   }
-  .socials {
-    margin-right: 0px !important;
-  }
 
   .footer-div-2 {
     margin-bottom: 30px !important;
   }
 }
-
+/* 
 @media screen and (max-width: 800px) {
   footer {
     margin-bottom: 90px !important;
   }
-}
+} */

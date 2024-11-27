@@ -7,6 +7,7 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 import FakeNavbar from "../components/FakeNavbar";
 import MovieCard from "../components/MovieCard";
+import EmailList from "../components/EmailList";
 
 const events = () => {
   const { store, actions } = useContext(Context);
@@ -42,7 +43,6 @@ const events = () => {
   };
 
   const getActiveEvent = () => {
-    const { store } = useContext(Context);
     return store.events.find((event) => event.id === store.activeEventId);
   };
 
@@ -79,7 +79,6 @@ const events = () => {
 
   const today = new Date();
 
-  // Separate events into upcoming and past events
   const upcomingEvents = store.events.filter(
     (event) => new Date(event.date) >= today
   );
@@ -90,106 +89,136 @@ const events = () => {
   return (
     <div className="events-page">
       <FakeNavbar />
+      <div className="event-content-container">
+        <EmailList />
+        <div className="home-text-div">
+          <p className="home-text">
+            Stay updated with the vibrant array of events hosted in our theater.
+            This space serves as a hub for artistic, intellectual, and spiritual
+            exploration, embodying the Theosophical commitment to foster
+            universal brotherhood and personal growth. Please join us at one of
+            our upcoming events.
+          </p>
+        </div>
+        <div className="events-div">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <p className="event-heading">UPCOMING EVENTS</p>
+            <div
+              ref={scrollRef}
+              className="scroll-search-results"
+              style={{
+                justifyContent: isOverflowing ? "flex-start" : "center",
+              }}
+            >
+              <ul>
+                {upcomingEvents.map((result, i) => {
+                  return (
+                    <li
+                      key={i}
+                      style={
+                        i === store.events.length - 1
+                          ? { paddingRight: "" }
+                          : {}
+                      }
+                    >
+                      <div
+                        className="event-container"
+                        onClick={() => actions.toggleModal(result.id)}
+                        style={{ padding: result.title ? "10px" : "0" }}
+                      >
+                        <Image
+                          style={{ filter: "grayscale(100%)" }}
+                          width={result.title ? 150 : 170}
+                          height={result.title ? 220 : 280}
+                          quality={90}
+                          className="movie"
+                          src={
+                            result.image
+                              ? result.image
+                              : "/path-to-default-image.jpg"
+                          }
+                          alt={result.title || "Default Image"}
+                        />
 
-      {/* Upcoming Events */}
-      <p className="event-heading">COMING SOON</p>
-      {/* <div
-        ref={scrollRef}
-        className="scroll-search-results"
-        style={{
-          justifyContent: isOverflowing ? "flex-start" : "center",
-        }}
-      >
-        <ul>
-          {upcomingEvents.map((result, i) => {
-            return (
-              <li
-                key={i}
-                style={
-                  i === store.events.length - 1 ? { paddingRight: "" } : {}
-                }
-              >
-                <div
-                  className="event-container"
-                  onClick={() => actions.toggleModal(result.id)}
-                  style={{ padding: result.title ? "10px" : "0" }}
-                >
-                  <Image
-                    style={{ filter: "grayscale(100%)" }}
-                    width={result.title ? 200 : 220}
-                    height={result.title ? 300 : 340}
-                    quality={90}
-                    className="movie"
-                    src={
-                      result.image ? result.image : "/path-to-default-image.jpg"
-                    }
-                    alt={result.title || "Default Image"}
-                  />
+                        {result.title && (
+                          <p className="highlight-title">{result.title}</p>
+                        )}
 
-                  {result.title && (
-                    <p className="highlight-title">{result.title}</p>
-                  )}
+                        {store.modalIsOpen &&
+                          store.activeEventId === result.id && (
+                            <>
+                              <div className="modal-overlay"></div>
+                              <MovieCard result={getActiveEvent()} />
+                            </>
+                          )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginTop: "30px",
+            }}
+          >
+            <p className="event-heading">PAST EVENTS</p>
+            <div className="scroll-search-results">
+              <ul>
+                {pastEvents.map((result, i) => {
+                  return (
+                    <li
+                      key={i}
+                      style={
+                        i === store.events.length - 1
+                          ? { paddingRight: "" }
+                          : {}
+                      }
+                    >
+                      <div
+                        className="event-container"
+                        onClick={() => actions.toggleModal(result.id)}
+                        style={{ padding: result.title ? "10px" : "0" }}
+                      >
+                        <Image
+                          // style={{ filter: "grayscale(100%)" }}
+                          width={result.title ? 150 : 170}
+                          height={result.title ? 220 : 280}
+                          quality={90}
+                          className="movie"
+                          src={
+                            result.image
+                              ? result.image
+                              : "/path-to-default-image.jpg"
+                          }
+                          alt={result.title || "Default Image"}
+                        />
 
-                  {store.modalIsOpen && store.activeEventId === result.id && (
-                    <>
-                      <div className="modal-overlay"></div>
-                      <MovieCard result={getActiveEvent()} />
-                    </>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div> */}
+                        {result.title && (
+                          <p className="highlight-title">{result.title}</p>
+                        )}
 
-      {/* Past Events */}
-      {/* <p className="event-heading">PAST EVENTS</p> */}
-      {/* <div className="scroll-search-results">
-        <ul>
-          {pastEvents.map((result, i) => {
-            return (
-              <li
-                key={i}
-                style={
-                  i === store.events.length - 1 ? { paddingRight: "" } : {}
-                }
-              >
-                <div
-                  className="event-container"
-                  // onClick={() => actions.toggleModal(result.id)}
-                  style={{ padding: result.title ? "10px" : "0" }}
-                >
-                  <Image
-                    // style={{ filter: "grayscale(100%)" }}
-                    width={result.title ? 200 : 220}
-                    height={result.title ? 300 : 340}
-                    quality={90}
-                    className="movie"
-                    src={
-                      result.image ? result.image : "/path-to-default-image.jpg"
-                    }
-                    alt={result.title || "Default Image"}
-                  />
+                        {store.modalIsOpen &&
+                          store.activeEventId === result.id && (
+                            <>
+                              <div className="modal-overlay"></div>
+                              <MovieCard result={getActiveEvent()} />
+                            </>
+                          )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                  {result.title && (
-                    <p className="highlight-title">{result.title}</p>
-                  )}
-
-                  {store.modalIsOpen && store.activeEventId === result.id && (
-                    <>
-                      <div className="modal-overlay"></div>
-                      <MovieCard result={getActiveEvent()} />
-                    </>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div> */}
-
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

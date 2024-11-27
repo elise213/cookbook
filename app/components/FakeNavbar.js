@@ -38,6 +38,16 @@ const FakeNavbar = () => {
               CONTACT
             </Link>
           </span>
+          <span className="nav-item">
+            <Link href="/store" passHref>
+              STORE
+            </Link>
+          </span>
+          <span className="nav-item">
+            <Link href="/donate" passHref>
+              DONATE
+            </Link>
+          </span>
         </div>
       </div>
     </>

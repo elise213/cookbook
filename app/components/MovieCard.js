@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { Context } from "../context/appContext";
 import Image from "next/image";
 import styles from "../styles/movie-card.css";
+import CloseIcon from "@mui/icons-material/Close";
 
 const MovieCard = ({ result }) => {
   const { store, actions } = useContext(Context);
@@ -65,7 +66,7 @@ const MovieCard = ({ result }) => {
               }}
               aria-label="Close"
             >
-              <i className="fa-solid fa-xmark"></i>
+              <CloseIcon />
             </div>
             <Image
               width={300}
@@ -80,10 +81,10 @@ const MovieCard = ({ result }) => {
               </span>
 
               {result.description && (
-                <p className="review">{result.description}</p>
+                <p className="home-text">{result.description}</p>
               )}
               {result.instruction && (
-                <span className="review">
+                <span className="home-text">
                   {result.instruction}
                   {result.instruction2 && <span>{result.instruction2}</span>}
                 </span>

@@ -4,6 +4,7 @@ import styles from "../styles/emailList.css";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { Context } from "../context/appContext";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const EmailList = () => {
   const { store, actions } = useContext(Context);
@@ -57,7 +58,8 @@ const EmailList = () => {
             </div>
             <input type="hidden" name="subject" value="Email subscription" />
             <button className="send-2" type="submit">
-              <i className="fa-solid fa-angle-right"></i>
+              {/* <i className="fa-solid fa-angle-right"></i> */}
+              <ArrowForwardIosIcon style={{ fontSize: "15px" }} />
             </button>
           </div>
         </div>

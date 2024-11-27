@@ -4,6 +4,7 @@ import styles from "../styles/footer.css";
 import { Context } from "../context/appContext";
 import EmailList from "./EmailList";
 import Link from "next/link";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Footer = () => {
   const { store, actions } = useContext(Context);
@@ -22,9 +23,9 @@ const Footer = () => {
       <div className="footer-div-2">
         <EmailList />
         <div className="socials">
-          <p>FOLLOW</p>
-          <Link href="https://www.instagram.com/ccexarts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-            <i className="fa-brands fa-instagram" />
+          <Link href="https://www.instagram.com/theosophyhall/">
+            {/* <i className="fa-brands fa-instagram" /> */}
+            <InstagramIcon />
           </Link>
         </div>
       </div>

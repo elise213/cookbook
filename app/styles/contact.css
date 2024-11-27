@@ -1,6 +1,6 @@
 .contact-page {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,10 +10,8 @@
 }
 
 .contact-div {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
 }
 
@@ -50,8 +48,8 @@
   height: 60px;
   width: 60px;
   position: absolute;
-  top: 220px;
-  right: -10px;
+  top: 180px;
+  right: -20px;
   border: 0.5px solid black;
 }
 
@@ -89,23 +87,26 @@
   width: 100%;
   padding: 4px;
   box-sizing: border-box;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 20px 0px 0px;
 }
 
 .contact-form-div {
   display: flex;
   justify-content: center;
+  width: 400px;
+  align-self: center;
 }
 
 .contact-form {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  align-self: center;
   flex-direction: column;
-  padding: 10px 15px 10px 0px;
+  padding: 0px;
   position: relative;
-  /* height: 100%; */
   max-width: 700px;
-  min-height: 300px;
+  /* min-height: 300px; */
+  margin: 0px;
 }
 
 .message {
@@ -115,17 +116,15 @@
 input textarea {
   font-size: large;
 }
-/* .contact-page::-webkit-scrollbar-track {
-  background-color: transparent;
+
+@media (max-width: 500px) {
+  .contact-form-div {
+    width: 300px !important;
+  }
 }
 
-.contact-page::-webkit-scrollbar-thumb {
-  background-color: #90ee90;
-  border-radius: 10px;
-  z-index: 999999999;
+@media (max-width: 400px) {
+  .contact-form-div {
+    width: 250px !important;
+  }
 }
-
-.contact-page::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-} */

@@ -91,8 +91,20 @@ const Home = () => {
     <>
       <div className={` home-body content`}>
         <FakeNavBar />
-        <div className="image-div">
-          <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
+        <div className="home-div">
+          <div className="home-text-div">
+            <p className="home-text">
+              Welcome to The Theosophy Hall Theater. Here, you’ll find not just
+              a venue, but a harmonious blend of ancient wisdom and modern
+              functionality, that resonates with peace and inspiration. As you
+              explore our offerings, imagine how this sacred space can elevate
+              your gathering, enriching it with Theosophy Hall’s unique
+              historical and spiritual ambiance.
+            </p>
+          </div>
+          <div className="image-div">
+            <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
+          </div>
         </div>
         <Footer />
       </div>
