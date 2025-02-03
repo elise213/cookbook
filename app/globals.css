@@ -114,11 +114,11 @@ label {
 
 .image-div {
   height: 100%;
-
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
 }
 
 .home-body {
@@ -254,20 +254,6 @@ textarea {
   width: 12px;
 }
 
-.sticker {
-  float: left;
-  position: absolute;
-  top: -50px;
-  left: -15px;
-  z-index: 5;
-  height: 65px;
-  width: 65px;
-}
-
-/* .retreat-li {
-  filter: grayscale(100%);
-} */
-
 .retreat-li,
 .event-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -322,7 +308,9 @@ body.modal-open {
 .home-text-div {
   width: 100%;
   align-self: center;
-  margin-top: 20px;
+  margin: 20px 0;
+  justify-content: center;
+  display: flex;
 }
 
 .person-image {
@@ -341,7 +329,11 @@ body.modal-open {
 }
 
 .home-text {
-  margin: 20px;
+  /* margin: 20px !important; */
+  /* border-bottom: 2px solid maroon; */
+  /* background-color: rgb(255, 255, 255);  */
+  /* padding: 20px; */
+  text-align: center;
 }
 
 .room-title {
@@ -364,6 +356,7 @@ body.modal-open {
 .home-div {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 /* NAVBAR */
@@ -493,11 +486,11 @@ body.modal-open {
   font-size: 12px;
 }
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
   .home-div {
     max-width: 700px !important;
   }
-}
+} */
 
 @media screen and (max-width: 800px) {
   .scroll-search-results {
@@ -514,9 +507,9 @@ body.modal-open {
     flex-direction: column;
   }
 
-  .home-div {
+  /* .home-div {
     max-width: 600px !important;
-  }
+  } */
 
   .navbar-logo {
     width: 170px !important;
@@ -529,9 +522,9 @@ body.modal-open {
 }
 
 @media screen and (max-width: 700px) {
-  .home-div {
+  /* .home-div {
     max-width: 500px !important;
-  }
+  } */
   .navbar-logo {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -539,9 +532,9 @@ body.modal-open {
 }
 
 @media screen and (max-width: 600px) {
-  .home-div {
+  /* .home-div {
     max-width: 400px !important;
-  }
+  } */
 
   .scroll-search-results ul {
     margin: 0 !important;
