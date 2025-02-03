@@ -77,6 +77,13 @@ footer {
   color: maroon !important;
 }
 
+.arr {
+  text-align: end;
+  font-size: 11px;
+  margin-right: 20px;
+  color: gray;
+}
+
 .socials i {
   color: black;
 }

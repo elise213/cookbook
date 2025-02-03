@@ -32,9 +32,9 @@ const Footer = () => {
           <Link href="/contact" passHref>
             <EmailOutlinedIcon />
           </Link>
-          {/* </span> */}
         </div>
       </div>
+      <p className="arr">©2025 Theosophy Hall Rentals All Rights Reserved</p>
     </footer>
   );
 };

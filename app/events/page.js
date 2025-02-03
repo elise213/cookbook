@@ -44,7 +44,7 @@ const Events = () => {
 
       {/* Event Overview Section */}
       <div className="event-content-container">
-        <EmailList />
+        {/* <EmailList /> */}
         <div className="home-text-div">
           <p className="home-text">
             Stay updated with the vibrant array of events hosted in our theater.
@@ -54,16 +54,16 @@ const Events = () => {
             of our upcoming events to experience the dynamic community that
             calls Theosophy Hall home.
           </p>
-        </div>
-        {/* Booking Information */}
-        <div className="booking-info">
-          <p className="booking-text">
+          {/* Booking Information */}
+          {/* <div className="booking-info"> */}
+          <p className="home-text">
             To book a seat at an event, please visit our{" "}
             <a href="/booking" className="booking-link">
               Booking Page
             </a>
           </p>
         </div>
+        {/* </div> */}
         {/* Upcoming Events List */}
         <div className="events-div">
           <p className="event-heading">UPCOMING EVENTS</p>

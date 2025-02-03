@@ -67,8 +67,9 @@
 }
 
 .event-date {
-  font-size: 1rem;
+  font-size: 11px;
   color: #666;
+  text-align: end;
 }
 
 /* Booking Info */
