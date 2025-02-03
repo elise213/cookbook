@@ -95,21 +95,17 @@ const Home = () => {
           <div className="image-div">
             <div className="home-text-div">
               <p className="home-text">
-                Welcome to Theosophy Hall's Theater Rental, a pristine venue
-                steeped in the rich tapestry of theosophical heritage.
-                Constructed in 1927, our ornate theater remains an exemplar of
-                the spiritual and philosophical gatherings that have shaped
-                countless minds over the decades. Whether you are looking to
-                host a concert, event, or theatrical performance, our hall, with
-                its high vaulted ceilings and a capacity for up to 350
+                Welcome to Theosophy Hall's Theater Rental. Constructed in 1927,
+                our ornate theater has hosted countless spiritual and
+                philosophical gatherings over the decades. Whether you are
+                looking to host a concert, event, or theatrical performance, our
+                hall, with its vaulted ceilings and a capacity for up to 350
                 attendees, provides the perfect blend of historical ambiance and
-                modern facilities to make every occasion memorable. Join us to
-                create, celebrate, and inspire in a space where history meets
-                harmony. For more detailed information on the space and booking
-                details, see{" "}
+                modern amenities to create, celebrate, and inspire. See{" "}
                 <a href="https://giggster.com/listing/ornate-1920s-lodge-and-theater">
                   here.
-                </a>
+                </a>{" "}
+                for more details.
               </p>
             </div>
             <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />

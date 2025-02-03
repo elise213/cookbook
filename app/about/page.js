@@ -15,38 +15,48 @@ const About = () => {
   const faqData = [
     {
       question:
-        "If I am part of the fiscal sponsorship program, can my project still receive funding from investors?",
+        "What is the history of Theosophy Hall in downtown Los Angeles?",
       answer:
-        "Yes, Projects can still receive funding from investors, but only donor funds are eligible for tax deductions. Donors are not entitled to any project profits, whereas investors expect a financial return on their investment but cannot receive tax benefits.",
+        "Theosophy Hall, located in downtown Los Angeles, has been a center for Theosophical study and practice since the early 20th century. Established by the United Lodge of Theosophists (ULT), it serves as a gathering place for those interested in the teachings of Theosophy, emphasizing self-study, self-improvement, and service to humanity. The building has hosted lectures, discussions, and study groups focused on the works of H.P. Blavatsky and William Q. Judge.",
     },
     {
       question:
-        "Can I apply for funding if my project is not yet fully developed?",
+        "What is the mission and vision of the United Lodge of Theosophists (ULT)?",
       answer:
-        "Yes, even if your project is in its early stages, you can still apply for funding. Many sponsors are open to helping early-stage projects develop.",
+        "The United Lodge of Theosophists (ULT) is dedicated to preserving and disseminating the original teachings of Theosophy, as presented by H.P. Blavatsky and William Q. Judge. It operates under the principle of unity, without formal membership, and encourages self-study and cooperative work to promote spiritual knowledge and understanding. The ULT seeks to inspire a deeper comprehension of universal truths and foster brotherhood among all people.",
     },
     {
       question:
-        "What are the fees for participation in CCEA's fiscal sponsorship program?",
+        "Who was Pierre, and what was his role in the United Lodge of Theosophists?",
       answer:
-        "CCEA charges a 4% administrative fee on    contributions made to projects made through our fiscal sponsorship program.",
+        "Pierre was a devoted student of Theosophy and an influential figure in the United Lodge of Theosophists. He contributed to the study and dissemination of Theosophical teachings, emphasizing the importance of independent study and the application of Theosophical principles in daily life. His dedication to the ULT’s mission helped strengthen the organization's presence in Los Angeles and beyond.",
+    },
+    {
+      question: "Who was Wes, and what impact did he have on the ULT?",
+      answer:
+        "Wes was a key figure in the United Lodge of Theosophists, known for his deep understanding of Theosophical philosophy and his ability to communicate its principles effectively. He played a significant role in organizing and leading discussions at Theosophy Hall, inspiring many to engage in Theosophical studies and apply its teachings to their lives.",
     },
     {
       question:
-        "Does fiscal sponsorship transfer any ownership of my project to CCEA?",
+        "What kind of events are held at Theosophy Hall in Los Angeles?",
       answer:
-        "No. Your project remains an independent legal entity, with full creative control and ownership, and you are responsible for your own tax reporting and liabilities. CCEA does not claim any rights over the project.",
+        "Theosophy Hall hosts a variety of events, including public lectures, study groups, discussion meetings, and special programs on Theosophical philosophy. Topics often focus on the writings of H.P. Blavatsky, William Q. Judge, and other Theosophical thinkers. These events are open to all and encourage free inquiry into spiritual and philosophical questions.",
+    },
+    {
+      question: "Does the United Lodge of Theosophists charge membership fees?",
+      answer:
+        "No. The United Lodge of Theosophists does not have formal membership or charge fees for participation. It operates on voluntary contributions and is open to anyone interested in studying and applying Theosophical teachings.",
+    },
+    {
+      question: "Is Theosophy Hall in Los Angeles open to the public?",
+      answer:
+        "Yes. Theosophy Hall is open to anyone interested in learning about Theosophy. Visitors can attend public lectures, join study groups, and access Theosophical literature in the building’s library.",
     },
     {
       question:
-        "If I am not a citizen of the USA, may I still participate in the fiscal sponsorship program?",
+        "What are some core teachings of Theosophy as presented at Theosophy Hall?",
       answer:
-        "Yes.  Non-U.S. citizens are welcome, though certain tax limitations may apply depending on location.",
-    },
-    {
-      question: "May I apply for fiscal sponsorhip for multiple projects?",
-      answer:
-        "Yes. However, if you have multiple projects, you must apply for each one separately.",
+        "Theosophy emphasizes universal brotherhood, the study of ancient wisdom traditions, karma, reincarnation, and self-development. The teachings encourage seekers to explore truth independently and apply spiritual principles to everyday life. Theosophy Hall provides resources for those interested in deepening their understanding of these concepts.",
     },
   ];
   return (
@@ -75,7 +85,7 @@ const About = () => {
           </div>
           <div
             style={{
-              marginTop: "80px",
+              marginTop: "30px",
             }}
           >
             <p className="event-heading">Frequently Asked Questions</p>

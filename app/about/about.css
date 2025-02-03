@@ -105,11 +105,11 @@
 }
 
 .drop-div {
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.42);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 5px;
-  border: 1px solid maroon;
+  border: 2px solid lightblue;
 }
 
 .apply {
@@ -183,7 +183,10 @@ iframe {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  border: 2px solid lightblue;
   width: 100%;
+  padding: 3px;
+  background-color: rgb(255, 255, 255, 0.5);
 }
 .div-2-drop {
   cursor: pointer;

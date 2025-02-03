@@ -110,6 +110,7 @@ label {
   width: 100%;
   height: auto;
   max-width: 1000px;
+  align-self: center;
 }
 
 .image-div {
@@ -329,15 +330,13 @@ body.modal-open {
 }
 
 .home-text {
-  /* margin: 20px !important; */
-  /* border-bottom: 2px solid maroon; */
-  /* background-color: rgb(255, 255, 255);  */
-  /* padding: 20px; */
   text-align: center;
+  font-family: "Lexend", sans-serif;
 }
 
 .room-title {
   margin: 0 0 5px 0;
+  font-family: "Lexend", sans-serif;
 }
 
 .home-text,
@@ -374,7 +373,6 @@ body.modal-open {
   position: relative;
   z-index: 1;
   background-color: rgba(251, 251, 234, 0.7);
-  /* backdrop-filter: blur(5px); */
 }
 
 .nav-item,
@@ -463,6 +461,7 @@ body.modal-open {
   margin: 5px;
   text-align: center;
   width: 200px;
+  justify-self: center;
 }
 
 .navbar-large {
@@ -474,7 +473,7 @@ body.modal-open {
   margin-top: -10px;
   background-color: white;
   align-items: center;
-  border: 2px solid maroon;
+  border: 1px solid maroon;
   justify-content: space-around;
 }
 
