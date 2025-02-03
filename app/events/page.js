@@ -3,82 +3,22 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../context/appContext";
 import Image from "next/image";
 import styles from "./events.css";
-import Link from "next/link";
-import Footer from "../components/Footer";
 import FakeNavbar from "../components/FakeNavbar";
-import MovieCard from "../components/MovieCard";
+import Footer from "../components/Footer";
 import EmailList from "../components/EmailList";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 
-const events = () => {
+const Events = () => {
   const { store, actions } = useContext(Context);
-  const scrollRef = useRef();
-  const [isOverflowing, setIsOverflowing] = useState(false);
-
-  useEffect(() => {
-    const body = document.body;
-    const className = "no-scroll";
-    const homeBody = document.querySelector(".home-body");
-
-    if (store.isNavOpen || store.showContactModal) {
-      body.classList.add(className);
-    } else {
-      body.classList.remove(className);
-    }
-
-    if (homeBody) {
-      if (store.isNavOpen || store.showContactModal) {
-        homeBody.classList.add(className);
-      } else {
-        homeBody.classList.remove(className);
-      }
-    }
-  }, [store.isNavOpen, store.showContactModal]);
-
-  const checkOverflow = () => {
-    if (!scrollRef.current) return;
-
-    const container = scrollRef.current;
-    const isOver = container.scrollWidth > container.offsetWidth;
-    setIsOverflowing(isOver);
-  };
-
-  const getActiveEvent = () => {
-    return store.events.find((event) => event.id === store.activeEventId);
-  };
-
-  useEffect(() => {
-    if (store.modalIsOpen) {
-      document.body.classList.add("modal-open");
-    } else {
-      document.body.classList.remove("modal-open");
-    }
-    return () => {
-      document.body.classList.remove("modal-open");
-    };
-  }, [store.modalIsOpen]);
-
-  useEffect(() => {
-    const body = document.body;
-    if (store.isNavOpen || store.showContactModal) {
-      body.classList.add("no-scroll");
-    } else {
-      body.classList.remove("no-scroll");
-    }
-  }, [store.isNavOpen, store.showContactModal]);
-
-  useEffect(() => {
-    checkOverflow();
-    const handleResize = () => {
-      actions.updateScreenSize();
-      checkOverflow();
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalEvent, setModalEvent] = useState(null);
   const today = new Date();
 
+  // Separate upcoming and past events
   const upcomingEvents = store.events.filter(
     (event) => new Date(event.date) >= today
   );
@@ -86,141 +26,154 @@ const events = () => {
     (event) => new Date(event.date) < today
   );
 
+  // Open modal for event details
+  const handleEventClick = (event) => {
+    setModalEvent(event);
+    setIsModalOpen(true);
+  };
+
+  // Close modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalEvent(null);
+  };
+
   return (
     <div className="events-page">
       <FakeNavbar />
+
+      {/* Event Overview Section */}
       <div className="event-content-container">
         <EmailList />
         <div className="home-text-div">
           <p className="home-text">
             Stay updated with the vibrant array of events hosted in our theater.
-            This space serves as a hub for artistic, intellectual, and spiritual
-            exploration, embodying the Theosophical commitment to foster
-            universal brotherhood and personal growth. Please join us at one of
-            our upcoming events.
+            This space serves as a hub for learning, cultural richness, and
+            spiritual exploration, embodying the Theosophical commitment to
+            fostering universal brotherhood and personal growth. Join us at one
+            of our upcoming events to experience the dynamic community that
+            calls Theosophy Hall home.
           </p>
         </div>
+        {/* Booking Information */}
+        <div className="booking-info">
+          <p className="booking-text">
+            To book a seat at an event, please visit our{" "}
+            <a href="/booking" className="booking-link">
+              Booking Page
+            </a>
+          </p>
+        </div>
+        {/* Upcoming Events List */}
         <div className="events-div">
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <p className="event-heading">UPCOMING EVENTS</p>
-            <div
-              ref={scrollRef}
-              className="scroll-search-results"
-              style={{
-                justifyContent: isOverflowing ? "flex-start" : "center",
-              }}
-            >
-              <ul>
-                {upcomingEvents.map((result, i) => {
-                  return (
-                    <li
-                      key={i}
-                      style={
-                        i === store.events.length - 1
-                          ? { paddingRight: "" }
-                          : {}
-                      }
-                    >
-                      <div
-                        className="event-container"
-                        onClick={() => actions.toggleModal(result.id)}
-                        style={{ padding: result.title ? "10px" : "0" }}
-                      >
-                        <Image
-                          style={{ filter: "grayscale(100%)" }}
-                          width={result.title ? 150 : 170}
-                          height={result.title ? 220 : 280}
-                          quality={90}
-                          className="movie"
-                          src={
-                            result.image
-                              ? result.image
-                              : "/path-to-default-image.jpg"
-                          }
-                          alt={result.title || "Default Image"}
-                        />
-
-                        {result.title && (
-                          <p className="highlight-title">{result.title}</p>
-                        )}
-
-                        {store.modalIsOpen &&
-                          store.activeEventId === result.id && (
-                            <>
-                              <div className="modal-overlay"></div>
-                              <MovieCard result={getActiveEvent()} />
-                            </>
-                          )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          <p className="event-heading">UPCOMING EVENTS</p>
+          <div className="events-grid">
+            {upcomingEvents.map((event, index) => (
+              <div
+                className="event-card"
+                key={index}
+                onClick={() => handleEventClick(event)}
+              >
+                <Image
+                  width={250}
+                  height={200}
+                  quality={90}
+                  className="event-image"
+                  src={`/img/${event.images[0]}`}
+                  alt={event.title}
+                />
+                <div className="event-info">
+                  <p className="event-title">{event.title}</p>
+                  <p className="event-date">{event.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "30px",
-            }}
-          >
-            <p className="event-heading">PAST EVENTS</p>
-            <div className="scroll-search-results">
-              <ul>
-                {pastEvents.map((result, i) => {
-                  return (
-                    <li
-                      key={i}
-                      style={
-                        i === store.events.length - 1
-                          ? { paddingRight: "" }
-                          : {}
-                      }
-                    >
-                      <div
-                        className="event-container"
-                        onClick={() => actions.toggleModal(result.id)}
-                        style={{ padding: result.title ? "10px" : "0" }}
-                      >
-                        <Image
-                          // style={{ filter: "grayscale(100%)" }}
-                          width={result.title ? 150 : 170}
-                          height={result.title ? 220 : 280}
-                          quality={90}
-                          className="movie"
-                          src={
-                            result.image
-                              ? result.image
-                              : "/path-to-default-image.jpg"
-                          }
-                          alt={result.title || "Default Image"}
-                        />
+        </div>
 
-                        {result.title && (
-                          <p className="highlight-title">{result.title}</p>
-                        )}
+        {/* Calendar of Upcoming Events */}
+        <div className="availability-calendar">
+          <div className="calendar-title">Upcoming Events Calendar</div>
+          <div className="calendar-container">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=America/New_York"
+              className="calendar-iframe"
+              frameBorder="0"
+              scrolling="no"
+              style={{ minWidth: "300px", margin: "30px 0" }}
+            ></iframe>
+          </div>
+        </div>
 
-                        {store.modalIsOpen &&
-                          store.activeEventId === result.id && (
-                            <>
-                              <div className="modal-overlay"></div>
-                              <MovieCard result={getActiveEvent()} />
-                            </>
-                          )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+        {/* Past Events Section */}
+        <div className="events-div" style={{ borderTop: "1px solid gray" }}>
+          <p className="event-heading">PAST EVENTS</p>
+          <div className="events-grid">
+            {pastEvents.map((event, index) => (
+              <div
+                className="event-card"
+                key={index}
+                onClick={() => handleEventClick(event)}
+              >
+                <Image
+                  width={250}
+                  height={200}
+                  quality={90}
+                  className="event-image"
+                  src={`/img/${event.images[0]}`}
+                  alt={event.title}
+                />
+                <div className="event-info">
+                  <p className="event-title">{event.title}</p>
+                  <p className="event-date">{event.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* <Footer /> */}
+      {/* Modal for Event Details */}
+      {isModalOpen && modalEvent && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close-button" onClick={handleCloseModal}>
+              &times;
+            </span>
+            <p className="modal-event-title">{modalEvent.title}</p>
+            <p className="modal-event-date">{modalEvent.date}</p>
+
+            {/* Event Photo Gallery */}
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
+              loop={true}
+            >
+              {modalEvent.images.map((img, imgIndex) => (
+                <SwiperSlide key={imgIndex}>
+                  <Image
+                    width={600}
+                    height={400}
+                    className="modal-image"
+                    src={`/img/${img}`}
+                    alt={modalEvent.title}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <p className="modal-description">
+              This is where event descriptions can be added. Event details,
+              guest speakers, or highlights from the event.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <Footer />
     </div>
   );
 };
 
-export default events;
+export default Events;

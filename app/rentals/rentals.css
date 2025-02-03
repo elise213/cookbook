@@ -5,6 +5,16 @@
   max-width: 900px;
 }
 
+.swiper-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 20px !important;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -26,8 +36,8 @@
 .close-button {
   position: absolute;
   top: -50px;
-  right: -30px;
-  font-size: 40px;
+  right: 0px;
+  font-size: 30px;
   cursor: pointer;
   color: white;
 }
@@ -59,17 +69,147 @@
 }
 
 .about-person {
-  max-width: 800px;
+  background-color: rgb(255, 255, 255, 0.6);
+  text-align: justify;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 500px;
   margin: 20px;
+  justify-self: center;
+  box-sizing: border-box;
 }
 
 .about-person img {
   margin-right: 10px;
   margin-top: 10px;
+  height: 200px !important;
+  width: auto !important;
+}
+
+.rentals-page {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .download-section {
   display: flex;
+}
+
+.package-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.packages-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.package-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  text-align: center;
+}
+
+.rental-packages {
+  /* text-align: center; */
+  padding: 40px 20px;
+  /* background-color: #f9f9f9; */
+}
+
+.packages-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.package-photo {
+  width: auto !important;
+}
+
+.package-name {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.package-details {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.rental-page-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.package-price {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/* Availability Calendar */
+.availability-calendar {
+  padding: 40px 20px;
+}
+
+.calendar-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.calendar-iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 600px;
+  border: none;
+  border-radius: 10px;
+  justify-self: center;
+}
+
+/* Testimonials */
+.testimonials-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 500px;
+  justify-self: center;
+  box-sizing: border-box;
+}
+
+.testimonials-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 14px;
+  text-align: justify;
+  line-height: 1.5;
+  margin: 20px;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  text-align: right;
+  font-size: 12px;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 600px) {

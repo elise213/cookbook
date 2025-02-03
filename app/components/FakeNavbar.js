@@ -33,11 +33,7 @@ const FakeNavbar = () => {
               EVENTS
             </Link>
           </span>
-          <span className="nav-item">
-            <Link href="/contact" passHref>
-              CONTACT
-            </Link>
-          </span>
+
           <span className="nav-item">
             <Link href="/store" passHref>
               STORE

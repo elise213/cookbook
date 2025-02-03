@@ -94,12 +94,20 @@ const Home = () => {
         <div className="home-div">
           <div className="home-text-div">
             <p className="home-text">
-              Welcome to The Theosophy Hall Theater. Here, you’ll find not just
-              a venue, but a harmonious blend of ancient wisdom and modern
-              functionality, that resonates with peace and inspiration. As you
-              explore our offerings, imagine how this sacred space can elevate
-              your gathering, enriching it with Theosophy Hall’s unique
-              historical and spiritual ambiance.
+              Welcome to Theosophy Hall's Theater Rental, a pristine venue
+              steeped in the rich tapestry of theosophical heritage. Constructed
+              in 1927, our ornate theater remains an exemplar of the spiritual
+              and philosophical gatherings that have shaped countless minds over
+              the decades. Whether you are looking to host a concert, event, or
+              theatrical performance, our hall, with its high vaulted ceilings
+              and a capacity for up to 350 attendees, provides the perfect blend
+              of historical ambiance and modern facilities to make every
+              occasion memorable. Join us to create, celebrate, and inspire in a
+              space where history meets harmony. For more detailed information
+              on the space and booking details, see{" "}
+              <a href="https://giggster.com/listing/ornate-1920s-lodge-and-theater">
+                here.
+              </a>
             </p>
           </div>
           <div className="image-div">

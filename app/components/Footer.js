@@ -5,6 +5,7 @@ import { Context } from "../context/appContext";
 import EmailList from "./EmailList";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 const Footer = () => {
   const { store, actions } = useContext(Context);
@@ -27,6 +28,11 @@ const Footer = () => {
             {/* <i className="fa-brands fa-instagram" /> */}
             <InstagramIcon />
           </Link>
+          {/* <span className="nav-item"> */}
+          <Link href="/contact" passHref>
+            <EmailOutlinedIcon />
+          </Link>
+          {/* </span> */}
         </div>
       </div>
     </footer>

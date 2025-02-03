@@ -54,22 +54,25 @@ const About = () => {
       <div className="about-page">
         <FakeNavBar />
         <div className="about-content-div">
-          <Image
-            height={100}
-            width={100}
-            layout="responsive"
-            quality={100}
-            className="person-image"
-            src="/img/TH1.png"
-            alt=""
-            style={{ border: "none", marginTop: "10px", marginRight: "10px" }}
-          ></Image>
-          <p className="person-bio">
-            Established in 1927, the Theosophy Hall stands as a hub for
-            artistic, spiritual, social, and intellectual gatherings: theatrical
-            performance and rehearsal, study groups, dance, music, readings,
-            film screenings, and enriching events we haven't yet imagined.
-          </p>
+          <div className="about-header">
+            {/* <Image
+              height={100}
+              width={100}
+              layout="responsive"
+              quality={100}
+              className="person-image"
+              src="/img/TH1.png"
+              alt=""
+              style={{ border: "none", marginTop: "10px", marginRight: "10px" }}
+            ></Image> */}
+            <p className="person-bio">
+              Established in 1927, the Theosophy Hall stands as a hub for
+              artistic, spiritual, social, and intellectual gatherings:
+              theatrical performance and rehearsal, study groups, dance, music,
+              readings, film screenings, and enriching events we haven't yet
+              imagined.
+            </p>
+          </div>
           <div
             style={{
               marginTop: "80px",
@@ -78,19 +81,7 @@ const About = () => {
             <p className="event-heading">Frequently Asked Questions</p>
             {faqData.map((item, index) => (
               <div className="about-div-2" key={index}>
-                <div
-                  onClick={() => toggleFAQ(index)}
-                  style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "5px",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    // borderColor: openIndex === index ? "lightGreen" : "maroon",
-                  }}
-                >
+                <div onClick={() => toggleFAQ(index)} className="div-2-drop">
                   <span className="person-bio">{item.question}</span>
                   <span
                     style={{

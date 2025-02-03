@@ -31,12 +31,13 @@
 .email-list-form {
   display: flex;
   justify-content: center;
-  border: 1px solid maroon;
-  width: 240px;
+  border: none;
+  /* border: 1px solid maroon; */
+  width: 200px;
   height: 60px;
   align-items: center;
   align-self: center;
-  background-color: #ffffff7a;
+  /* background-color: #ffffff7a; */
   border-radius: 2px;
 }
 
@@ -52,11 +53,11 @@
 }
 
 .sign-up-form span {
-  color: black;
-  padding-bottom: 5px;
+  color: maroon;
+  padding-bottom: 3px;
   font-size: 14px;
   text-align: center;
-  letter-spacing: 1.2px;
+  /* letter-spacing: 1px; */
 }
 
 .sign-up-form-2 {
@@ -79,7 +80,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  height: 30px;
+  height: 20px;
 }
 
 .emailListInput {

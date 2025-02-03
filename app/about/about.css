@@ -25,9 +25,41 @@
   width: 100%;
 }
 
-.about-person {
-  max-width: 800px;
-  margin: 20px;
+/* Rental Packages */
+
+.package-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.package-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.package-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/* Availability Calendar */
+.availability-calendar {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.availability-calendar h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ccea-bio {
@@ -152,6 +184,16 @@ iframe {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+.div-2-drop {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.5);
 }
 
 @media screen and (max-width: 900px) {
