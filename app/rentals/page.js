@@ -36,6 +36,7 @@ const Rentals = () => {
         {/* Rental Packages Section */}
         <div className="rental-packages">
           <div className="rental-page-title">Rental Packages</div>
+
           <div className="packages-grid">
             <div className="package-card">
               <Image
@@ -45,11 +46,13 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">Basic Rental</div>
-              <div className="package-details">
-                Includes standard lighting and seating for up to 50 guests.
+              <div className="card-info">
+                <div className="package-name">Basic Rental</div>
+                <div className="package-details">
+                  Includes standard lighting and seating for up to 50 guests.
+                </div>
+                <div className="package-price">$500 / day</div>
               </div>
-              <div className="package-price">$500 / day</div>
             </div>
             <div className="package-card">
               <Image
@@ -59,12 +62,15 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">Premium Rental</div>
-              <div className="package-details">
-                Includes advanced lighting, sound system, and seating for 100
-                guests.
+
+              <div className="card-info">
+                <div className="package-name">Premium Rental</div>
+                <div className="package-details">
+                  Includes advanced lighting, sound system, and seating for 100
+                  guests.
+                </div>
+                <div className="package-price">$1000 / day</div>
               </div>
-              <div className="package-price">$1000 / day</div>
             </div>
             <div className="package-card">
               <Image
@@ -74,12 +80,15 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">VIP Experience</div>
-              <div className="package-details">
-                Exclusive access, personalized setup, backstage amenities, and
-                seating for 200 guests.
+
+              <div className="card-info">
+                <div className="package-name">VIP Experience</div>
+                <div className="package-details">
+                  Exclusive access, personalized setup, backstage amenities, and
+                  seating for 200 guests.
+                </div>
+                <div className="package-price">$2500 / day</div>
               </div>
-              <div className="package-price">$2500 / day</div>
             </div>
           </div>
         </div>

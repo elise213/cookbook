@@ -44,10 +44,20 @@
   margin-top: 10px;
 }
 
+.faq-page {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
 /* Availability Calendar */
 .availability-calendar {
   text-align: center;
   padding: 50px 20px;
+
+  box-sizing: border-box;
 }
 
 .availability-calendar h2 {

@@ -96,7 +96,7 @@
 .donation-iframe {
   width: 100%;
   height: 100%;
-  margin: 0 30px;
+  /* margin: 0 30px; */
   box-sizing: border-box;
   border-radius: 10px;
   justify-self: center;
@@ -159,6 +159,9 @@
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .donate-first {

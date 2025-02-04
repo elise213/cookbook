@@ -52,9 +52,10 @@ const donate = () => {
         <div
           style={{
             position: "relative",
-            overflow: "hidden",
-            height: "1200px",
+            // overflow: "hidden",
+            height: "1300px",
             width: "100%",
+            display: "flex",
           }}
         >
           <iframe
@@ -65,8 +66,8 @@ const donate = () => {
             allowTransparency="true"
           ></iframe>
         </div>
-        <Footer />
       </div>
+        <Footer />
     </div>
   );
 };

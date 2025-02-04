@@ -4,6 +4,61 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Light-Italic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Book-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Demi.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Demi-Italic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Bold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neutraface Text";
+  src: url("/fonts/Neutraface-Text-Bold-Italic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
 
 :root {
   --color1: rgb(251, 120, 106);
@@ -110,7 +165,9 @@ label {
   width: 100%;
   height: auto;
   max-width: 1000px;
-  align-self: center;
+  /* align-self: center; */
+  margin-left: 30px;
+  margin-top: 20px;
 }
 
 .image-div {
@@ -119,7 +176,15 @@ label {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-direction: column;
+  /* flex-direction: column; */
+}
+
+.welcome {
+  font-family: "Neutraface Text", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
 }
 
 .home-body {
@@ -129,7 +194,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .landing-container::-webkit-scrollbar-track,
@@ -309,7 +374,7 @@ body.modal-open {
 .home-text-div {
   width: 100%;
   align-self: center;
-  margin: 20px 0;
+  margin: 20px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -331,10 +396,19 @@ body.modal-open {
   margin-bottom: 20px;
 }
 
+.learn-more-button {
+  border: 1px solid maroon;
+  width: 110px;
+  padding: 5px;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
 .home-text {
-  /* font-family: "Lexend", sans-serif; */
+  line-height: 1.5;
   margin: 5px 0;
   text-align: justify;
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .room-title {
@@ -440,19 +514,6 @@ body.modal-open {
 .books-image,
 .books-image:hover {
   cursor: pointer;
-}
-
-.store-container {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.store-page {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100%;
 }
 
 .event-heading {
