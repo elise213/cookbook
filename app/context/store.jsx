@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           name: "Kitchen",
-          images: ["5.jpg"],
+          images: ["5.jpg", "8.jpg"],
           sq: "Kitchen - 350 sq.",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         },

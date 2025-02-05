@@ -24,7 +24,7 @@
 .events-div {
   display: flex;
   justify-content: space-between;
-  margin-top: 55px;
+  /* margin-top: 55px; */
   padding-top: 20px;
 }
 
@@ -114,6 +114,8 @@
   text-align: center;
   width: 80%;
   max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 .modal-event-title {

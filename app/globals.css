@@ -176,7 +176,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* flex-direction: column; */
+  align-items: center;
 }
 
 .welcome {
@@ -372,13 +372,13 @@ body.modal-open {
 }
 
 .home-text-div {
-  width: 100%;
+  /* width: 100%; */
   align-self: center;
   margin: 20px;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  font-family: "Lexend", sans-serif;
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .person-image {
@@ -509,7 +509,9 @@ body.modal-open {
 .event-content-container {
   max-width: 800px;
   align-self: center;
-  margin-top: 25px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .books-image,
@@ -518,13 +520,15 @@ body.modal-open {
 }
 
 .event-heading {
-  font-family: "Lexend", sans-serif;
   letter-spacing: 2px;
   font-size: 20px;
   margin: 5px;
-  text-align: center;
+  margin-left: 5px;
   width: 200px;
   justify-self: center;
+  margin-left: 20px;
+  font-family: "Neutraface Text", sans-serif;
+  text-align: start;
 }
 
 .navbar-large {
@@ -629,3 +633,46 @@ body.modal-open {
     font-size: 11px !important;
   }
 }
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} */
