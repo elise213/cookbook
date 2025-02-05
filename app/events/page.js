@@ -136,7 +136,7 @@ const Events = () => {
       {/* Modal for Event Details */}
       {isModalOpen && modalEvent && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content-event" onClick={(e) => e.stopPropagation()}>
             <span className="close-button" onClick={handleCloseModal}>
               &times;
             </span>

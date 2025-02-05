@@ -413,7 +413,8 @@ body.modal-open {
 
 .room-title {
   margin: 0 0 5px 0;
-  font-family: "Lexend", sans-serif;
+  /* font-family: "Lexend", sans-serif; */
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .person-bio {

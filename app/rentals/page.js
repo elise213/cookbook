@@ -108,6 +108,13 @@ const Rentals = () => {
 
         {/* Room Descriptions with Carousel */}
         <div className="room-sections">
+          <div
+            className="rental-page-title"
+            style={{ alignSelf: "flex-start" }}
+          >
+            Explore The Property
+          </div>
+
           {store.rooms.map((room, index) => (
             <div className="about-person" key={index}>
               {/* Room Image Carousel */}
@@ -143,8 +150,8 @@ const Rentals = () => {
 
         {/* Testimonials */}
         <div className="testimonials-section">
-          <div style={{ maxWidth: "500px" }}>
-            <div className="rental-page-title">What People Are Saying</div>
+          <div className="rental-page-title">What People Are Saying</div>
+          <div style={{ maxWidth: "500px", marginTop: "30px" }}>
             <div className="testimonial">
               <p className="testimonial-text">
                 "An absolutely wonderful venue! The lighting and acoustics were
