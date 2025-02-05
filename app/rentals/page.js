@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { InlineWidget } from "react-calendly";
 
 const Rentals = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,16 +95,19 @@ const Rentals = () => {
         </div>
 
         {/* Availability Calendar */}
+        {/* <div className="availability-calendar"> */}
+        {/* <div className="rental-page-title">Availability Calendar</div>
+          <div className="calendar-container"> */}
         <div className="availability-calendar">
-          <div className="rental-page-title">Availability Calendar</div>
+          <div className="rental-page-title">Book an Appointment</div>
           <div className="calendar-container">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=America/New_York"
-              className="calendar-iframe"
-              frameBorder="0"
-              scrolling="no"
-            ></iframe>
+            <InlineWidget
+              url="https://calendly.com/maracodes213/15?month=2025-02  "
+              styles={{ width: "100%", height: "700px" }}
+            />
           </div>
+          {/* </div> */}
+          {/* </div> */}
         </div>
 
         {/* Room Descriptions with Carousel */}

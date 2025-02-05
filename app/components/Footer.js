@@ -34,7 +34,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <p className="arr">©2025 Theosophy Hall Rentals All Rights Reserved</p>
+      <p className="arr">©2025 Theosophy Hall Theater, All Rights Reserved</p>
     </footer>
   );
 };

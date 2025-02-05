@@ -95,10 +95,10 @@ const Home = () => {
           <div className="image-div">
             <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
             <div className="home-text-div">
-              <p className="home-text">
                 <p className="welcome">
                 WELCOME {"  "}
                 </p>
+              <p className="home-text">
                 Established in 1927, the Theosophy Hall stands as a hub for
               artistic, spiritual, social, and intellectual gatherings:
               theatrical performance and rehearsal, study groups, dance, music,
