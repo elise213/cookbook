@@ -45,8 +45,8 @@ const Events = () => {
       {/* Event Overview Section */}
       <div className="event-content-container">
         {/* <EmailList /> */}
-        <div className="home-text-div">
-          <p className="home-text">
+        <div className="event-text-div">
+          <p className="event-text">
             Stay updated with the vibrant array of events hosted in our theater.
             This space serves as a hub for learning, cultural richness, and
             spiritual exploration, embodying the Theosophical commitment to
@@ -127,7 +127,10 @@ const Events = () => {
       {/* Modal for Event Details */}
       {isModalOpen && modalEvent && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content-event" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal-content-event"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="close-button" onClick={handleCloseModal}>
               &times;
             </span>

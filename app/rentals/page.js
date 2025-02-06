@@ -134,7 +134,7 @@ const Rentals = () => {
                       <Image
                         height={400}
                         width={600}
-                        layout="responsive"
+                        // layout="responsive"
                         quality={100}
                         className="person-image"
                         src={`/img/${img}`}

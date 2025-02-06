@@ -20,7 +20,7 @@ const donate = () => {
             For credit card donations up to $1,000 and ACH up to $10,000, please
             use the form below.
           </p>
-          <span className="wire-info">
+          {/* <span className="wire-info">
             <span
               style={{
                 color: "red",
@@ -30,7 +30,7 @@ const donate = () => {
               Warning
             </span>{" "}
             <span className="warning-text">{store.zeffyWarningText}</span>
-          </span>
+          </span> */}
           <p className="wire-info">
             Please use a wire transfer for donations of $10,000 or more.
           </p>
@@ -67,7 +67,7 @@ const donate = () => {
           ></iframe>
         </div>
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };

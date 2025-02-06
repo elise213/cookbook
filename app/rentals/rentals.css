@@ -146,17 +146,14 @@
 }
 
 .package-photo {
-  width: auto !important;
-  height: 100;
+  width: 120px !important;
+  height: auto !important;
 }
 
 .package-name {
-  /* font-weight: bold; */
   margin: 0 0 10px 0;
-  /* font-family: "Lexend", sans-serif; */
   font-family: "Neutraface Text", sans-serif;
   font-size: 18px;
-  /* font-weight: bold; */
 }
 
 .package-details {
@@ -185,6 +182,7 @@
 .availability-calendar {
   padding: 40px 20px;
   width: 100%;
+  height: auto;
   box-sizing: border-box;
   text-align: unset;
   display: flex;

@@ -52,14 +52,9 @@
   margin-top: 30px;
 }
 
-.availability-calendar h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
 .calendar-container {
-  max-width: 500px;
+  max-width: 400px;
+  align-self: center;
 }
 
 .ccea-bio {
