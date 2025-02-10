@@ -45,8 +45,8 @@ const Events = () => {
       {/* Event Overview Section */}
       <div className="event-content-container">
         {/* <EmailList /> */}
-        <div className="home-text-div">
-          <p className="home-text">
+        <div className="event-text-div">
+          <p className="event-text">
             Stay updated with the vibrant array of events hosted in our theater.
             This space serves as a hub for learning, cultural richness, and
             spiritual exploration, embodying the Theosophical commitment to
@@ -54,16 +54,7 @@ const Events = () => {
             of our upcoming events to experience the dynamic community that
             calls Theosophy Hall home.
           </p>
-          {/* Booking Information */}
-          {/* <div className="booking-info"> */}
-          <p className="home-text">
-            To book a seat at an event, please visit our{" "}
-            <a href="/booking" className="booking-link">
-              Booking Page
-            </a>
-          </p>
         </div>
-        {/* </div> */}
         {/* Upcoming Events List */}
         <div className="events-div">
           <p className="event-heading">UPCOMING EVENTS</p>
@@ -92,7 +83,7 @@ const Events = () => {
         </div>
 
         {/* Calendar of Upcoming Events */}
-        <div className="availability-calendar">
+        {/* <div className="availability-calendar">
           <div className="calendar-title">Upcoming Events Calendar</div>
           <div className="calendar-container">
             <iframe
@@ -103,7 +94,7 @@ const Events = () => {
               style={{ minWidth: "300px", margin: "30px 0" }}
             ></iframe>
           </div>
-        </div>
+        </div> */}
 
         {/* Past Events Section */}
         <div className="events-div" style={{ borderTop: "1px solid gray" }}>
@@ -136,7 +127,10 @@ const Events = () => {
       {/* Modal for Event Details */}
       {isModalOpen && modalEvent && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal-content-event"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="close-button" onClick={handleCloseModal}>
               &times;
             </span>

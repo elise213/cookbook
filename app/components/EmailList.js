@@ -44,7 +44,7 @@ const EmailList = () => {
         className="email-list-form"
       >
         <div className="sign-up-form">
-          <span> SUBSCRIBE : NEWSLETTER</span>
+          <span> NEWSLETTER : SUBSCRIBE </span>
           <div className="sign-up-form-2">
             <div className="email-list-input-div">
               <input

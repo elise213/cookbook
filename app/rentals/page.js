@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { InlineWidget } from "react-calendly";
 
 const Rentals = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,6 +37,7 @@ const Rentals = () => {
         {/* Rental Packages Section */}
         <div className="rental-packages">
           <div className="rental-page-title">Rental Packages</div>
+
           <div className="packages-grid">
             <div className="package-card">
               <Image
@@ -45,11 +47,13 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">Basic Rental</div>
-              <div className="package-details">
-                Includes standard lighting and seating for up to 50 guests.
+              <div className="card-info">
+                <div className="package-name">Basic Rental</div>
+                <div className="package-details">
+                  Includes standard lighting and seating for up to 50 guests.
+                </div>
+                <div className="package-price">$500 / day</div>
               </div>
-              <div className="package-price">$500 / day</div>
             </div>
             <div className="package-card">
               <Image
@@ -59,12 +63,15 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">Premium Rental</div>
-              <div className="package-details">
-                Includes advanced lighting, sound system, and seating for 100
-                guests.
+
+              <div className="card-info">
+                <div className="package-name">Premium Rental</div>
+                <div className="package-details">
+                  Includes advanced lighting, sound system, and seating for 100
+                  guests.
+                </div>
+                <div className="package-price">$1000 / day</div>
               </div>
-              <div className="package-price">$1000 / day</div>
             </div>
             <div className="package-card">
               <Image
@@ -74,31 +81,44 @@ const Rentals = () => {
                 height={100}
                 className="package-photo"
               />
-              <div className="package-name">VIP Experience</div>
-              <div className="package-details">
-                Exclusive access, personalized setup, backstage amenities, and
-                seating for 200 guests.
+
+              <div className="card-info">
+                <div className="package-name">VIP Experience</div>
+                <div className="package-details">
+                  Exclusive access, personalized setup, backstage amenities, and
+                  seating for 200 guests.
+                </div>
+                <div className="package-price">$2500 / day</div>
               </div>
-              <div className="package-price">$2500 / day</div>
             </div>
           </div>
         </div>
 
         {/* Availability Calendar */}
+        {/* <div className="availability-calendar"> */}
+        {/* <div className="rental-page-title">Availability Calendar</div>
+          <div className="calendar-container"> */}
         <div className="availability-calendar">
-          <div className="rental-page-title">Availability Calendar</div>
+          <div className="rental-page-title">Book an Appointment</div>
           <div className="calendar-container">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=America/New_York"
-              className="calendar-iframe"
-              frameBorder="0"
-              scrolling="no"
-            ></iframe>
+            <InlineWidget
+              url="https://calendly.com/maracodes213/15?month=2025-02  "
+              styles={{ width: "100%", height: "700px" }}
+            />
           </div>
+          {/* </div> */}
+          {/* </div> */}
         </div>
 
         {/* Room Descriptions with Carousel */}
         <div className="room-sections">
+          <div
+            className="rental-page-title"
+            style={{ alignSelf: "flex-start" }}
+          >
+            Explore The Property
+          </div>
+
           {store.rooms.map((room, index) => (
             <div className="about-person" key={index}>
               {/* Room Image Carousel */}
@@ -114,7 +134,7 @@ const Rentals = () => {
                       <Image
                         height={400}
                         width={600}
-                        layout="responsive"
+                        // layout="responsive"
                         quality={100}
                         className="person-image"
                         src={`/img/${img}`}
@@ -134,8 +154,8 @@ const Rentals = () => {
 
         {/* Testimonials */}
         <div className="testimonials-section">
-          <div style={{ maxWidth: "500px" }}>
-            <div className="rental-page-title">What People Are Saying</div>
+          <div className="rental-page-title">What People Are Saying</div>
+          <div style={{ maxWidth: "500px", marginTop: "30px" }}>
             <div className="testimonial">
               <p className="testimonial-text">
                 "An absolutely wonderful venue! The lighting and acoustics were

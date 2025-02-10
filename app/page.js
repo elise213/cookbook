@@ -93,23 +93,30 @@ const Home = () => {
         <FakeNavBar />
         <div className="home-div">
           <div className="image-div">
-            <div className="home-text-div">
-              <p className="home-text">
-                Welcome to Theosophy Hall's Theater Rental. Constructed in 1927,
-                our ornate theater has hosted countless spiritual and
-                philosophical gatherings over the decades. Whether you are
-                looking to host a concert, event, or theatrical performance, our
-                hall, with its vaulted ceilings and a capacity for up to 350
-                attendees, provides the perfect blend of historical ambiance and
-                modern amenities to create, celebrate, and inspire.
-                {/* See{" "}
-                <a href="https://giggster.com/listing/ornate-1920s-lodge-and-theater">
-                  here
-                </a>{" "}
-                for more details. */}
-              </p>
-            </div>
             <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
+            <div className="home-text-div">
+              <p className="welcome">WELCOME {"  "}</p>
+              <p className="home-text">
+                Established in 1927, the Theosophy Hall stands as a hub for
+                artistic, spiritual, social, and intellectual gatherings:
+                theatrical performance and rehearsal, study groups, dance,
+                music, readings, film screenings, and events we haven't yet
+                imagined. The Theosophy Hall Theater in Los Angeles California
+                has hosted countless spiritual and philosophical gatherings.
+                With the capacity for 350 guests, the Theosophy Hall provides a
+                perfect blend of historical ambiance and modern amenities.
+              </p>
+
+              <div className="learn-more-button">
+                <Link
+                  href="/about"
+                  passHref
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  LEARN MORE
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
         <Footer />

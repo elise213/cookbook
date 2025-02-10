@@ -34,7 +34,9 @@
   background: transparent;
   border-radius: 4px;
   height: auto;
+  width: 100vw;
 }
+
 .close-button {
   position: absolute;
   top: -50px;
@@ -71,10 +73,9 @@
 }
 
 .about-person {
-  background-color: rgb(255, 255, 255, 0.6);
   text-align: justify;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   max-width: 500px;
   margin: 20px;
   justify-self: center;
@@ -84,7 +85,7 @@
 .about-person img {
   margin-right: 10px;
   margin-top: 10px;
-  height: 200px !important;
+  height: 250px !important;
   width: auto !important;
 }
 
@@ -92,6 +93,9 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .download-section {
@@ -111,7 +115,17 @@
   flex-wrap: wrap;
 }
 
+.room-sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .package-card {
+  display: flex;
   background: white;
   border-radius: 10px;
   padding: 20px;
@@ -121,9 +135,7 @@
 }
 
 .rental-packages {
-  /* text-align: center; */
   padding: 40px 20px;
-  /* background-color: #f9f9f9; */
 }
 
 .packages-grid {
@@ -134,39 +146,47 @@
 }
 
 .package-photo {
-  width: auto !important;
+  width: 120px !important;
+  height: auto !important;
 }
 
 .package-name {
-  /* font-weight: bold; */
-  margin: 10px 0;
-  font-family: "Lexend", sans-serif;
+  margin: 0 0 10px 0;
+  font-family: "Neutraface Text", sans-serif;
+  font-size: 18px;
 }
 
 .package-details {
+  text-align: start;
   color: #666;
-  font-size: 12px;
+  padding: 0 20px;
+  font-size: 10px;
   line-height: 1.7;
   /* font-family: "Lexend", sans-serif; */
   /* font-family: "__Inter_e66fe9", "__Inter_Fallback_e66fe9" !important; */
 }
 
 .rental-page-title {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 15px;
-  font-family: "Lexend", sans-serif;
+
+  align-self: flex-start;
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .package-price {
-  /* font-weight: bold; */
-  color: #2c3e50;
   margin-top: 10px;
-  font-family: "Lexend", sans-serif;
 }
 
 /* Availability Calendar */
 .availability-calendar {
   padding: 40px 20px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  text-align: unset;
+  display: flex;
+  flex-direction: column;
 }
 
 .calendar-title {
@@ -187,12 +207,14 @@
 /* Testimonials */
 .testimonials-section {
   padding: 20px;
-  background-color: #fff;
   border-radius: 10px;
   margin-bottom: 10px;
-  max-width: 500px;
   justify-self: center;
   box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testimonials-title {
@@ -210,6 +232,8 @@
   text-align: justify;
   line-height: 1.5;
   margin: 20px;
+  padding: 5px 8px;
+  background-color: white;
 }
 
 .testimonial-author {
@@ -222,5 +246,8 @@
 @media screen and (max-width: 600px) {
   .about span {
     margin: 30px 20px;
+  }
+  .about-person {
+    max-width: 100% !important;
   }
 }

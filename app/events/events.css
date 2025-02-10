@@ -17,14 +17,22 @@
   width: 100vw;
 }
 
-.availability-calendar {
-  margin-top: 25px;
+.event-text-div {
+  /* margin: 15px; */
+  font-family: "Neutraface Text", sans-serif;
+}
+.event-text {
+  line-height: 1.5;
+  margin: 5px 0;
+  text-align: justify;
+  font-family: "Neutraface Text", sans-serif;
+  font-size: 14px;
 }
 
 .events-div {
+  margin: 20px 0;
   display: flex;
   justify-content: space-between;
-  margin-top: 55px;
   padding-top: 20px;
 }
 
@@ -70,6 +78,7 @@
   font-size: 11px;
   color: #666;
   text-align: end;
+  padding: 0;
 }
 
 /* Booking Info */
@@ -107,13 +116,15 @@
   z-index: 1000;
 }
 
-.modal-content {
+.modal-content-event {
   background: white;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   width: 80%;
   max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 .modal-event-title {
@@ -124,10 +135,26 @@
 .modal-event-date {
   font-size: 1.2rem;
   color: #555;
+  margin: 0;
 }
 
 .modal-image {
   max-width: 100%;
   border-radius: 8px;
   margin-top: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .event-text-div {
+    margin: 15px !important;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .events-div {
+    flex-direction: column !important;
+  }
+  .event-heading {
+    text-align: center;
+  }
 }

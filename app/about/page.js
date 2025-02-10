@@ -65,28 +65,18 @@ const About = () => {
         <FakeNavBar />
         <div className="about-content-div">
           <div className="about-header">
-            {/* <Image
-              height={100}
-              width={100}
-              layout="responsive"
-              quality={100}
-              className="person-image"
-              src="/img/TH1.png"
-              alt=""
-              style={{ border: "none", marginTop: "10px", marginRight: "10px" }}
-            ></Image> */}
+    
             <p className="person-bio">
-              Established in 1927, the Theosophy Hall stands as a hub for
+              {/* Established in 1927, the Theosophy Hall stands as a hub for
               artistic, spiritual, social, and intellectual gatherings:
               theatrical performance and rehearsal, study groups, dance, music,
-              readings, film screenings, and enriching events we haven't yet
-              imagined.
+              readings, film screenings, and events we haven't yet
+              imagined. */}
             </p>
           </div>
           <div
-            style={{
-              marginTop: "30px",
-            }}
+          className="faq-page"
+           
           >
             <p className="event-heading">Frequently Asked Questions</p>
             {faqData.map((item, index) => (

@@ -44,22 +44,17 @@
   margin-top: 10px;
 }
 
-/* Availability Calendar */
-.availability-calendar {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.availability-calendar h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
+.faq-page {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
 }
 
 .calendar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 400px;
+  align-self: center;
 }
 
 .ccea-bio {
