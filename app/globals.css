@@ -309,11 +309,20 @@ body.modal-open {
 .home-text-div {
   width: 100%;
   align-self: center;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   justify-content: center;
   display: flex;
   flex-direction: column;
   font-family: "Lexend", sans-serif;
+}
+
+.home-text {
+  text-align: justify;
+  padding: 10px 20px;
+  max-width: 500px;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 200;
 }
 
 .person-image {
@@ -329,12 +338,6 @@ body.modal-open {
 }
 .room-carousel {
   margin-bottom: 20px;
-}
-
-.home-text {
-  /* font-family: "Lexend", sans-serif; */
-  margin: 5px 0;
-  text-align: justify;
 }
 
 .room-title {

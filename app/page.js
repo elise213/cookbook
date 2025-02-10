@@ -101,11 +101,12 @@ const Home = () => {
                 looking to host a concert, event, or theatrical performance, our
                 hall, with its vaulted ceilings and a capacity for up to 350
                 attendees, provides the perfect blend of historical ambiance and
-                modern amenities to create, celebrate, and inspire. See{" "}
+                modern amenities to create, celebrate, and inspire.
+                {/* See{" "}
                 <a href="https://giggster.com/listing/ornate-1920s-lodge-and-theater">
-                  here.
+                  here
                 </a>{" "}
-                for more details.
+                for more details. */}
               </p>
             </div>
             <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
