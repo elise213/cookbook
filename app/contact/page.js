@@ -41,13 +41,13 @@ const Contact = () => {
     <div className="contact-page">
       <FakeNavbar />
       <div className="contact-div">
-        <p className="home-text">
+        {/* <p className="home-text">
           We are here to assist you with any inquiries or reservations. Our team
           is dedicated to ensuring that your experience with Theosophy Hall is
           as enriching and seamless as possible. Contact us to discover how we
           can help bring your event to life in a space that’s steeped in both
           beauty and significance.
-        </p>
+        </p> */}
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="contact-form-div">
             <div className="form-col">

@@ -17,24 +17,53 @@ const Footer = () => {
 
   return (
     <footer>
+      <div className="footer-div-2">
+        <div className="footer-div-1">
+          <EmailList />
+          <div className="socials">
+            <Link href="https://www.instagram.com/theosophyhall/">
+              <InstagramIcon />
+            </Link>
+            <Link href="/contact" passHref>
+              <EmailOutlinedIcon />
+            </Link>
+          </div>
+        </div>
+        <div className="footer-nav">
+          <p className="footer-nav-item">
+            <Link href="/" passHref>
+              HOME
+            </Link>
+          </p>
+          <p className="footer-nav-item">
+            <Link href="/rentals" passHref>
+              RENTALS
+            </Link>
+          </p>
+          <p className="footer-nav-item">
+            <Link href="/about" passHref>
+              ABOUT
+            </Link>
+          </p>
+
+          <p className="footer-nav-item">
+            <Link href="/store" passHref>
+              SUPPORT US
+            </Link>
+          </p>
+          <p className="footer-nav-item">
+            <Link href="/contact" passHref>
+              CONTACT
+            </Link>
+          </p>
+        </div>
+      </div>
+      <p className="arr">©2025 Theosophy Hall Theater</p>
+
       <div className="border">
         <img src="/img/border.png" alt="CCEA Logo" className="border-bl" />
         <img src="/img/border.png" alt="CCEA Logo" className="border-br" />
       </div>
-      <div className="footer-div-2">
-        <EmailList />
-        <div className="socials">
-          <Link href="https://www.instagram.com/theosophyhall/">
-            {/* <i className="fa-brands fa-instagram" /> */}
-            <InstagramIcon />
-          </Link>
-          {/* <span className="nav-item"> */}
-          <Link href="/contact" passHref>
-            <EmailOutlinedIcon />
-          </Link>
-        </div>
-      </div>
-      <p className="arr">©2025 Theosophy Hall Theater, All Rights Reserved</p>
     </footer>
   );
 };

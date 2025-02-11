@@ -28,20 +28,10 @@ const FakeNavbar = () => {
               ABOUT
             </Link>
           </span>
-          <span className="nav-item">
-            <Link href="/events" passHref>
-              EVENTS
-            </Link>
-          </span>
 
           <span className="nav-item">
             <Link href="/store" passHref>
-              STORE
-            </Link>
-          </span>
-          <span className="nav-item">
-            <Link href="/donate" passHref>
-              DONATE
+              SUPPORT US
             </Link>
           </span>
         </div>
