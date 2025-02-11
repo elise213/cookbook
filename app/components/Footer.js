@@ -22,10 +22,10 @@ const Footer = () => {
           <EmailList />
           <div className="socials">
             <Link href="https://www.instagram.com/theosophyhall/">
-              <InstagramIcon />
+              <InstagramIcon style={{ fontSize: "20px" }} />
             </Link>
             <Link href="/contact" passHref>
-              <EmailOutlinedIcon />
+              <EmailOutlinedIcon style={{ fontSize: "20px" }} />
             </Link>
           </div>
         </div>
@@ -57,13 +57,20 @@ const Footer = () => {
             </Link>
           </p>
         </div>
+        <div className="contact-footer-div">
+          <p className="footer-contact-text">802-379-9777</p>
+          <p className="footer-contact-text">hello@theosophyhall.com</p>
+          <p className="footer-contact-text">
+            245 W 33rd St, Los Angeles, CA 90007
+          </p>
+        </div>
       </div>
       <p className="arr">©2025 Theosophy Hall Theater</p>
 
-      <div className="border">
+      {/* <div className="border">
         <img src="/img/border.png" alt="CCEA Logo" className="border-bl" />
         <img src="/img/border.png" alt="CCEA Logo" className="border-br" />
-      </div>
+      </div> */}
     </footer>
   );
 };
