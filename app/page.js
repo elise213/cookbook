@@ -14,7 +14,12 @@ const Home = () => {
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const images = ["/img/seats.jpg", "/img/6.jpg", "/img/7.jpg"];
+  const images = [
+    "img/theater.png",
+    "/img/seats.jpg",
+    "/img/6.jpg",
+    "/img/7.jpg",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -102,45 +107,47 @@ const Home = () => {
     <>
       <div className={` home-body content`}>
         <FakeNavBar />
-        <div className="home-div">
-          <div className="slideshow">
-            {images.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Slide ${i + 1}`}
-                className={`slide ${i === index ? "active" : ""}`}
-              />
-            ))}
-          </div>
-          <div className="image-div">
-            {/* <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" /> */}
-            <div className="home-text-div">
-              <p className="welcome">WELCOME {"  "}</p>
-              <p className="home-text">
-                Established in 1927, the Theosophy Hall stands as a hub for
-                artistic, spiritual, social, and intellectual gatherings:
-                theatrical performance and rehearsal, study groups, dance,
-                music, readings, film screenings, and events we haven't yet
-                imagined. The Theosophy Hall Theater in Los Angeles California
-                has hosted countless spiritual and philosophical gatherings.
-                With the capacity for 350 guests, the Theosophy Hall provides a
-                perfect blend of historical ambiance and modern amenities.
-              </p>
+        <div className="home-second-div">
+          <div className="home-div">
+            <div className="slideshow">
+              {images.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`Slide ${i + 1}`}
+                  className={`slide ${i === index ? "active" : ""}`}
+                />
+              ))}
+            </div>
+            <div className="image-div">
+              {/* <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" /> */}
+              <div className="home-text-div">
+                <p className="welcome">WELCOME {"  "}</p>
+                <p className="home-text">
+                  Established in 1927, the Theosophy Hall stands as a hub for
+                  artistic, spiritual, social, and intellectual gatherings:
+                  theatrical performance and rehearsal, study groups, dance,
+                  music, readings, film screenings, and events we haven't yet
+                  imagined. The Theosophy Hall Theater in Los Angeles California
+                  has hosted countless spiritual and philosophical gatherings.
+                  With the capacity for 350 guests, the Theosophy Hall provides
+                  a perfect blend of historical ambiance and modern amenities.
+                </p>
 
-              <div className="learn-more-button">
-                <Link
-                  href="/about"
-                  passHref
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  LEARN MORE
-                </Link>
+                <div className="learn-more-button">
+                  <Link
+                    href="/about"
+                    passHref
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    LEARN MORE
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </>
   );

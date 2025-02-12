@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           name: "FILMING LOCATION",
           images: ["2.jpg"],
           sq: "Theater: 4500 sq., Stage - 18’ H x 26’ L",
-          text: "A beautifully maintained 350-seat Victorian theater, featuring: Elegant period architecture and exceptional acoustics. A fully equipped stage. Ideal for lectures, theatrical productions, film screenings, and live music.",
+          text: "The Theosophy Hall is the perfect backdrop to memorable productions. We accept long-term film bookings 6+ months out.",
         },
         {
           name: "MEETING ROOM AND OFFICES",

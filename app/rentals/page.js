@@ -129,6 +129,27 @@ const Rentals = () => {
           <div className="overlay-text">RENTALS</div>
         </div> */}
 
+        {/* <div
+          style={{
+            backgroundColor: "white",
+            padding: "20px",
+            boxSizing: "borde-box",
+          }}
+        >
+          <p className="room-title">EVENTS AND FILMING</p>
+          <span
+            className="person-bio"
+            style={{
+              textAlign: "center",
+              maxWidth: "300px",
+            }}
+          >
+            The Theosophy Hall is a unique and beautiful setting for meetings,
+            seminars, working retreats, luncheons, dinners or picnics for
+            corporations and private or nonprofit organizations.
+          </span>
+        </div> */}
+
         {/* Room Descriptions with Carousel */}
         <div className="room-sections">
           {store.rooms.map((room, index) => {

@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="contact-footer-div">
           <p className="footer-contact-text">802-379-9777</p>
           <p className="footer-contact-text">hello@theosophyhall.com</p>
-          <p className="footer-contact-text">245 W 33rd St. LA, CA 90007</p>
+          <p className="footer-contact-text">245 W 33rd St. LA, CA</p>
         </div>
       </div>
       <p className="arr">©2025 Theosophy Hall Theater</p>

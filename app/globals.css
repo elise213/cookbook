@@ -175,8 +175,8 @@ label {
 }
 
 .image-div {
-  /* height: 100%; */
-  margin-bottom: 30px;
+  width: 50%;
+  /* margin-bottom: 30px; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -199,7 +199,14 @@ label {
   font-weight: 400;
   font-size: 25px;
   padding: 0;
-  margin: 30px 0 0 20px;
+  margin: 0 0 0 20px;
+}
+
+.home-second-div {
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-body {
@@ -386,7 +393,7 @@ body.modal-open {
 }
 
 .home-text-div {
-  width: 48%;
+  /* width: 48%; */
   align-self: center;
   /* margin: 20px; */
   justify-content: center;
@@ -403,11 +410,12 @@ body.modal-open {
   font-size: 14px;
   font-weight: 200;
   margin: 0;
+  line-height: 20px;
 }
 
 .slideshow {
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 300px;
   /* max-height: 800px; */
   overflow: hidden;
@@ -419,6 +427,7 @@ body.modal-open {
   transition: opacity 1s ease-in-out;
   width: 100%;
   max-height: 300px;
+  object-fit: cover;
 }
 
 .slide.active {
@@ -451,7 +460,6 @@ body.modal-open {
 .person-bio {
   text-align: justify;
   font-size: 12px;
-  max-width: 700px;
   line-height: 1.7;
   display: block;
 }
@@ -462,7 +470,7 @@ body.modal-open {
 
 .home-div {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -568,7 +576,7 @@ body.modal-open {
   justify-content: center;
   width: 100%;
   margin-top: -10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   align-items: center;
   border: 2px solid var(--color2);
   justify-content: space-around;
@@ -601,9 +609,7 @@ body.modal-open {
   .navbar-logo {
     width: 170px !important;
   }
-}
 
-@media screen and (max-width: 700px) {
   .navbar-logo {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -612,6 +618,16 @@ body.modal-open {
   .nav-item,
   .nav-item a {
     font-size: 10px;
+  }
+  .home-div {
+    flex-direction: column !important;
+  }
+  .slideshow {
+    width: 100% !important;
+  }
+  .image-div {
+    width: 100% !important;
+    margin: 20px 0 !important;
   }
 }
 
