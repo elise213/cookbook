@@ -80,21 +80,97 @@
   width: 100%;
 }
 
-.about-person {
-  text-align: justify;
-  padding: 20px 0;
-  border-radius: 4px;
-  max-width: 500px;
-  /* margin: 20px; */
-  justify-self: center;
+.room-carousel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%;
+  background-color: white;
+  height: 100%;
+  margin-bottom: 0;
+  display: block !important;
+  padding: 15px;
   box-sizing: border-box;
 }
 
+.room-text {
+  width: 50%;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.rental-image-div {
+  position: relative;
+  display: inline-block;
+}
+
+.rental-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-family: "Neutraface Text", sans-serif;
+}
+
+.rental-image {
+  width: 100%;
+}
+
 .about-person img {
-  margin-right: 10px;
-  margin-top: 10px;
-  height: 250px !important;
-  width: auto !important;
+  height: auto !important;
+  width: 50% !important;
+}
+
+.rental-text-div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: justify;
+  padding: 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+  /* padding-top: 20px; */
+}
+
+.about-person.even {
+  background-color: white;
+}
+
+.about-person.odd {
+  background-color: #f5f5f5;
+}
+
+.room-image {
+  max-width: 50%;
+}
+
+.room-image img {
+  width: 100% !important;
+  height: auto;
+}
+
+.room-text {
+  flex: 1;
+  text-align: left;
+  max-width: 400px;
 }
 
 .rentals-page {
@@ -127,9 +203,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 30px;
   width: 100%;
   box-sizing: border-box;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .package-card {
@@ -214,15 +291,15 @@
 
 /* Testimonials */
 .testimonials-section {
-  padding: 0 20px;
+  padding: 20px;
   align-items: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   justify-self: center;
   box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
+  background-color: #f5f5f5;
 }
 
 .testimonials-title {
@@ -232,8 +309,8 @@
 
 .testimonial {
   margin-bottom: 20px;
-  background-color: white;
-  padding: 5px 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 250px;
 }
 
 .testimonial-text {
@@ -323,76 +400,12 @@
   align-self: center;
 }
 
-.download-section {
-  display: flex;
-}
-
-.qaa {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  align-items: center;
-  width: 100vw;
-  margin-top: 110px;
-}
-
-.qaa-2 {
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  margin: 50px 30px;
-}
-
-.qaa-2 p {
-  margin-top: 15px !important;
-}
-
-.fs-text {
-  margin: 0;
-  text-align: justify;
-  line-height: 1.5;
-}
-
-.drop-div {
-  margin-top: 5px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 5px;
-  border: 2px solid var(--color2);
-}
-
-.apply {
-  margin: 10px;
-  text-align: center;
-  color: lightgreen;
-  font-size: x-large;
-}
-.apply:hover {
-  cursor: pointer;
-}
-
-.fiscal-logo {
-  height: auto !important;
-  width: 250px;
-  align-self: center;
-}
-
-.question {
-  font-size: x-large;
-  margin-bottom: 5px;
-  font-weight: bolder;
-  padding-top: 20px;
-}
-
 .fiscal-page {
   margin: 120px 0px 0px 0px;
 }
 
 iframe {
   max-width: 100%;
-  /* border: 2px solid var(--color1); */
   margin: 20px 0 40px 0;
   background-color: black;
 }
@@ -457,9 +470,6 @@ iframe {
 }
 
 @media screen and (max-width: 700px) {
-  .qaa-2 {
-    max-width: 500px !important;
-  }
   .fiscal-about span {
     font-size: medium !important;
     margin: 0 20px !important;
@@ -470,6 +480,18 @@ iframe {
 
   .qaa {
     margin-top: 0px !important;
+  }
+
+  .about-person {
+    flex-direction: column !important;
+  }
+
+  .room-text {
+    max-width: 100%;
+  }
+
+  .room-image {
+    max-width: 100%;
   }
 }
 

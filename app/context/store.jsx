@@ -34,16 +34,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       rooms: [
         {
-          name: "The theater",
-          images: ["1.jpg", "3.jpg"],
+          name: "THEATER SPACE",
+          images: ["theater.png"],
           sq: "Theater: 4500 sq., Stage - 18’ H x 26’ L",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          text: "A beautifully maintained 350-seat Victorian theater, featuring: Elegant period architecture and exceptional acoustics. A fully equipped stage. Ideal for lectures, theatrical productions, film screenings, and live music.",
         },
         {
-          name: "Garden and Building Exterior",
+          name: "FILMING LOCATION",
+          images: ["2.jpg"],
+          sq: "Theater: 4500 sq., Stage - 18’ H x 26’ L",
+          text: "A beautifully maintained 350-seat Victorian theater, featuring: Elegant period architecture and exceptional acoustics. A fully equipped stage. Ideal for lectures, theatrical productions, film screenings, and live music.",
+        },
+        {
+          name: "MEETING ROOM AND OFFICES",
+          sq: "",
+          images: ["4.jpg"],
+          text: "Workshops, small-group discussions, and private meetings. Organizational events and study sessions.",
+        },
+        {
+          name: "GARDEN AND OUTDOOR AREA",
           sq: "Garden is ~8,000 sq.",
-          images: ["2.jpg", "7.jpg", "8.jpg"],
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          images: ["7.jpg"],
+          text: "A peaceful, scenic garden ideal for receptions and outdoor gatherings. Perfect for meditation retreats, social mixers, and networking events.",
         },
         // {
         //   name: "Press Room",

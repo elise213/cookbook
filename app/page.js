@@ -12,6 +12,17 @@ const Home = () => {
   const { store, actions } = useContext(Context);
   const scrollRef = useRef();
   const [isOverflowing, setIsOverflowing] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const images = ["/img/seats.jpg", "/img/6.jpg", "/img/7.jpg"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 6000); // Change image every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const body = document.body;
@@ -92,8 +103,18 @@ const Home = () => {
       <div className={` home-body content`}>
         <FakeNavBar />
         <div className="home-div">
+          <div className="slideshow">
+            {images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Slide ${i + 1}`}
+                className={`slide ${i === index ? "active" : ""}`}
+              />
+            ))}
+          </div>
           <div className="image-div">
-            <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" />
+            {/* <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" /> */}
             <div className="home-text-div">
               <p className="welcome">WELCOME {"  "}</p>
               <p className="home-text">

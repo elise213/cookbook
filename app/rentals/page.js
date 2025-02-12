@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { InlineWidget } from "react-calendly";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Link from "next/link";
 
 const Rentals = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,49 +25,25 @@ const Rentals = () => {
   };
   const faqData = [
     {
-      question:
-        "What is the history of Theosophy Hall in downtown Los Angeles?",
+      question: "What types of events can be hosted in the rental space?",
       answer:
-        "Theosophy Hall, located in downtown Los Angeles, has been a center for Theosophical study and practice since the early 20th century. Established by the United Lodge of Theosophists (ULT), it serves as a gathering place for those interested in the teachings of Theosophy, emphasizing self-study, self-improvement, and service to humanity. The building has hosted lectures, discussions, and study groups focused on the works of H.P. Blavatsky and William Q. Judge.",
+        "The rental space is suitable for a variety of events, including corporate meetings, private parties, weddings, conferences, and workshops. It offers a flexible layout, customizable seating arrangements, and essential amenities to accommodate different types of gatherings.",
+    },
+    {
+      question: "Is the venue available for film and photo shoots?",
+      answer:
+        "Yes, the venue is available for film productions, commercial photo shoots, and creative projects. It offers a visually appealing space with natural lighting, versatile backdrops, and easy load-in access for film crews and photographers.",
+    },
+    {
+      question: "What amenities are included with the rental?",
+      answer:
+        "The rental includes access to high-speed Wi-Fi, professional lighting options, a sound system, chairs and tables, a kitchen or catering space, and on-site parking. Additional equipment or services may be available upon request.",
     },
     {
       question:
-        "What is the mission and vision of the United Lodge of Theosophists (ULT)?",
+        "Are there any restrictions or guidelines for renting the space?",
       answer:
-        "The United Lodge of Theosophists (ULT) is dedicated to preserving and disseminating the original teachings of Theosophy, as presented by H.P. Blavatsky and William Q. Judge. It operates under the principle of unity, without formal membership, and encourages self-study and cooperative work to promote spiritual knowledge and understanding. The ULT seeks to inspire a deeper comprehension of universal truths and foster brotherhood among all people.",
-    },
-    {
-      question:
-        "Who was Pierre, and what was his role in the United Lodge of Theosophists?",
-      answer:
-        "Pierre was a devoted student of Theosophy and an influential figure in the United Lodge of Theosophists. He contributed to the study and dissemination of Theosophical teachings, emphasizing the importance of independent study and the application of Theosophical principles in daily life. His dedication to the ULT’s mission helped strengthen the organization's presence in Los Angeles and beyond.",
-    },
-    {
-      question: "Who was Wes, and what impact did he have on the ULT?",
-      answer:
-        "Wes was a key figure in the United Lodge of Theosophists, known for his deep understanding of Theosophical philosophy and his ability to communicate its principles effectively. He played a significant role in organizing and leading discussions at Theosophy Hall, inspiring many to engage in Theosophical studies and apply its teachings to their lives.",
-    },
-    {
-      question:
-        "What kind of events are held at Theosophy Hall in Los Angeles?",
-      answer:
-        "Theosophy Hall hosts a variety of events, including public lectures, study groups, discussion meetings, and special programs on Theosophical philosophy. Topics often focus on the writings of H.P. Blavatsky, William Q. Judge, and other Theosophical thinkers. These events are open to all and encourage free inquiry into spiritual and philosophical questions.",
-    },
-    {
-      question: "Does the United Lodge of Theosophists charge membership fees?",
-      answer:
-        "No. The United Lodge of Theosophists does not have formal membership or charge fees for participation. It operates on voluntary contributions and is open to anyone interested in studying and applying Theosophical teachings.",
-    },
-    {
-      question: "Is Theosophy Hall in Los Angeles open to the public?",
-      answer:
-        "Yes. Theosophy Hall is open to anyone interested in learning about Theosophy. Visitors can attend public lectures, join study groups, and access Theosophical literature in the building’s library.",
-    },
-    {
-      question:
-        "What are some core teachings of Theosophy as presented at Theosophy Hall?",
-      answer:
-        "Theosophy emphasizes universal brotherhood, the study of ancient wisdom traditions, karma, reincarnation, and self-development. The teachings encourage seekers to explore truth independently and apply spiritual principles to everyday life. Theosophy Hall provides resources for those interested in deepening their understanding of these concepts.",
+        "Yes, renters must adhere to guidelines regarding noise levels, capacity limits, and cleanup responsibilities. Certain decor restrictions may apply, and all events must comply with local regulations. A security deposit and event insurance may be required for specific bookings.",
     },
   ];
 
@@ -147,45 +124,82 @@ const Rentals = () => {
           </div>
         </div> */}
 
+        {/* <div className="rental-image-div">
+          <img src="/img/banner.jpg" alt="seats" className="rental-image" />
+          <div className="overlay-text">RENTALS</div>
+        </div> */}
+
         {/* Room Descriptions with Carousel */}
         <div className="room-sections">
-          {/* <div
-            className="rental-page-title"
-            style={{ alignSelf: "flex-start" }}
-          >
-            Explore The Property
-          </div> */}
+          {store.rooms.map((room, index) => {
+            const isEven = index % 2 === 0; // Check if index is even
 
-          {store.rooms.map((room, index) => (
-            <div className="about-person" key={index}>
-              <div className="room-carousel">
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  navigation
-                  pagination={{ clickable: true }}
-                  loop={true}
-                >
-                  {room.images.map((img, imgIndex) => (
-                    <SwiperSlide key={imgIndex}>
-                      <Image
-                        height={400}
-                        width={600}
-                        // layout="responsive"
-                        quality={100}
-                        className="person-image"
-                        src={`/img/${img}`}
+            return (
+              <div
+                className={`about-person ${isEven ? "even" : "odd"}`}
+                key={index}
+              >
+                {/* Alternate the order of elements */}
+                {isEven ? (
+                  <>
+                    <div className="room-image">
+                      <img
+                        src={`/img/${room.images[0]}`} // Display first image from array
                         alt={room.name}
-                        onClick={() => handleImageClick(room.images)}
+                        className="person-image"
                       />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                    </div>
+                    <div className="rental-text-div">
+                      <div className="room-text">
+                        <p className="room-title">{room.name}</p>
+                        <span className="person-bio">{room.text}</span>
+                        <div
+                          className="learn-more-button"
+                          style={{ marginRight: "0", marginTop: "20px" }}
+                        >
+                          <Link
+                            href="https://giggster.com/listing/ornate-1920s-lodge-and-theater"
+                            passHref
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            LEARN MORE
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="rental-text-div">
+                      <div className="room-text">
+                        <p className="room-title">{room.name}</p>
+                        <span className="person-bio">{room.text}</span>
+                        <div
+                          className="learn-more-button"
+                          style={{ marginRight: "0", marginTop: "20px" }}
+                        >
+                          <Link
+                            href="https://giggster.com/listing/ornate-1920s-lodge-and-theater"
+                            passHref
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            LEARN MORE
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="room-image">
+                      <img
+                        src={`/img/${room.images[0]}`} // Display first image from array
+                        alt={room.name}
+                        className="person-image"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
-
-              <p className="room-title">{room.name}</p>
-              <span className="person-bio">{room.text}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Availability Calendar */}
