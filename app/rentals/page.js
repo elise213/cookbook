@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import styles from "./rentals.css";
 import FakeNavBar from "../components/FakeNavbar";
 import Footer from "../components/Footer";
@@ -57,6 +57,40 @@ const Rentals = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalImages([]);
+  };
+
+  const GoogleCalendarBooking = () => {
+    return (
+      <div
+        style={{
+          textAlign: "center",
+          width: "100%",
+          backgroundColor: "white",
+        }}
+      >
+        <div
+          style={{
+            margin: "auto",
+            overflow: "hidden",
+            maxWidth: "600px",
+          }}
+        >
+          <iframe
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3klgnsxkxQi2cBYDmV0eEBn_UtCJV12I23tWNPkZKtmiCMHsnM3KcNQNpKYen8jzug-ULpJfXx?gv=true"
+            style={{
+              border: "0",
+              width: "100%",
+              minHeight: "700px",
+              overflow: "hidden",
+              scrolling: "no",
+              backgroundColor: "white",
+              margin: "0",
+            }}
+            frameBorder="0"
+          ></iframe>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -133,7 +167,7 @@ const Rentals = () => {
           style={{
             backgroundColor: "white",
             padding: "20px",
-            boxSizing: "borde-box",
+            boxSizing: "border-box",
           }}
         >
           <p className="room-title">EVENTS AND FILMING</p>
@@ -165,7 +199,7 @@ const Rentals = () => {
                   <>
                     <div className="room-image">
                       <img
-                        src={`/img/${room.images[0]}`} // Display first image from array
+                        src={`/img/${room.images[0]}`}
                         alt={room.name}
                         className="person-image"
                       />
@@ -222,17 +256,7 @@ const Rentals = () => {
             );
           })}
         </div>
-
-        {/* Availability Calendar */}
-        {/* <div className="availability-calendar">
-          <div className="rental-page-title">Schedule a Tour</div>
-          <div className="calendar-container">
-            <InlineWidget
-              url="https://calendly.com/maracodes213/15?month=2025-02  "
-              styles={{ height: "500px" }}
-            />
-          </div>
-        </div> */}
+        <GoogleCalendarBooking />
 
         <div className="faq-page">
           <p className="event-heading">Frequently Asked Questions</p>
@@ -262,25 +286,28 @@ const Rentals = () => {
         {/* Testimonials */}
         <div className="testimonials-section">
           <p className="event-heading">What People Are Saying</p>
-          <div style={{ maxWidth: "500px" }}>
+          <div className="testimonial-container">
             <div className="testimonial">
               <p className="testimonial-text">
-                "An absolutely wonderful venue! The lighting and acoustics were
-                perfect for our event."
+                "An absolutely wonderful venue! Perfect for our event."
               </p>
               <p className="testimonial-author">— Jessica R.</p>
             </div>
             <div className="testimonial">
               <p className="testimonial-text">
-                "We hosted a lecture here, and everything went smoothly. The
-                space has a calming energy."
+                "The Theosophy Hall is the most magical building in LA."
+              </p>
+              <p className="testimonial-author">— Aldous Huxley</p>
+            </div>
+            <div className="testimonial">
+              <p className="testimonial-text">
+                "We hosted a lecture here, and everything went very smoothly."
               </p>
               <p className="testimonial-author">— Mark T.</p>
             </div>
             <div className="testimonial">
               <p className="testimonial-text">
-                "The VIP package was worth every penny. We had a seamless
-                experience with top-notch amenities."
+                "We had a seamless experience with top-notch hospitality."
               </p>
               <p className="testimonial-author">— Sophia L.</p>
             </div>

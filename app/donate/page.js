@@ -15,7 +15,7 @@ const donate = () => {
     <div className="donate-page">
       <FakeNavbar />
       <div className="donate-container">
-        <div className="wire-container">
+        {/* <div className="wire-container">
           <p className="wire-info">
             For credit card donations up to $1,000 and ACH up to $10,000, please
             use the form below.
@@ -37,14 +37,13 @@ const donate = () => {
               New York, NY 10017
             </p>
           </div>
-        </div>
+        </div> */}
         <div
+          className="iframe-container-donate"
           style={{
-            position: "relative",
-            // overflow: "hidden",
             height: "1300px",
             width: "100%",
-            display: "flex",
+            justifyContent: "center !important",
           }}
         >
           <iframe

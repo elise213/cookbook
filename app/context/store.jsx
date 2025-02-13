@@ -46,13 +46,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           text: "The Theosophy Hall is the perfect backdrop to memorable productions. We accept long-term film bookings 6+ months out.",
         },
         {
-          name: "MEETING ROOM AND OFFICES",
+          name: "MEETINGS AND CLASSES",
           sq: "",
           images: ["4.jpg"],
           text: "Workshops, small-group discussions, and private meetings. Organizational events and study sessions.",
         },
         {
-          name: "GARDEN AND OUTDOOR AREA",
+          name: "WEDDINGS AND CELEBRATIONS",
           sq: "Garden is ~8,000 sq.",
           images: ["7.jpg"],
           text: "A peaceful, scenic garden ideal for receptions and outdoor gatherings. Perfect for meditation retreats, social mixers, and networking events.",

@@ -98,7 +98,7 @@
   box-sizing: border-box;
   justify-self: center;
   display: flex;
-  border: 2px solid #be1f2e;
+  /* border: 2px solid #be1f2e; */
   background-color: white;
   max-width: 600px;
 }
@@ -178,6 +178,15 @@
 .donate-container {
   margin: 20px;
   height: 2900px;
+  width: 100%;
+}
+
+.iframe-container-donate {
+  position: relative;
+  height: 1300px;
+  width: 100%;
+  display: flex;
+  justify-content: center !important;
 }
 
 p {
