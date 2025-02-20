@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="arr">©2025 Theosophy Hall Theater</p>
+      <p className="arr">©2025 THEOSOPHY HALL THEATER</p>
     </footer>
   );
 };
