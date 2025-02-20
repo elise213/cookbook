@@ -44,6 +44,11 @@ const Footer = () => {
               CONTACT
             </Link>
           </p>
+          <p className="footer-nav-item">
+            <Link href="/policies" passHref>
+              RENTAL POLICIES
+            </Link>
+          </p>
         </div>
 
         {/* New Wrapper Div */}

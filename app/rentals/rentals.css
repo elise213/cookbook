@@ -139,7 +139,7 @@
 }
 
 .about-person {
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: row;
   align-items: center;

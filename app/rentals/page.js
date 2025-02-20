@@ -239,7 +239,7 @@ const Rentals = () => {
                             passHref
                             style={{ textDecoration: "none", color: "black" }}
                           >
-                            LEARN MORE
+                            SCHEDULE A TOUR
                           </Link>
                         </div>
                       </div>
