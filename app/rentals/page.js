@@ -66,6 +66,8 @@ const Rentals = () => {
           textAlign: "center",
           width: "100%",
           backgroundColor: "white",
+          // overflow: "hidden",
+          height: "1200px",
         }}
       >
         <div
@@ -76,17 +78,16 @@ const Rentals = () => {
           }}
         >
           <iframe
+            scrolling="false"
             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3klgnsxkxQi2cBYDmV0eEBn_UtCJV12I23tWNPkZKtmiCMHsnM3KcNQNpKYen8jzug-ULpJfXx?gv=true"
             style={{
               border: "0",
               width: "100%",
-              minHeight: "700px",
+              // height: "1000px",
               overflow: "hidden",
-              scrolling: "no",
               backgroundColor: "white",
               margin: "0",
             }}
-            frameBorder="0"
           ></iframe>
         </div>
       </div>

@@ -32,13 +32,16 @@
   margin-bottom: 10px;
   font-family: "Neutraface Text", sans-serif;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .about-quote {
+  width: 300px;
   font-style: italic;
   text-align: center;
   margin-bottom: 40px;
+  font-family: "Neutraface Text", sans-serif;
+  justify-self: center;
 }
 
 .about-text,
@@ -48,8 +51,9 @@
   text-align: justify;
   align-self: center;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 20px;
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .about-list {
@@ -72,7 +76,7 @@
 }
 
 .bio-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .bio-container {

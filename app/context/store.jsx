@@ -41,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           name: "FILMING LOCATION",
-          images: ["2.jpg"],
+          images: ["seats.jpg"],
           sq: "Theater: 4500 sq., Stage - 18’ H x 26’ L",
           text: "The Theosophy Hall is the perfect backdrop to memorable productions. We accept long-term film bookings 6+ months out.",
         },

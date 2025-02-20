@@ -129,7 +129,7 @@
 
 .about-person img {
   height: auto !important;
-  width: 50% !important;
+  width: 450px !important;
 }
 
 .rental-text-div {
@@ -139,6 +139,7 @@
 }
 
 .about-person {
+  height: 500px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -148,7 +149,8 @@
   box-sizing: border-box;
   gap: 20px;
   transition: all 0.3s ease-in-out;
-  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
 }
 
 .about-person.even {
@@ -161,10 +163,12 @@
 
 .room-image {
   max-width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .room-image img {
-  width: 100% !important;
+  /* width: 100% !important; */
   height: auto;
 }
 
@@ -290,11 +294,9 @@
   justify-self: center;
 }
 
-/* Testimonials */
 .testimonials-section {
   padding: 20px;
   align-items: center;
-  /* margin-bottom: 10px; */
   justify-self: center;
   box-sizing: border-box;
   width: 100%;
@@ -302,22 +304,22 @@
   flex-direction: column;
   background-color: #f5f5f5;
 }
+
 .testimonial-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns by default */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 800px; /* Optional: Set a max width */
-  margin: auto; /* Center the grid */
+  max-width: 800px;
+  margin: 20px auto;
 }
-
-/* Single-column layout on small screens */
 
 .testimonials-title {
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .testimonial {
-  background-color: #f9f9f9; /* Light gray background */
+  background-color: #f9f9f9;
   padding: 20px;
   border-radius: 2px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -332,11 +334,11 @@
   text-align: justify;
   line-height: 1.5;
   margin: 10px;
-  /* padding: 5px 8px; */
+  font-family: "Neutraface Text", sans-serif;
 }
 
 .testimonial-author {
-  /* font-weight: bold; */
+  font-family: "Neutraface Text", sans-serif;
   text-align: right;
   font-size: 12px;
   margin-right: 20px;
@@ -393,7 +395,10 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 30px;
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.8);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .calendar-container {
@@ -458,10 +463,10 @@ iframe {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--color2);
+  /* border: 2px solid var(--color2); */
   width: 500px;
   padding: 3px;
-  background-color: rgb(255, 255, 255, 0.5);
+  /* background-color: rgb(255, 255, 255, 0.5); */
 }
 .div-2-drop {
   cursor: pointer;
@@ -469,7 +474,7 @@ iframe {
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  border: 2px solid var(--color2);
+  border: 1px solid var(--color1);
   border-radius: 2px;
   background-color: rgb(255, 255, 255, 0.5);
 }
@@ -480,6 +485,10 @@ iframe {
   }
   .fiscal-about span {
     font-size: large !important;
+  }
+  .about-person img {
+    /* height: auto !important; */
+    width: 350px !important;
   }
 }
 
@@ -501,6 +510,7 @@ iframe {
 
   .about-person {
     flex-direction: column !important;
+    justify-content: center;
   }
 
   .about-person.odd {
@@ -548,5 +558,16 @@ iframe {
 
   .about-div-2 {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about-person img {
+    /* height: auto !important; */
+    width: 250px !important;
+  }
+
+  .about-person {
+    padding: 10px !important;
   }
 }

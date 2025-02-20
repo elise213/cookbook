@@ -41,9 +41,9 @@ const donate = () => {
         <div
           className="iframe-container-donate"
           style={{
-            height: "1300px",
+            height: "1600px",
             width: "100%",
-            justifyContent: "center !important",
+            justifyContent: "center",
           }}
         >
           <iframe

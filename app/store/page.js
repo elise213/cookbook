@@ -78,13 +78,14 @@ const Store = () => {
               height: "1300px",
               width: "100%",
               display: "flex",
+              justifyContent: "center",
             }}
           >
             <iframe
               className="donation-iframe"
               title="Donation form powered by Zeffy"
               src="https://www.zeffy.com/embed/donation-form/theosophy"
-              allowpaymentrequest
+              allowpaymentrequest="true"
               allowTransparency="true"
             ></iframe>
           </div>

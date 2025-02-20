@@ -176,14 +176,16 @@ label {
 
 .image-div {
   width: 50%;
-  /* margin-bottom: 30px; */
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin: 0;
+  padding: 20px;
 }
 
 .learn-more-button {
-  margin: 0 20px;
+  margin: 0 15px;
   border: 1px solid var(--color1);
   padding: 3px;
   width: 120px;
@@ -411,8 +413,8 @@ body.modal-open {
   padding: 10px 20px;
   max-width: 500px;
   align-self: center;
-  font-size: 14px;
-  font-weight: 200;
+  font-size: 12px;
+  font-weight: 300;
   margin: 0;
   line-height: 20px;
 }
@@ -430,7 +432,7 @@ body.modal-open {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   width: 100%;
-  max-height: 300px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -445,7 +447,7 @@ body.modal-open {
   height: auto !important;
   margin-right: 20px;
   margin: 0;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 
 .room-carousel {
@@ -466,6 +468,8 @@ body.modal-open {
   font-size: 12px;
   line-height: 1.7;
   display: block;
+  font-family: "Neutraface Text", sans-serif;
+  padding: 5px;
 }
 
 .sticker {
@@ -473,6 +477,10 @@ body.modal-open {
 }
 
 .home-div {
+  background-color: white;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -560,7 +568,7 @@ body.modal-open {
 .event-heading {
   letter-spacing: 2px;
   font-size: 20px;
-  margin: 20px 5px;
+  margin: 0;
   justify-self: center;
   font-family: "Neutraface Text", sans-serif;
   text-align: start;
@@ -574,7 +582,7 @@ body.modal-open {
   justify-content: center;
   width: 100%;
   margin-top: -10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255);
   align-items: center;
   border: 2px solid var(--color2);
   justify-content: space-around;
@@ -611,7 +619,7 @@ body.modal-open {
 
   .nav-item,
   .nav-item a {
-    font-size: 10px;
+    font-size: 12px !important;
   }
   .home-div {
     flex-direction: column !important;
@@ -621,11 +629,13 @@ body.modal-open {
   }
   .image-div {
     width: 100% !important;
-    margin: 20px 0 !important;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .event-heading {
+    text-align: center;
+  }
   .home-text-div {
     margin: 15px !important;
     width: 100% !important;
@@ -649,10 +659,9 @@ body.modal-open {
     flex-direction: column !important;
   }
 
-  /* .home-text,
-  .person-bio {
-    font-size: 12px !important;
-  } */
+  .learn-more-button {
+    margin: 0 10px;
+  }
 
   .person-image {
     width: 120px !important;

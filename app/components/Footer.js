@@ -18,17 +18,6 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-div-2">
-        <div className="footer-div-1">
-          <EmailList />
-          <div className="socials">
-            <Link href="https://www.instagram.com/theosophyhall/">
-              <InstagramIcon style={{ fontSize: "20px" }} />
-            </Link>
-            <Link href="/contact" passHref>
-              <EmailOutlinedIcon style={{ fontSize: "20px" }} />
-            </Link>
-          </div>
-        </div>
         <div className="footer-nav">
           <p className="footer-nav-item">
             <Link href="/" passHref>
@@ -45,7 +34,6 @@ const Footer = () => {
               ABOUT
             </Link>
           </p>
-
           <p className="footer-nav-item">
             <Link href="/store" passHref>
               SUPPORT US
@@ -57,18 +45,28 @@ const Footer = () => {
             </Link>
           </p>
         </div>
-        <div className="contact-footer-div">
-          <p className="footer-contact-text">802-379-9777</p>
-          <p className="footer-contact-text">hello@theosophyhall.com</p>
-          <p className="footer-contact-text">245 W 33rd St. LA, CA</p>
+
+        {/* New Wrapper Div */}
+        <div className="footer-content">
+          <div className="footer-div-1">
+            <EmailList />
+            <div className="socials">
+              <Link href="https://www.instagram.com/theosophyhall/">
+                <InstagramIcon style={{ fontSize: "20px" }} />
+              </Link>
+              <Link href="/contact" passHref>
+                <EmailOutlinedIcon style={{ fontSize: "20px" }} />
+              </Link>
+            </div>
+          </div>
+          <div className="contact-footer-div">
+            <p className="footer-contact-text">802-379-9777</p>
+            <p className="footer-contact-text">hello@theosophyhall.com</p>
+            <p className="footer-contact-text">245 W 33rd St. LA, CA</p>
+          </div>
         </div>
       </div>
       <p className="arr">©2025 Theosophy Hall Theater</p>
-
-      {/* <div className="border">
-        <img src="/img/border.png" alt="CCEA Logo" className="border-bl" />
-        <img src="/img/border.png" alt="CCEA Logo" className="border-br" />
-      </div> */}
     </footer>
   );
 };
