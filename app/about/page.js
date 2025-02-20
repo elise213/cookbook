@@ -8,9 +8,8 @@ import Image from "next/image";
 const About = () => {
   return (
     <>
+      <FakeNavBar />
       <div className="about-page">
-        <FakeNavBar />
-
         <div className="about-content-div">
           <div className="about-quote">
             "The true Theosophist belongs to no cult or sect, yet belongs to
@@ -145,7 +144,6 @@ const About = () => {
             </ul>
           </div>
         </div>
-
         <Footer />
       </div>
     </>

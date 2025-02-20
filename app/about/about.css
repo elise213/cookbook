@@ -1,6 +1,10 @@
 .about-page {
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
+  height: calc(100% - 150px);
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-content-div {
