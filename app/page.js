@@ -128,10 +128,10 @@ const Home = () => {
                   artistic, spiritual, social, and intellectual gatherings:
                   theatrical performance and rehearsal, study groups, dance,
                   music, readings, film screenings, and events we haven't yet
-                  imagined. The Theosophy Hall Theater in Los Angeles California
-                  has hosted countless spiritual and philosophical gatherings.
-                  With the capacity for 350 guests, the Theosophy Hall provides
-                  a perfect blend of historical ambiance and modern amenities.
+                  imagined. The Hall has hosted countless spiritual and
+                  philosophical gatherings. With the capacity for 350 guests,
+                  the Theosophy Hall provides a perfect blend of historical
+                  ambiance and modern amenities.
                 </p>
 
                 <div className="learn-more-button">

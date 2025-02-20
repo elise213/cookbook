@@ -10,7 +10,7 @@ const FakeNavbar = () => {
     <>
       <div className="fake-navbar">
         <img src="/img/border.png" alt="CCEA Logo" className="border-left" />
-        <img src="/img/HALL2.png" alt="CCEA Logo" className="navbar-logo" />
+        <img src="/img/HALL2_rm.png" alt="CCEA Logo" className="navbar-logo" />
         <img src="/img/border.png" alt="CCEA Logo" className="border-right" />
         <div className="navbar-large">
           <span className="nav-item">

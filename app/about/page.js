@@ -19,7 +19,7 @@ const About = () => {
           <div className="about-header">
             <img src="/img/TH1.png" alt="CCEA Logo" className="about-logo" />
           </div>
-          <div className="about-section">
+          <div className="about-section" style={{ marginBottom: "30px" }}>
             <div className="about-title">
               The United Lodge of Theosophists, Los Angeles
             </div>
@@ -119,7 +119,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="about-section">
+          <div className="about-section" style={{ marginBottom: "30px" }}>
             <div className="about-title">Mission & Vision</div>
             <div className="about-text">
               ULT exists to encourage the study of Theosophy, support universal
@@ -128,9 +128,7 @@ const About = () => {
             </div>
           </div>
           <div className="about-section">
-            <div className="about-title">
-              The Three Objects of The Theosophical Society
-            </div>
+            <div className="about-title">The Three Objects:</div>
             <ul className="about-list">
               <li className="about-list-item">
                 To form a nucleus of the Universal Brotherhood of Humanity
