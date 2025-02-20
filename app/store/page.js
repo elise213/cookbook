@@ -5,7 +5,6 @@ import Image from "next/image";
 import FakeNavbar from "../components/FakeNavbar";
 import styles from "./store.css";
 import Footer from "../components/Footer";
-import Donate from "../donate/page.js";
 
 const Store = () => {
   // Product Listings
@@ -72,10 +71,10 @@ const Store = () => {
               </p>
             </div>
           </div> */}
-          <div
+          {/* <div
             style={{
               position: "relative",
-              height: "1300px",
+              height: "1600px",
               width: "100%",
               display: "flex",
               justifyContent: "center",
@@ -86,9 +85,9 @@ const Store = () => {
               title="Donation form powered by Zeffy"
               src="https://www.zeffy.com/embed/donation-form/theosophy"
               allowpaymentrequest="true"
-              allowTransparency="true"
+              allowtransparency="true"
             ></iframe>
-          </div>
+          </div> */}
         </div>
         <Footer />
       </div>

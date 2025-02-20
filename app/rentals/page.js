@@ -66,7 +66,6 @@ const Rentals = () => {
           textAlign: "center",
           width: "100%",
           backgroundColor: "white",
-          // overflow: "hidden",
           height: "1200px",
         }}
       >
@@ -75,6 +74,7 @@ const Rentals = () => {
             margin: "auto",
             overflow: "hidden",
             maxWidth: "600px",
+            height: "700px",
           }}
         >
           <iframe
@@ -83,10 +83,10 @@ const Rentals = () => {
             style={{
               border: "0",
               width: "100%",
-              // height: "1000px",
               overflow: "hidden",
               backgroundColor: "white",
               margin: "0",
+              height: "100%",
             }}
           ></iframe>
         </div>
