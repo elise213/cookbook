@@ -61,26 +61,6 @@
   height: auto !important;
 }
 
-.about-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  align-items: center;
-}
-
-.about-div {
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-  margin: 30px 20px;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
-}
-
 .room-carousel {
   flex: 1;
   min-width: 300px;
@@ -139,7 +119,7 @@
 }
 
 .about-person {
-  height: 400px;
+  /* height: 400px; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,7 +127,7 @@
   padding: 0;
   justify-content: space-between;
   box-sizing: border-box;
-  gap: 20px;
+  gap: 10px;
   transition: all 0.3s ease-in-out;
   padding: 20px;
   width: 100%;
@@ -158,17 +138,17 @@
 }
 
 .about-person.odd {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .room-image {
   max-width: 50%;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .room-image img {
-  /* width: 100% !important; */
   height: auto;
 }
 
@@ -210,8 +190,7 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  /* background-color: white; */
-  /* background-color: rgba(255, 255, 255, 0.3); */
+  /* margin-top: 145px; */
 }
 
 .package-card {
@@ -349,26 +328,6 @@
   flex-direction: column;
   align-items: center;
   max-width: 900px;
-}
-
-.about-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  align-items: center;
-}
-
-.about-div {
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-  margin: 30px 20px;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 /* Rental Packages */
@@ -560,7 +519,6 @@ iframe {
 
 @media screen and (max-width: 400px) {
   .about-person img {
-    /* height: auto !important; */
     width: 250px !important;
   }
 

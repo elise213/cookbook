@@ -7,6 +7,7 @@ import Link from "next/link";
 import FakeNavBar from "./components/FakeNavbar";
 import { auto } from "@popperjs/core";
 import Footer from "./components/Footer";
+import Spacer from "./components/Spacer";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
@@ -83,14 +84,43 @@ const Home = () => {
   }, [store.isNavOpen, store.showContactModal]);
 
   useEffect(() => {
-    checkOverflow();
-    const handleResize = () => {
-      actions.updateScreenSize();
-      checkOverflow();
+    const checkOverflow = () => {
+      const elements = document.querySelectorAll("*");
+      const overflowingElements = [];
+
+      elements.forEach((el) => {
+        if (el.scrollWidth > window.innerWidth) {
+          overflowingElements.push(el);
+
+          // 🔴 Log all child elements and their widths
+          console.log(
+            `Overflowing element: ${el.className || el.tagName}`,
+            `Width: ${el.scrollWidth}, Window: ${window.innerWidth}`
+          );
+
+          [...el.children].forEach((child) => {
+            console.log(
+              `↳ Child: ${child.className || child.tagName}`,
+              `Width: ${child.scrollWidth}`
+            );
+          });
+        }
+      });
+
+      if (overflowingElements.length > 0) {
+        console.warn("Overflowing elements detected:", overflowingElements);
+
+        // 🔴 Highlight elements in red to see them visually
+        overflowingElements.forEach((el) => {
+          el.style.outline = "2px solid red";
+        });
+      }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    checkOverflow(); // Run on mount
+    window.addEventListener("resize", checkOverflow); // Re-run on resize
+
+    return () => window.removeEventListener("resize", checkOverflow);
   }, []);
 
   const today = new Date();
@@ -108,6 +138,7 @@ const Home = () => {
       <div className={` home-body content`}>
         <FakeNavBar />
         <div className="home-second-div">
+          <Spacer />
           <div className="home-div">
             <div className="slideshow">
               {images.map((src, i) => (
@@ -120,7 +151,6 @@ const Home = () => {
               ))}
             </div>
             <div className="image-div">
-              {/* <img src="/img/TH1.png" alt="CCEA Logo" className="home-image" /> */}
               <div className="home-text-div">
                 <p className="welcome">WELCOME {"  "}</p>
                 <p className="home-text">

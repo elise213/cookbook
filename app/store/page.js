@@ -5,6 +5,7 @@ import Image from "next/image";
 import FakeNavbar from "../components/FakeNavbar";
 import styles from "./store.css";
 import Footer from "../components/Footer";
+import Spacer from "../components/Spacer";
 
 const Store = () => {
   // Product Listings
@@ -28,6 +29,7 @@ const Store = () => {
       <div className="store-container">
         <FakeNavbar />
         <div className="products-grid">
+          <Spacer />
           {products.map((product, index) => (
             <a
               key={index}

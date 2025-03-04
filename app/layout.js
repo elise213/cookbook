@@ -17,11 +17,13 @@ function RootLayout({ children }) {
         <meta property="og:image" content="/img/HALL3.png" />
       </head>
       <body className={inter.className}>
-        <div className="wrapper">
-          {/* <Navbar /> */}
-          <main className="content">{children}</main>
-          {/* <Footer /> */}
-        </div>
+        {/* <div className="wrapper"> */}
+        {/* <Navbar /> */}
+        {/* <main className="content"> */}
+        {children}
+        {/* </main> */}
+        {/* <Footer /> */}
+        {/* </div> */}
       </body>
     </html>
   );

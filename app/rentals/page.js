@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import { InlineWidget } from "react-calendly";
+import Spacer from "../components/Spacer";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Link from "next/link";
 
@@ -66,8 +66,9 @@ const Rentals = () => {
           textAlign: "center",
           width: "100%",
           backgroundColor: "white",
-          height: "1200px",
+          height: "700px",
         }}
+        className="iframe-cont-1"
       >
         <div
           style={{
@@ -76,6 +77,7 @@ const Rentals = () => {
             maxWidth: "600px",
             height: "700px",
           }}
+          className="iframe-cont-2"
         >
           <iframe
             scrolling="false"
@@ -98,95 +100,8 @@ const Rentals = () => {
     <>
       <div className="rentals-page">
         <FakeNavBar />
-
-        {/* Rental Packages Section */}
-        {/* <div className="rental-packages">
-          <div className="rental-page-title">Rental Packages</div>
-
-          <div className="packages-grid">
-            <div className="package-card">
-              <Image
-                src="/img/2.jpg"
-                alt="Basic Package"
-                width={100}
-                height={100}
-                className="package-photo"
-              />
-              <div className="card-info">
-                <div className="package-name">Basic Rental</div>
-                <div className="package-details">
-                  Includes standard lighting and seating for up to 50 guests.
-                </div>
-                <div className="package-price">$500 / day</div>
-              </div>
-            </div>
-            <div className="package-card">
-              <Image
-                src="/img/3.jpg"
-                alt="Premium Package"
-                width={100}
-                height={100}
-                className="package-photo"
-              />
-
-              <div className="card-info">
-                <div className="package-name">Premium Rental</div>
-                <div className="package-details">
-                  Includes advanced lighting, sound system, and seating for 100
-                  guests.
-                </div>
-                <div className="package-price">$1000 / day</div>
-              </div>
-            </div>
-            <div className="package-card">
-              <Image
-                src="/img/4.jpg"
-                alt="VIP Package"
-                width={100}
-                height={100}
-                className="package-photo"
-              />
-
-              <div className="card-info">
-                <div className="package-name">VIP Experience</div>
-                <div className="package-details">
-                  Exclusive access, personalized setup, backstage amenities, and
-                  seating for 200 guests.
-                </div>
-                <div className="package-price">$2500 / day</div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-        {/* <div className="rental-image-div">
-          <img src="/img/banner.jpg" alt="seats" className="rental-image" />
-          <div className="overlay-text">RENTALS</div>
-        </div> */}
-
-        {/* <div
-          style={{
-            backgroundColor: "white",
-            padding: "20px",
-            boxSizing: "border-box",
-          }}
-        >
-          <p className="room-title">EVENTS AND FILMING</p>
-          <span
-            className="person-bio"
-            style={{
-              textAlign: "center",
-              maxWidth: "300px",
-            }}
-          >
-            The Theosophy Hall is a unique and beautiful setting for meetings,
-            seminars, working retreats, luncheons, dinners or picnics for
-            corporations and private or nonprofit organizations.
-          </span>
-        </div> */}
-
-        {/* Room Descriptions with Carousel */}
         <div className="room-sections">
+          <Spacer />
           {store.rooms.map((room, index) => {
             const isEven = index % 2 === 0; // Check if index is even
 
