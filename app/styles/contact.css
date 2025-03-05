@@ -16,20 +16,6 @@
   height: 100%;
   width: 100%;
   justify-content: center;
-  /* background-color: rgb(255, 255, 255, 0.2); */
-  margin: 185px 0 80px;
-}
-
-.contact-call {
-  display: flex;
-  padding: 10px 0 0 0;
-  width: 110%;
-  justify-content: flex-end;
-}
-
-.label {
-  font-family: "Urbanist", sans-serif;
-  color: purple;
 }
 
 .form-control,
@@ -110,7 +96,6 @@
   padding: 0px;
   position: relative;
   max-width: 700px;
-  /* min-height: 300px; */
   margin: 0px;
 }
 

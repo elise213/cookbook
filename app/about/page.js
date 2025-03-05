@@ -1,14 +1,13 @@
 "use client";
 import React from "react";
 import styles from "./about.css";
-import FakeNavBar from "../components/FakeNavbar";
+import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Image from "next/image";
 
 const About = () => {
   return (
     <>
-      <FakeNavBar />
+      <NavBar />
       <div className="about-page">
         <div className="about-content-div">
           <div className="about-quote">

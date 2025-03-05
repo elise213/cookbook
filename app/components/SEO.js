@@ -4,7 +4,7 @@ import Head from "next/head";
 const SEO = ({ title, description, image }) => (
   <Head>
     <meta charSet="UTF-8" />
-    <title>{title || "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii!"}</title>
+    <title>{title || "Theosophy Hall"}</title>
     <meta
       name="description"
       content={description || "This is a simple test."}

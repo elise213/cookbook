@@ -104,20 +104,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           windowWidth: window.innerWidth,
         });
       },
-      toggleNavOpen: () => {
-        const store = getStore();
-        setStore({ isNavOpen: !store.isNavOpen });
-      },
-      setShowContactModal: (show) => {
-        setStore({ showContactModal: show });
-      },
-      setIsNavOpen: (isOpen) => {
-        setStore({ isNavOpen: isOpen });
-      },
-      toggleContactModal: () => {
-        const store = getStore();
-        setStore({ showContactModal: !store.showContactModal });
-      },
+
       openModal: () => {
         setStore({ modalIsOpen: true });
       },

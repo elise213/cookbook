@@ -119,7 +119,6 @@
 }
 
 .about-person {
-  /* height: 400px; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -190,7 +189,6 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  /* margin-top: 145px; */
 }
 
 .package-card {
@@ -231,8 +229,6 @@
   padding: 0 20px;
   font-size: 10px;
   line-height: 1.7;
-  /* font-family: "Lexend", sans-serif; */
-  /* font-family: "__Inter_e66fe9", "__Inter_Fallback_e66fe9" !important; */
 }
 
 .rental-page-title {
@@ -247,10 +243,8 @@
   margin-top: 10px;
 }
 
-/* Availability Calendar */
 .availability-calendar {
   padding: 20px;
-  /* width: 100%; */
   height: auto;
   box-sizing: border-box;
   text-align: unset;
@@ -422,11 +416,10 @@ iframe {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid var(--color2); */
   width: 500px;
   padding: 3px;
-  /* background-color: rgb(255, 255, 255, 0.5); */
 }
+
 .div-2-drop {
   cursor: pointer;
   display: flex;
@@ -446,7 +439,6 @@ iframe {
     font-size: large !important;
   }
   .about-person img {
-    /* height: auto !important; */
     width: 350px !important;
   }
 }

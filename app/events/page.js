@@ -3,9 +3,8 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../context/appContext";
 import Image from "next/image";
 import styles from "./events.css";
-import FakeNavbar from "../components/FakeNavbar";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import EmailList from "../components/EmailList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,21 +17,19 @@ const Events = () => {
   const [modalEvent, setModalEvent] = useState(null);
   const today = new Date();
 
-  // Separate upcoming and past events
   const upcomingEvents = store.events.filter(
     (event) => new Date(event.date) >= today
   );
+
   const pastEvents = store.events.filter(
     (event) => new Date(event.date) < today
   );
 
-  // Open modal for event details
   const handleEventClick = (event) => {
     setModalEvent(event);
     setIsModalOpen(true);
   };
 
-  // Close modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalEvent(null);
@@ -40,11 +37,8 @@ const Events = () => {
 
   return (
     <div className="events-page">
-      <FakeNavbar />
-
-      {/* Event Overview Section */}
+      <Navbar />
       <div className="event-content-container">
-        {/* <EmailList /> */}
         <div className="event-text-div">
           <p className="event-text">
             Stay updated with the vibrant array of events hosted in our theater.
@@ -55,7 +49,6 @@ const Events = () => {
             calls Theosophy Hall home.
           </p>
         </div>
-        {/* Upcoming Events List */}
         <div className="events-div">
           <p className="event-heading">UPCOMING EVENTS</p>
           <div className="events-grid">
@@ -82,21 +75,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Calendar of Upcoming Events */}
-        {/* <div className="availability-calendar">
-          <div className="calendar-title">Upcoming Events Calendar</div>
-          <div className="calendar-container">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=America/New_York"
-              className="calendar-iframe"
-              frameBorder="0"
-              scrolling="no"
-              style={{ minWidth: "300px", margin: "30px 0" }}
-            ></iframe>
-          </div>
-        </div> */}
-
-        {/* Past Events Section */}
         <div className="events-div" style={{ borderTop: "1px solid gray" }}>
           <p className="event-heading">PAST EVENTS</p>
           <div className="events-grid">
@@ -124,7 +102,6 @@ const Events = () => {
         </div>
       </div>
 
-      {/* Modal for Event Details */}
       {isModalOpen && modalEvent && (
         <div className="modal-overlay" onClick={handleCloseModal}>
           <div
@@ -137,7 +114,6 @@ const Events = () => {
             <p className="modal-event-title">{modalEvent.title}</p>
             <p className="modal-event-date">{modalEvent.date}</p>
 
-            {/* Event Photo Gallery */}
             <Swiper
               modules={[Navigation, Pagination]}
               navigation

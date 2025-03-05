@@ -2,17 +2,14 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "./context/appContext";
 import styles from "./globals.css";
-import Image from "next/image";
 import Link from "next/link";
-import FakeNavBar from "./components/FakeNavbar";
-import { auto } from "@popperjs/core";
+import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Spacer from "./components/Spacer";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
   const scrollRef = useRef();
-  const [isOverflowing, setIsOverflowing] = useState(false);
   const [index, setIndex] = useState(0);
 
   const images = [
@@ -50,19 +47,6 @@ const Home = () => {
     }
   }, [store.isNavOpen, store.showContactModal]);
 
-  const checkOverflow = () => {
-    if (!scrollRef.current) return;
-
-    const container = scrollRef.current;
-    const isOver = container.scrollWidth > container.offsetWidth;
-    setIsOverflowing(isOver);
-  };
-
-  const getActiveEvent = () => {
-    const { store } = useContext(Context);
-    return store.events.find((event) => event.id === store.activeEventId);
-  };
-
   useEffect(() => {
     if (store.modalIsOpen) {
       document.body.classList.add("modal-open");
@@ -83,49 +67,46 @@ const Home = () => {
     }
   }, [store.isNavOpen, store.showContactModal]);
 
-  useEffect(() => {
-    const checkOverflow = () => {
-      const elements = document.querySelectorAll("*");
-      const overflowingElements = [];
+  // Overflow Debug
+  // useEffect(() => {
+  //   const checkOverflow = () => {
+  //     const elements = document.querySelectorAll("*");
+  //     const overflowingElements = [];
 
-      elements.forEach((el) => {
-        if (el.scrollWidth > window.innerWidth) {
-          overflowingElements.push(el);
+  //     elements.forEach((el) => {
+  //       if (el.scrollWidth > window.innerWidth) {
+  //         overflowingElements.push(el);
 
-          // 🔴 Log all child elements and their widths
-          console.log(
-            `Overflowing element: ${el.className || el.tagName}`,
-            `Width: ${el.scrollWidth}, Window: ${window.innerWidth}`
-          );
+  //         console.log(
+  //           `Overflowing element: ${el.className || el.tagName}`,
+  //           `Width: ${el.scrollWidth}, Window: ${window.innerWidth}`
+  //         );
 
-          [...el.children].forEach((child) => {
-            console.log(
-              `↳ Child: ${child.className || child.tagName}`,
-              `Width: ${child.scrollWidth}`
-            );
-          });
-        }
-      });
+  //         [...el.children].forEach((child) => {
+  //           console.log(
+  //             `↳ Child: ${child.className || child.tagName}`,
+  //             `Width: ${child.scrollWidth}`
+  //           );
+  //         });
+  //       }
+  //     });
 
-      if (overflowingElements.length > 0) {
-        console.warn("Overflowing elements detected:", overflowingElements);
+  //     if (overflowingElements.length > 0) {
+  //       console.warn("Overflowing elements detected:", overflowingElements);
+  //       overflowingElements.forEach((el) => {
+  //         el.style.outline = "2px solid red";
+  //       });
+  //     }
+  //   };
 
-        // 🔴 Highlight elements in red to see them visually
-        overflowingElements.forEach((el) => {
-          el.style.outline = "2px solid red";
-        });
-      }
-    };
+  //   checkOverflow();
+  //   window.addEventListener("resize", checkOverflow);
 
-    checkOverflow(); // Run on mount
-    window.addEventListener("resize", checkOverflow); // Re-run on resize
-
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, []);
+  //   return () => window.removeEventListener("resize", checkOverflow);
+  // }, []);
 
   const today = new Date();
 
-  // Separate events into upcoming and past events
   const upcomingEvents = store.events.filter(
     (event) => new Date(event.date) >= today
   );
@@ -136,9 +117,9 @@ const Home = () => {
   return (
     <>
       <div className={` home-body content`}>
-        <FakeNavBar />
+        <NavBar />
         <div className="home-second-div">
-          <Spacer />
+          <Spacer color={"rgba(255, 255, 255, 0.9)"} />
           <div className="home-div">
             <div className="slideshow">
               {images.map((src, i) => (

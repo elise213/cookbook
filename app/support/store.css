@@ -1,0 +1,50 @@
+.store-container {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.store-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.product-card {
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img {
+  max-width: 100%;
+}
+
+.products-grid {
+  width: 100%;
+}
+
+.product-name {
+  font-family: "Neutraface Text", sans-serif;
+}
+
+.buy-button {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 5px;
+  background: #0070f3;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.buy-button:hover {
+  background: #0056b3;
+}

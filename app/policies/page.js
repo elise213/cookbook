@@ -2,13 +2,15 @@ import React from "react";
 import "./termsandconditions.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Button } from "@mui/material";
-import FakeNavbar from "../components/FakeNavbar";
+import Navbar from "../components/Navbar";
+import Spacer from "../components/Spacer";
 
 const Policies = () => {
   return (
     <>
-      <FakeNavbar />
+      <Navbar />
       <div className="terms-container">
+        <Spacer color={"transparent"} />
         <a href="/checkout">
           <Button
             className="backButton"

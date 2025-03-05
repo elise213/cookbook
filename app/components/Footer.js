@@ -35,7 +35,7 @@ const Footer = () => {
             </Link>
           </p>
           <p className="footer-nav-item">
-            <Link href="/store" passHref>
+            <Link href="/support" passHref>
               SUPPORT US
             </Link>
           </p>
@@ -51,7 +51,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* New Wrapper Div */}
         <div className="footer-content">
           <div className="footer-div-1">
             <EmailList />
@@ -71,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="arr">©2025 THEOSOPHY HALL THEATER</p>
+      <p className="footer-copyright">©2025 THEOSOPHY HALL THEATER</p>
     </footer>
   );
 };

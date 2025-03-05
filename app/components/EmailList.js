@@ -58,7 +58,6 @@ const EmailList = () => {
             </div>
             <input type="hidden" name="subject" value="Email subscription" />
             <button className="send-2" type="submit">
-              {/* <i className="fa-solid fa-angle-right"></i> */}
               <ArrowForwardIosIcon style={{ fontSize: "15px" }} />
             </button>
           </div>

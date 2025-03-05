@@ -18,7 +18,6 @@
 }
 
 .event-text-div {
-  /* margin: 15px; */
   font-family: "Neutraface Text", sans-serif;
 }
 .event-text {
@@ -36,14 +35,11 @@
   padding-top: 20px;
 }
 
-/* Events Page */
 .events-page {
   background-color: #f9f9f9;
-  /* padding: 20px; */
   text-align: center;
 }
 
-/* Events Grid */
 .events-grid {
   display: flex;
   justify-content: center;
@@ -52,7 +48,6 @@
   width: 100%;
 }
 
-/* Event Card */
 .event-card {
   background: white;
   border-radius: 10px;
@@ -81,7 +76,6 @@
   padding: 0;
 }
 
-/* Booking Info */
 .booking-info {
   margin: 40px 0;
 }
@@ -102,7 +96,6 @@
   text-decoration: none;
 }
 
-/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;

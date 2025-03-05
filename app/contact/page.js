@@ -4,9 +4,9 @@ import { Context } from "../context/appContext";
 import styles from "../styles/contact.css";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
-import Link from "next/link";
-import FakeNavbar from "../components/FakeNavbar";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Spacer from "../components/Spacer";
 
 const Contact = () => {
   const { actions } = useContext(Context);
@@ -15,7 +15,6 @@ const Contact = () => {
   const TEMPLATE_ID = "template_uv8sudi";
   const PUBLIC_KEY = "cJEvycw40i3Bo_bkK";
 
-  // Function to send an email
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
@@ -39,15 +38,9 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <FakeNavbar />
+      <Navbar />
+      <Spacer />
       <div className="contact-div">
-        {/* <p className="home-text">
-          We are here to assist you with any inquiries or reservations. Our team
-          is dedicated to ensuring that your experience with Theosophy Hall is
-          as enriching and seamless as possible. Contact us to discover how we
-          can help bring your event to life in a space that’s steeped in both
-          beauty and significance.
-        </p> */}
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="contact-form-div">
             <div className="form-col">
@@ -90,7 +83,7 @@ const Contact = () => {
               ></textarea>
             </div>
           </div>
-          {/* <img src="/img/CCEA99.png" alt="CCEA Logo" className="contact-logo" /> */}
+
           <div className="form-col-full">
             <button className="send-button" type="submit">
               Send

@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState, useRef } from "react";
 import styles from "./rentals.css";
-import FakeNavBar from "../components/FakeNavbar";
+import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import { Context } from "../context/appContext";
@@ -47,13 +47,6 @@ const Rentals = () => {
     },
   ];
 
-  // Open modal with multiple images
-  const handleImageClick = (images) => {
-    setModalImages(images);
-    setIsModalOpen(true);
-  };
-
-  // Close modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setModalImages([]);
@@ -99,18 +92,17 @@ const Rentals = () => {
   return (
     <>
       <div className="rentals-page">
-        <FakeNavBar />
+        <NavBar />
         <div className="room-sections">
-          <Spacer />
+          <Spacer color={"rgba(255, 255, 255, 0.9)"} />
           {store.rooms.map((room, index) => {
-            const isEven = index % 2 === 0; // Check if index is even
+            const isEven = index % 2 === 0;
 
             return (
               <div
                 className={`about-person ${isEven ? "even" : "odd"}`}
                 key={index}
               >
-                {/* Alternate the order of elements */}
                 {isEven ? (
                   <>
                     <div className="room-image">
@@ -161,7 +153,7 @@ const Rentals = () => {
                     </div>
                     <div className="room-image">
                       <img
-                        src={`/img/${room.images[0]}`} // Display first image from array
+                        src={`/img/${room.images[0]}`}
                         alt={room.name}
                         className="person-image"
                       />
@@ -232,7 +224,6 @@ const Rentals = () => {
         <Footer />
       </div>
 
-      {/* Modal with Image Carousel */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={handleCloseModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -244,7 +235,7 @@ const Rentals = () => {
               modules={[Navigation, Pagination]}
               navigation
               pagination={{ clickable: true }}
-              loop={true} // Enables infinite looping
+              loop={true}
             >
               {modalImages.map((img, imgIndex) => (
                 <SwiperSlide key={imgIndex}>
