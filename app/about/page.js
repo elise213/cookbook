@@ -18,7 +18,11 @@ const About = () => {
               src="/img/entrance.png"
               className="theo-bio-img"
               alt="wall"
-              style={{ marginTop: "20px", height: "400px" }}
+              style={{
+                marginTop: "90px",
+                height: "400px",
+                marginBottom: "-10px",
+              }}
             />
 
             <span className="about-title">Theosophy Hall, Los Angeles</span>
@@ -45,9 +49,12 @@ const About = () => {
               src="/img/Helena.png"
               className="theo-bio-img"
               alt="Helena P. Blavatsky"
-              style={{ marginBottom: "-25px", marginLeft: "20px" }}
+              style={{
+                marginBottom: "-35px",
+                marginTOp: "30px",
+                marginLeft: "20px",
+              }}
             />
-            {/* <div className="column"> */}
             <div className="about-title">Helena P. Blavatsky</div>
             <div className="bio-text">
               Helena Petrovna Blavatsky (1831*1891) was a pioneering

@@ -88,6 +88,7 @@ button:hover {
 .right-side {
   max-width: 500px;
   padding: 20px;
+  color: var(--text);
 }
 
 .title {
@@ -110,7 +111,6 @@ button:hover {
 }
 
 p {
-  color: #0017ff;
   font-family: "Georgia", serif;
   font-optical-sizing: auto;
   font-size: 1.3rem;

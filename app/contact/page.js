@@ -3,11 +3,8 @@ import React, { useContext } from "react";
 import styles from "./contact.css";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Context } from "../context/appContext";
 
 const Contact = () => {
-  const { store } = useContext(Context);
-
   return (
     <div className="page-container">
       <NavBar />
@@ -22,7 +19,7 @@ const Contact = () => {
             ></iframe>
           </div>
           <div className="right-side">
-            <p className="subtitle">Theosophy Hall in LA.</p>
+            <p className="subtitle">Theosophy Hall in LA</p>
             <p className="description">
               The Theosophy Hall is the perfect backdrop to memorable
               productions. We accept long-term film bookings 6+ months out.

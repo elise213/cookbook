@@ -74,7 +74,7 @@ body.no-scroll {
 
 .about-title {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   font-weight: 600 !important;
   font-size: 23px;
   color: var(--text);

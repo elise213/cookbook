@@ -135,16 +135,15 @@
   max-width: 300px;
   height: auto;
 }
+
 .theo-bio-img {
   float: left;
-  margin: 0 30px 20px 0;
   max-width: 300px;
   height: auto;
 }
 
 .bio-container-first .theo-bio-img {
-  float: right;
-  margin: 0 0 20px 30px;
+  float: left;
   max-width: 300px;
   height: auto;
 }
