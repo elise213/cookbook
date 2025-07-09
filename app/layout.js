@@ -14,7 +14,9 @@ function RootLayout({ children }) {
         <meta property="og:image" content="/img/HALL3.png" />
       </head>
       <body>
-        <PasswordGate>{children}</PasswordGate>
+        {/* <PasswordGate> */}
+        {children}
+        {/* </PasswordGate> */}
       </body>
     </html>
   );
