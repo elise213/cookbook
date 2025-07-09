@@ -3,12 +3,9 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "./context/appContext";
 import styles from "./globals.css";
 import Link from "next/link";
-import PasswordGate from "./components/PasswordGate";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
-  const scrollRef = useRef();
-  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const body = document.body;
@@ -50,15 +47,6 @@ const Home = () => {
     }
   }, [store.isNavOpen, store.showContactModal]);
 
-  const today = new Date();
-
-  const upcomingEvents = store.events.filter(
-    (event) => new Date(event.date) >= today
-  );
-  const pastEvents = store.events.filter(
-    (event) => new Date(event.date) < today
-  );
-
   return (
     <>
       <div className={` home-body content`}>
@@ -80,9 +68,6 @@ const Home = () => {
           </Link>
           <Link href="/study" passHref>
             <p className="home-nav-item">CLASSES & STUDY GROUPS</p>
-          </Link>
-          <Link href="/rentals" passHref>
-            <p className="home-nav-item">RENTALS</p>
           </Link>
           <Link href="/library" passHref>
             <p className="home-nav-item">LIBRARY</p>

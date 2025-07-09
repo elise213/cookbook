@@ -2,68 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lugrasimo&family=Parisienne&family=Pinyon+Script&display=swap");
 
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Light-Italic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Book.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Book-Italic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Demi.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Demi-Italic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Bold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neutraface Text";
-  src: url("/fonts/Neutraface-Text-Bold-Italic.otf") format("opentype");
-  font-weight: 600;
-  font-style: italic;
-}
-
 :root {
   --color1: rgb(231 223 216);
-  --color2: #04094d;
+  --color2: rgb(4, 9, 77);
   --text: rgb(10 39 205);
   --color3: rgb(108 126 225);
-  --color4: rgb(212, 180, 124);
+  --color4: rgb(0, 23, 255);
 }
 
 html,
@@ -812,7 +756,7 @@ body {
   border: 1px solid #4a3f35;
   width: 360px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 1rem;
+  font-size: 14px;
   display: inline-block;
   background: #f1ebe5;
   transition: all 0.3s ease; /* Smooth transition */
@@ -853,7 +797,7 @@ body {
     sans-serif;
   font-weight: 550;
   font-style: normal;
-  font-size: 10rem;
+  font-size: 30px;
   text-align: right;
   padding-right: 15%;
 }
@@ -952,16 +896,6 @@ h2.about-right {
   text-align: right;
 }
 
-/* p {
-  font-size: 1em;
-  color: #0a27cd;
-  font-family: "Georgia", serif;
-  font-optical-sizing: auto;
-  font-size: 1.3rem;
-  font-style: normal;
-  text-align: justify;
-} */
-
 .quote {
   font-family: "Cormorant", serif;
   font-optical-sizing: auto;
@@ -976,8 +910,6 @@ h2.about-right {
   font-optical-sizing: auto;
   text-align: center;
 }
-
-/*IMAGES*/
 
 .center-container {
   display: grid;
