@@ -19,13 +19,15 @@ const About = () => {
               className="theo-bio-img"
               alt="wall"
               style={{
-                marginTop: "90px",
+                marginTop: "20px",
                 height: "400px",
                 marginBottom: "-10px",
               }}
             />
 
-            <span className="about-title">Theosophy Hall, Los Angeles</span>
+            <span className="about-title" style={{ marginTop: "0" }}>
+              Theosophy Hall, Los Angeles
+            </span>
             <p className="about-text" style={{ marginTop: "20px" }}>
               Founded in 1909, the United Lodge of Theosophists (ULT) in Los
               Angeles was established to continue the pure teachings of

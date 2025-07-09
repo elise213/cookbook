@@ -31,12 +31,8 @@
 }
 
 .navbar-large {
-  grid-area: navbar;
+  flex-direction: row;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  align-self: end;
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
@@ -115,6 +111,7 @@
 
 .hamburger {
   display: none;
+  position: absolute;
   visibility: hidden;
   font-size: 40px;
   cursor: pointer;
@@ -198,6 +195,7 @@
   }
   .hamburger {
     display: block;
+    position: relative !important;
   }
   .page-title {
     width: 100%;
