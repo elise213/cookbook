@@ -12,11 +12,11 @@
 }
 
 .about-heading {
-  font-family: "Parisienne", Impact, Haettenschweiler, "Arial Narrow Bold",
-    sans-serif;
   font-size: 50px;
   text-align: center;
   color: var(--text);
+  font-family: "Parisienne", Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
 }
 
 .about-div {
@@ -78,7 +78,7 @@
   font-weight: 400;
   line-height: 1.8;
   font-family: "Georgia", serif;
-  color: #0a27cd;
+  color: var(--text);
 }
 
 .about-list {

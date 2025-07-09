@@ -75,7 +75,6 @@ const About = () => {
               advocating for a more expansive understanding of human
               consciousness.
             </div>
-            {/* </div> */}
           </div>
 
           <div className="bio-container">
@@ -85,7 +84,7 @@ const About = () => {
               alt="William Q. Judge"
               style={{ marginBottom: "-15px" }}
             />
-            {/* <div className="column"> */}
+
             <div className="about-title">William Q. Judge</div>
             <div className="bio-text">
               William Quan Judge (1851*1896) was a central figure in the early
@@ -103,7 +102,6 @@ const About = () => {
               became a vital platform for spreading Theosophical ideas and
               engaging with seekers of truth.
             </div>
-            {/* </div> */}
           </div>
 
           <div
