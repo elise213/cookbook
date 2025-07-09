@@ -57,6 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           images: ["7.jpg"],
           text: "A peaceful, scenic garden ideal for receptions and outdoor gatherings. Perfect for meditation retreats, social mixers, and networking events.",
         },
+
         // {
         //   name: "Press Room",
         //   images: ["2.jpg", "7.jpg", "8.jpg"],
@@ -89,6 +90,39 @@ const getState = ({ getStore, getActions, setStore }) => {
         // },
       ],
     },
+    events: [
+      {
+        title: "Sunday Sungha",
+        description:
+          "Dzogchen, and Vedanta & The Secret Doctrine. 10:00 am - 12:00 pm (Online & In Person)",
+      },
+      {
+        title: "Theosophy Academy: Occult Philosophy",
+        description:
+          "Discussions focused on founders Helena Petrovna Blavatsky & William Quan Judge. 7:00 pm - 8:30 pm",
+      },
+      {
+        title: "Theosophy Academy: Astrological Bodies & Cycles",
+        description:
+          "Exploring the influence of astrology on spiritual development. 10:00 am - 12:00 pm",
+      },
+      {
+        title: "Esoteric Wisdom & Mysticism",
+        description:
+          "A study of ancient mystical traditions and their modern applications. 6:00 pm - 7:30 pm",
+      },
+      {
+        title: "Metaphysical Teachings",
+        description:
+          "Understanding the deeper layers of reality through metaphysics. 4:00 pm - 5:30 pm",
+      },
+      {
+        title: "Spiritual Healing Practices",
+        description:
+          "Exploring energy healing, meditation, and holistic approaches. 3:00 pm - 4:30 pm",
+      },
+    ],
+
     actions: {
       initializeScreenSize: () => {
         setStore({

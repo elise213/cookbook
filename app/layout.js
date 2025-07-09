@@ -3,8 +3,10 @@ import React from "react";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import injectContext from "./context/appContext";
-const inter = Inter({ subsets: ["latin"] });
 import "font-awesome/css/font-awesome.min.css";
+import PasswordGate from "./components/PasswordGate";
+
+const inter = Inter({ subsets: ["latin"] });
 
 function RootLayout({ children }) {
   return (
@@ -14,7 +16,9 @@ function RootLayout({ children }) {
         <meta property="og:description" content="The Theosophy Hall" />
         <meta property="og:image" content="/img/HALL3.png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <PasswordGate>{children}</PasswordGate>
+      </body>
     </html>
   );
 }
