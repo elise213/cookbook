@@ -73,7 +73,7 @@ body.no-scroll {
 .about-title {
   text-align: center;
   margin: 0 0 20px 0;
-  font-weight: 600 !important;
+  font-weight: bolder;
   font-size: 23px;
   color: var(--text);
   font-family: "Cinzel Decorative", serif;
@@ -127,7 +127,7 @@ label {
 }
 
 .welcome {
-  font-weight: 400;
+  font-weight: bolder;
   font-size: 25px;
   padding: 0;
   margin: 0 0 0 20px;
@@ -313,7 +313,6 @@ body.modal-open {
   padding: 10px 20px;
   align-self: center;
   font-size: 14px;
-  font-weight: 300;
   margin: 0;
   line-height: 20px;
 }
@@ -351,7 +350,6 @@ body.modal-open {
 .room-title {
   letter-spacing: 1px;
   font-size: 20px;
-  font-weight: 400;
   text-align: center;
   margin: 5px 0;
 }
@@ -519,7 +517,6 @@ body.modal-open {
   opacity: 0.8;
   font-size: 14px;
   color: black;
-  /* font-family: "Cinzel Decorative", serif; */
 }
 
 .home-nav a {
@@ -558,7 +555,6 @@ body {
 
 .logomenu {
   font-size: 16px;
-  font-weight: 300;
   letter-spacing: 1px;
   color: #5d554d;
   padding-left: 10px;
@@ -608,7 +604,6 @@ body {
 
 .logomenu-dark {
   font-size: 16px;
-  font-weight: 300;
   letter-spacing: 1px;
   color: #f2f0fa;
   padding-left: 10px;
@@ -675,7 +670,6 @@ body {
   position: absolute;
   top: 10%;
   right: 50%;
-  /* background-color: #3498db;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -683,19 +677,17 @@ body {
   font-size: 22px;
   font-weight: bold;
 }
-/* Right container */
+
 .right-container-main {
   width: 45%;
   height: 85vh;
   position: absolute;
   top: 10%;
   left: 50%;
-  /*background-color: #e74c3c;*/
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-
   font-size: 24px;
   font-weight: bold;
 }
@@ -721,11 +713,11 @@ body {
 .menu-container {
   position: absolute;
   left: 50%;
-  width: 450px; /* Ancho del cuadro */
-  padding: 20px; /* Espaciado interno */
-  border: 1px solid #4a3f35; /* Borde del cuadro */
-  box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
-  margin: 0; /* Sin margen por defecto */
+  width: 450px;
+  padding: 20px;
+  border: 1px solid #4a3f35;
+  box-sizing: border-box;
+  margin: 0;
   font-size: 70%;
   font-weight: 70%;
   text-align: center;
@@ -757,14 +749,14 @@ body {
   font-size: 14px;
   display: inline-block;
   background: #f1ebe5;
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease;
 }
 
 .menu a:hover {
   background: #3c0df9;
   border: 1px solid #3c0df9;
   color: aliceblue;
-  box-shadow: 0 0 15px rgba(60, 13, 249, 0.7); /* Glowing effect */
+  box-shadow: 0 0 15px rgba(60, 13, 249, 0.7);
 }
 
 /* ARTICLES*/
@@ -806,7 +798,6 @@ img {
 }
 
 /*MAIN LOGO*/
-
 .logo-section {
   text-align: left;
   flex: 1;
@@ -833,7 +824,6 @@ img {
   font-size: 2em;
   color: #5a4933;
   margin-top: 10px;
-
   font-family: "Cinzel Decorative", serif;
   font-weight: 400;
 }
@@ -886,10 +876,6 @@ img {
   top: 150%;
 }
 
-/*Animation*/
-
-/*STARS*/
-
 .star {
   position: absolute;
   width: 10px;
@@ -925,7 +911,6 @@ img {
 }
 
 /*Classes*/
-
 .image-container {
   position: absolute;
   right: 0%;
@@ -980,7 +965,6 @@ img {
 }
 
 /*SLIDE SHOW SHOP*/
-
 .slideshow-container {
   max-width: 600px;
   position: relative;
