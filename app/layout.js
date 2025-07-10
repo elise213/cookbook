@@ -9,14 +9,12 @@ function RootLayout({ children }) {
   return (
     <html>
       <head>
-        <meta property="og:title" content="THEOSOPHY HALL EVENTS & RENTALS" />
+        <meta property="og:title" content="Theosophy Hall, Los Angeles" />
         <meta property="og:description" content="The Theosophy Hall" />
-        <meta property="og:image" content="/img/HALL3.png" />
+        <meta property="og:image" content="/img/lucifer.svg" />
       </head>
       <body>
-        {/* <PasswordGate> */}
-        {children}
-        {/* </PasswordGate> */}
+        <PasswordGate>{children}</PasswordGate>
       </body>
     </html>
   );
