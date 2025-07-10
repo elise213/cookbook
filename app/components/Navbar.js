@@ -19,6 +19,7 @@ const AnimatedMenuItem = ({ label, index }) => {
     "STUDY GROUPS": "/study",
     LIBRARY: "/library",
     SHOP: "/shop",
+    "FIND US": "/findus",
     CONTACT: "/contact",
   };
 
@@ -29,7 +30,7 @@ const AnimatedMenuItem = ({ label, index }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ version = "default" }) => {
   const { store, actions } = useContext(Context);
   const [visible, setVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,80 +50,44 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
+  const paths = {
+    HOME: "/",
+    ABOUT: "/about",
+    "STUDY GROUPS": "/study",
+    LIBRARY: "/library",
+    SHOP: "/shop",
+    "FIND US": "/findus",
+    CONTACT: "/contact",
+  };
+
   return (
     <>
-      <div
-        className={`navbar-large ${pathname === "/study" ? "study-page" : ""}`}
-      >
-        <span className="page-title">Theosophy Hall</span>
-
-        <div className="hamburger" onClick={toggleMobileMenu}>
-          ☰
-        </div>
-
+      <div className={`navbar-large version-${version}`}>
+        <span className={`page-title version-${version}`}>Theosophy Hall</span>
         <div className="navbar-items">
-          <Link href="/" passHref>
-            <p className="nav-item">HOME</p>
-          </Link>
-          <Link href="/about" passHref>
-            <p className="nav-item">ABOUT</p>
-          </Link>
-          <Link href="/study" passHref>
-            <p className="nav-item">STUDY GROUPS</p>
-          </Link>
-          <Link href="/library" passHref>
-            <p className="nav-item">LIBRARY</p>
-          </Link>
-          <Link href="/shop" passHref>
-            <p className="nav-item">SHOP</p>
-          </Link>
-          <Link href="/contact" passHref>
-            <p className="nav-item">CONTACT</p>
-          </Link>
+          {Object.entries(paths).map(([label, path]) => (
+            <Link href={path} passHref key={label}>
+              <p className="nav-item">{label}</p>
+            </Link>
+          ))}
+        </div>
+        <div
+          className={`hamburger version-${version}`}
+          onClick={toggleMobileMenu}
+        >
+          ☰
         </div>
       </div>
 
       {isMobileMenuOpen && (
         <div className="mobile-menu-overlay" onClick={toggleMobileMenu}>
           <div className="mobile-menu">
-            {[
-              "HOME",
-              "ABOUT",
-              "STUDY GROUPS",
-              "LIBRARY",
-              "SHOP",
-              "CONTACT",
-            ].map((label, i) => (
+            {Object.keys(paths).map((label, i) => (
               <AnimatedMenuItem key={label} label={label} index={i} />
             ))}
           </div>
         </div>
       )}
-
-      {/* {isMobileMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={toggleMobileMenu}>
-          <div className="mobile-menu">
-            <Link href="/">
-              <p className="mobile-item">HOME</p>
-            </Link>
-            <Link href="/about">
-              <p className="mobile-item">ABOUT</p>
-            </Link>
-            <Link href="/study">
-              <p className="mobile-item">STUDY GROUPS</p>
-            </Link>
-            <Link href="/library">
-              <p className="mobile-item">LIBRARY</p>
-            </Link>
-            <Link href="/shop">
-              <p className="mobile-item">SHOP</p>
-            </Link>
-            <Link href="/contact">
-              <p className="mobile-item">CONTACT</p>
-            </Link>
-          </div>
-        </div>
-      )} */}
     </>
   );
 };

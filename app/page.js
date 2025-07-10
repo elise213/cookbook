@@ -49,36 +49,6 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ padding: "2rem", background: "#fff", color: "#000" }}>
-        <h1 style={{ fontFamily: "Cinzel Decorative, serif", fontWeight: 400 }}>
-          Cinzel Decorative (400)
-        </h1>
-        <h1 style={{ fontFamily: "Cinzel Decorative, serif", fontWeight: 700 }}>
-          Cinzel Decorative (700)
-        </h1>
-        <h1
-          style={{
-            fontFamily: "Cormorant, serif",
-            fontWeight: 400,
-            fontStyle: "italic",
-          }}
-        >
-          Cormorant (Italic 400)
-        </h1>
-        <h1 style={{ fontFamily: "Libre Baskerville, serif", fontWeight: 700 }}>
-          Libre Baskerville (700)
-        </h1>
-        <h1 style={{ fontFamily: "Lugrasimo, cursive" }}>Lugrasimo</h1>
-        <h1 style={{ fontFamily: "Parisienne, cursive" }}>Parisienne</h1>
-        <h1 style={{ fontFamily: "Pinyon Script, cursive" }}>Pinyon Script</h1>
-        <h1 style={{ fontFamily: "Raleway, sans-serif", fontWeight: 700 }}>
-          Raleway (700)
-        </h1>
-        <h1 style={{ fontFamily: "Lexend, sans-serif", fontWeight: 300 }}>
-          Lexend (300)
-        </h1>
-      </div>
-
       <div className={` home-body content`}>
         <div className="home-image-div">
           <img

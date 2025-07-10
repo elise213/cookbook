@@ -29,7 +29,7 @@ const Page = () => {
         padding: "0 0 20px 0",
       }}
     >
-      <Navbar />
+      <Navbar version="2" />
       <div className="marquee-container">
         <marquee className="marquee-text">
           ⋆·˚ ༘ * Study Groups ִֶ 𓂃⊹ &amp; Classes IRL `✦ˑ Online ♦ At the

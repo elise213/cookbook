@@ -6,7 +6,8 @@ import Footer from "../components/Footer";
 const page = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar version="1" />
+
       <section class="book-container">
         <iframe src="https://theosophylib.com/" title="Embedded Site"></iframe>
       </section>

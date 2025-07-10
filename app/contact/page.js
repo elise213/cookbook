@@ -10,7 +10,9 @@ const Contact = () => {
       <NavBar />
       <div className="page-content">
         <div className="contact-page-contents">
-          <p className="about-title">Schedule a Tour</p>
+          <p className="about-title" style={{ margin: "0" }}>
+            Schedule a Tour
+          </p>
           <div className="calendar-box">
             <iframe
               src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3klgnsxkxQi2cBYDmV0eEBn_UtCJV12I23tWNPkZKtmiCMHsnM3KcNQNpKYen8jzug-ULpJfXx?gv=true"
