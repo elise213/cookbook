@@ -67,13 +67,16 @@ const Home = () => {
             <p className="home-nav-item">ABOUT</p>
           </Link>
           <Link href="/study" passHref>
-            <p className="home-nav-item">CLASSES & STUDY GROUPS</p>
+            <p className="home-nav-item">STUDY GROUPS</p>
           </Link>
           <Link href="/library" passHref>
             <p className="home-nav-item">LIBRARY</p>
           </Link>
-          <Link href="/support" passHref>
-            <p className="home-nav-item">SUPPORT US</p>
+          <Link href="/shop" passHref>
+            <p className="home-nav-item">SHOP</p>
+          </Link>
+          <Link href="/findus" passHref>
+            <p className="home-nav-item">FIND US</p>
           </Link>
           <Link href="/contact" passHref>
             <p className="home-nav-item">CONTACT</p>
