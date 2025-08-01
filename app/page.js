@@ -6,6 +6,10 @@ import Link from "next/link";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
+  const lang = store.lang;
+  const setLang = actions.toggleLang;
+
+  const recipe = store.recipes.find((r) => r.id === 1);
 
   useEffect(() => {
     const body = document.body;
@@ -49,41 +53,53 @@ const Home = () => {
 
   return (
     <>
-      <div className={` home-body content`}>
+      <div className={`home-body content`}>
+        <button
+          className="language-button"
+          onClick={() => setLang(lang === "en" ? "ar" : "en")}
+        >
+          {lang === "en" ? "العربية" : "English"}
+        </button>
+
         <div className="home-image-div">
-          <img
-            src="img/phinx.png"
-            alt="Theosophy Hall Los Angeles"
-            className=" phinx"
-          />
-          <p className="page-title">Theosophy Hall</p>
+          <p className="page-title">
+            {lang === "en" ? "Fatima's Cookbook" : "كتاب طبخ فاطمة"}
+          </p>
           <span className="quote">
-            "The true theosophist belongs to no cult or sect, yet belongs to
-            each and all..."
+            {lang === "en" ? "Recipes from Palestine" : "وصفات من فلسطين"}
           </span>
+          <img
+            src="img/picnic.png"
+            alt="Theosophy Hall Los Angeles"
+            className="phinx"
+          />
         </div>
+
         <div className="home-nav">
           <Link href="/about" passHref>
-            <p className="home-nav-item">ABOUT</p>
+            <p className="home-nav-item">
+              {lang === "en" ? "ABOUT" : "معلومات"}
+            </p>
           </Link>
           <Link href="/study" passHref>
-            <p className="home-nav-item">STUDY GROUPS</p>
-          </Link>
-          <Link href="/library" passHref>
-            <p className="home-nav-item">LIBRARY</p>
-          </Link>
-          <Link href="/shop" passHref>
-            <p className="home-nav-item">SHOP</p>
-          </Link>
-          <Link href="/findus" passHref>
-            <p className="home-nav-item">FIND US</p>
+            <p className="home-nav-item">
+              {lang === "en" ? "BROWSE RECIPES" : "تصفح الوصفات"}
+            </p>
           </Link>
           <Link href="/contact" passHref>
-            <p className="home-nav-item">CONTACT</p>
+            <p className="home-nav-item">
+              {lang === "en" ? "CONTACT" : "اتصل بنا"}
+            </p>
+          </Link>
+          <Link href="/login" passHref>
+            <p className="home-nav-item">
+              {lang === "en" ? "SIGN IN" : "تسجيل الدخول"}
+            </p>
           </Link>
         </div>
       </div>
     </>
   );
 };
+
 export default Home;

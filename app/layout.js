@@ -1,23 +1,21 @@
-"use client";
-import React from "react";
+// app/layout.jsx
 import "./globals.css";
-import injectContext from "./context/appContext";
-import "font-awesome/css/font-awesome.min.css";
-import PasswordGate from "./components/PasswordGate";
+import Providers from "./context/Providers";
+import LayoutWrapper from "./components/LayoutWrapper";
 
-function RootLayout({ children }) {
+export const metadata = {
+  title: "Fatima's Cookbook",
+  description: "Recipes from Palestine",
+};
+
+export default function RootLayout({ children }) {
   return (
-    <html>
-      <head>
-        <meta property="og:title" content="Theosophy Hall, Los Angeles" />
-        <meta property="og:description" content="The Theosophy Hall" />
-        <meta property="og:image" content="/img/lucifer.svg" />
-      </head>
+    <html lang="en">
       <body>
-        <PasswordGate>{children}</PasswordGate>
+        <Providers>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </Providers>
       </body>
     </html>
   );
 }
-
-export default injectContext(RootLayout);

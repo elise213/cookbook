@@ -1,6 +1,7 @@
 // components/PasswordGate.jsx
 "use client";
 import { useEffect, useState } from "react";
+import injectContext from "../context/appContext"; // ✅ wrap here
 
 const PasswordGate = ({ children }) => {
   const [input, setInput] = useState("");
@@ -64,4 +65,5 @@ const PasswordGate = ({ children }) => {
   );
 };
 
-export default PasswordGate;
+// ✅ Wrap and export with context
+export default injectContext(PasswordGate);

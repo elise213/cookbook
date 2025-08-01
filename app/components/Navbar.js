@@ -5,37 +5,61 @@ import Link from "next/link";
 import "../styles/navbar.css";
 import { usePathname } from "next/navigation";
 
+const routePaths = {
+  HOME: "/",
+  ABOUT: "/about",
+  RECIPES: "/study",
+  CONTACT: "/contact",
+};
+
+const translations = {
+  en: {
+    HOME: "HOME",
+    ABOUT: "ABOUT",
+    RECIPES: "RECIPES",
+    CONTACT: "CONTACT",
+  },
+  ar: {
+    HOME: "الرئيسية",
+    ABOUT: "معلومات",
+    RECIPES: "الوصفات",
+    CONTACT: "اتصل بنا",
+  },
+};
+
 const AnimatedMenuItem = ({ label, index }) => {
   const [show, setShow] = useState(false);
+  const { store } = useContext(Context);
+  const lang = store.lang;
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), index * 100);
-    return () => clearTimeout(timer);
+    const raf = requestAnimationFrame(() => {
+      const timer = setTimeout(() => setShow(true), index * 100);
+      return () => clearTimeout(timer);
+    });
+    return () => cancelAnimationFrame(raf);
   }, [index]);
 
-  const paths = {
-    HOME: "/",
-    ABOUT: "/about",
-    "STUDY GROUPS": "/study",
-    LIBRARY: "/library",
-    SHOP: "/shop",
-    "FIND US": "/findus",
-    CONTACT: "/contact",
-  };
+  const href = routePaths[label];
+
+  if (!href) return null;
 
   return (
-    <Link href={paths[label]}>
-      <p className={`mobile-item ${show ? "show" : ""}`}>{label}</p>
+    <Link href={href}>
+      <p className={`mobile-item ${show ? "show" : ""}`}>
+        {translations[lang][label]}
+      </p>
     </Link>
   );
 };
 
 const Navbar = ({ version = "default" }) => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const [visible, setVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const prevScrollPos = useRef(0);
   const pathname = usePathname();
+  const lang = store.lang;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,24 +74,13 @@ const Navbar = ({ version = "default" }) => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
-  const paths = {
-    HOME: "/",
-    ABOUT: "/about",
-    "STUDY GROUPS": "/study",
-    LIBRARY: "/library",
-    SHOP: "/shop",
-    "FIND US": "/findus",
-    CONTACT: "/contact",
-  };
-
   return (
     <>
       <div className={`navbar-large version-${version}`}>
-        <span className={`page-title version-${version}`}>Theosophy Hall</span>
         <div className="navbar-items">
-          {Object.entries(paths).map(([label, path]) => (
+          {Object.entries(routePaths).map(([label, path]) => (
             <Link href={path} passHref key={label}>
-              <p className="nav-item">{label}</p>
+              <p className="nav-item">{translations[lang][label]}</p>
             </Link>
           ))}
         </div>
@@ -82,7 +95,7 @@ const Navbar = ({ version = "default" }) => {
       {isMobileMenuOpen && (
         <div className="mobile-menu-overlay" onClick={toggleMobileMenu}>
           <div className="mobile-menu">
-            {Object.keys(paths).map((label, i) => (
+            {Object.keys(routePaths).map((label, i) => (
               <AnimatedMenuItem key={label} label={label} index={i} />
             ))}
           </div>

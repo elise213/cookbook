@@ -1,58 +1,57 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
-import Papa from "papaparse";
+import { Context } from "../context/appContext";
 import styles from "./study.css";
-
-const SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEKwsgLMRgKJhcrH0bP0znRkH1vBvG9XvcijjVhLuEb1Q4jGFQoM5FdIXgf4xdboGcZOLF8Fmgdb4L/pub?output=csv";
+import Link from "next/link";
 
 const Page = () => {
-  const [classes, setClasses] = useState([]);
+  const { store, actions } = useContext(Context);
+  const lang = store.lang;
+  const { recipes } = store;
+  const isArabic = lang === "ar";
+  const setLang = actions.toggleLang;
 
-  useEffect(() => {
-    Papa.parse(SHEET_CSV_URL, {
-      download: true,
-      header: true,
-      complete: (result) => {
-        console.log("Parsed CSV data:", result.data);
-        setClasses(result.data);
-      },
-    });
-  }, []);
+  // ✅ Translation helper
+  const t = (obj) => obj?.[lang] || obj?.en || "";
 
   return (
-    <div
-      style={{
-        backgroundColor: "var(--color2)",
-        flex: "1",
-        padding: "0 0 20px 0",
-      }}
-    >
+    <div className="study-page">
       <Navbar version="2" />
+      <div className="lang-toggle-container">
+        <button className="lang-toggle" onClick={setLang}>
+          {isArabic ? "English" : "العربية"}
+        </button>
+      </div>
+
       <div className="marquee-container">
         <marquee className="marquee-text">
-          ⋆·˚ ༘ * Study Groups ִֶ 𓂃⊹ &amp; Classes IRL `✦ˑ Online ♦ At the
-          Theosophy Hall LA ✩₊˚.⋆☾⋆⁺₊✧
+          {isArabic
+            ? "⋆·˚ ༘ * وصفات 𓂃⊹ من الوطن ✦ˑ كل ♦ واستمتع بهذه الحياة ✩₊˚.⋆☾⋆⁺₊✧"
+            : "⋆·˚ ༘ * Recipes ִֶ 𓂃⊹ From Palestine ✦ˑ ✩₊˚.⋆☾⋆⁺₊✧"}
         </marquee>
       </div>
 
       <section className="grid-container2">
-        {classes.map((item, index) => (
+        {recipes.map((item, index) => (
           <div className="grid-item" key={index}>
-            <div className="study-title">{item.Title}</div>
-            <p>{item.Description}</p>
-            <a href="#" className="btn">
-              LEARN MORE
-            </a>
+            <div className="study-title">{t(item.title)}</div>
+            <p className="recipe-card-text">{t(item.description)}</p>
+            <Link href={`/recipe/${item.id}`} className="btn">
+              {isArabic ? "عرض الوصفة" : "View Recipe"}
+            </Link>
           </div>
         ))}
       </section>
 
       <div className="image-container">
         <img
-          src="img/Lucifer-illustration.png"
-          alt="Illustration of Lucifer, Theosophical magazine"
+          src="/img/picnic.png"
+          alt={
+            isArabic
+              ? "رسم توضيحي للوسيفر، مجلة الثيوصوفية"
+              : "Illustration of Lucifer, Theosophical magazine"
+          }
           className="theo-mag-lucifer"
         />
       </div>
