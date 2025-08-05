@@ -1,4 +1,3 @@
-// components/PasswordGate.jsx
 "use client";
 import { useEffect, useState } from "react";
 import injectContext from "../context/appContext";
@@ -6,28 +5,41 @@ import injectContext from "../context/appContext";
 const PasswordGate = ({ children }) => {
   const [input, setInput] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // const correctPassword = process.env.NEXT_PUBLIC_SITE_PASSWORD;
-
-  const correctPassword =
-    typeof window !== "undefined"
-      ? process.env.NEXT_PUBLIC_SITE_PASSWORD
-      : null;
-
+  // Check if user is already authenticated from a past session
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = sessionStorage.getItem("authenticated");
-      if (stored === "true") setAuthenticated(true);
+    const stored = sessionStorage.getItem("authenticated");
+    if (stored === "true") {
+      setAuthenticated(true);
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (input === correctPassword) {
-      sessionStorage.setItem("authenticated", "true");
-      setAuthenticated(true);
-    } else {
-      alert("Incorrect password");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/check-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password: input }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        sessionStorage.setItem("authenticated", "true"); // ✅ Store session
+        setAuthenticated(true);
+      } else {
+        alert("Incorrect password");
+      }
+    } catch (err) {
+      console.error("Password check failed:", err);
+      alert("Error connecting to server.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,8 +54,11 @@ const PasswordGate = ({ children }) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit">Enter</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Checking..." : "Enter"}
+        </button>
       </form>
+
       <style jsx>{`
         .password-gate {
           height: 100vh;
@@ -70,5 +85,4 @@ const PasswordGate = ({ children }) => {
   );
 };
 
-// ✅ Wrap and export with context
 export default injectContext(PasswordGate);
