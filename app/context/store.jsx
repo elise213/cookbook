@@ -172,9 +172,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       checkAuth: async () => {
         try {
-          const resp = await fetch("http://localhost:5000/api/protected", {
-            credentials: "include",
-          });
+          const resp = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/protected`,
+            {
+              credentials: "include",
+            }
+          );
 
           if (!resp.ok) throw new Error("Not authenticated");
 
@@ -229,12 +232,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleLogin: async (e, email, password, router) => {
         e.preventDefault();
         try {
-          const response = await fetch("http://localhost:5000/api/login", {
-            method: "POST",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-          });
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`,
+            {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password }),
+            }
+          );
 
           const data = await response.json();
 

@@ -91,7 +91,10 @@ const Navbar = ({}) => {
               </Link>
             </>
           ) : (
-            <button className="home-nav-item" onClick={handleLogout}>
+            <button
+              className="home-nav-item"
+              onClick={isLoggedIn ? handleLogout : null}
+            >
               {lang === "en" ? "LOGOUT" : "تسجيل الخروج"}
             </button>
           )}

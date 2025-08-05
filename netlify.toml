@@ -7,7 +7,7 @@
 
 
 [build.environment]
-  NEXT_PUBLIC_BACKEND_URL = "http://localhost:5000/api"
+  NEXT_PUBLIC_BACKEND_URL = "https://cookbook-backend-xpm1.onrender.com/api"
 
 [[redirects]]
   from = "/*"

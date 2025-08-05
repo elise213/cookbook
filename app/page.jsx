@@ -17,6 +17,7 @@ const Home = () => {
   const { user, authChecked } = store;
   const isLoggedIn = authChecked && !!user;
   const [donation, setDonation] = useState(20);
+  const logout = actions.logoutAndClear;
 
   const handleLogout = actions.logoutAndClear;
   const [loading, setLoading] = useState(false);
@@ -154,15 +155,6 @@ const Home = () => {
             </div>
 
             <div className="home-nav">
-              {!isLoggedIn ? (
-                <Link href="/login" passHref>
-                  <p className="home-nav-item">
-                    {isArabic ? "تسجيل الدخول" : "SIGN IN"}
-                  </p>
-                </Link>
-              ) : (
-                ""
-              )}
               {isLoggedIn && (
                 <Link href="/recipes" passHref>
                   <p className="home-nav-item">
@@ -180,7 +172,17 @@ const Home = () => {
                   {isArabic ? "اتصل بنا" : "CONTACT"}
                 </p>
               </Link>
-
+              {!isLoggedIn ? (
+                <Link href="/login" passHref>
+                  <p className="home-nav-item">
+                    {isArabic ? "تسجيل الدخول" : "SIGN IN"}
+                  </p>
+                </Link>
+              ) : (
+                <p className="home-nav-item" onClick={logout}>
+                  {isArabic ? "" : "Logout"}
+                </p>
+              )}
               <div className="home-nav-item" onClick={actions.toggleLang}>
                 {isArabic ? "English" : "العربية"}
               </div>
