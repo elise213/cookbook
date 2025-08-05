@@ -1,13 +1,23 @@
 // components/PasswordGate.jsx
 "use client";
 import { useEffect, useState } from "react";
-import injectContext from "../context/appContext"; // ✅ wrap here
+import injectContext from "../context/appContext";
 
 const PasswordGate = ({ children }) => {
   const [input, setInput] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
 
-  const correctPassword = process.env.NEXT_PUBLIC_SITE_PASSWORD;
+  // const correctPassword = process.env.NEXT_PUBLIC_SITE_PASSWORD;
+
+  const correctPassword =
+    typeof window !== "undefined"
+      ? process.env.NEXT_PUBLIC_SITE_PASSWORD
+      : null;
+
+  console.log(
+    "NEXT_PUBLIC_SITE_PASSWORD:",
+    process.env.NEXT_PUBLIC_SITE_PASSWORD
+  );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
