@@ -56,22 +56,13 @@ const Home = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: "include", // ✅ Required to send JWT cookie
+          credentials: "include",
           body: JSON.stringify({
-            amount: Math.round(donation * 100), // amount in cents
+            amount: Math.round(donation * 100),
             product_name: "Fatima’s Cookbook",
-            lang: store.lang || "en",
           }),
         }
       );
-
-      // If unauthorized, show detailed error
-      if (res.status === 401) {
-        const errorData = await res.json();
-        console.error("Unauthorized:", errorData);
-        alert("You're not logged in. Please log in before checking out.");
-        return;
-      }
 
       const data = await res.json();
 
