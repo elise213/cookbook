@@ -17,8 +17,8 @@ export default function SuccessPage() {
   return (
     <div style={styles.container}>
       <p style={styles.text}>
-        Thank you for your purchase. You've been automatically logged into your
-        new account and your login credentials have been sent to your email.
+        Thank you for your purchase. Your login credentials have been sent to
+        your email. Your generosity will support a family from Gaza.
       </p>
       <p>
         <Link href="/recipes" style={styles.link}>
