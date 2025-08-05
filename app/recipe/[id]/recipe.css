@@ -284,10 +284,9 @@ ul li {
 @media screen and (max-width: 600px) {
   ol li {
     margin: 5px 5px 25px 20px !important;
-    /* text-align: center; */
   }
   .recipe-row-orcol {
-    flex-direction: row; /* horizontal layout */
+    flex-direction: row;
     align-items: flex-start;
   }
 

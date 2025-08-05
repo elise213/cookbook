@@ -30,8 +30,6 @@ const About = () => {
               alt="William Q. Judge"
               style={{ marginBottom: "-15px" }}
             /> */}
-
-              {/* <div className="about-title">War and Displacement</div> */}
               <div className="bio-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
