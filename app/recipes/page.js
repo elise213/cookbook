@@ -17,7 +17,14 @@ const Page = () => {
     <>
       <Navbar version="2" />
       <div className="study-page">
-        <div className="scroll">
+        <div
+          className="scroll"
+          style={{
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "unset",
+          }}
+        >
           <div className="home-image-div" style={{ marginTop: "80px" }}>
             <p className="page-title">
               {lang === "en" ? "Fatima's Cookbook" : "كتاب طبخ فاطمة"}

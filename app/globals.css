@@ -462,15 +462,6 @@ a {
   font-family: "Cinzel Decorative", serif;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  margin: 0.3;
-  padding: 0.3%;
-  padding-right: 10%;
-  font-family: "Georgia", serif;
-}
-
 .nav-links li {
   margin: 0 15px;
 }
