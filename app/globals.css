@@ -870,68 +870,6 @@ img {
   z-index: 1;
 }
 
-@media screen and (max-width: 500px) {
-  .home-body {
-    flex-direction: column;
-    justify-content: center !important;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .home-div {
-    flex-direction: column !important;
-  }
-
-  .image-div {
-    width: 100% !important;
-    padding-top: 35px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .scroll-home {
-    margin: 0;
-  }
-  .group {
-    flex-direction: column;
-  }
-
-  .scroll {
-    flex-direction: column;
-    justify-content: unset !important;
-  }
-
-  .purchase-section {
-    position: relative !important;
-    top: unset;
-    right: unset;
-    max-width: 100%;
-  }
-
-  .home-text-div {
-    margin: 15px !important;
-    padding: 0 15px;
-  }
-
-  .image-div {
-    flex-direction: column !important;
-  }
-
-  .home-image {
-    margin: 0 !important;
-    min-width: 150px;
-    width: 100%;
-    max-width: unset !important;
-  }
-
-  .learn-more-button {
-    margin: 0 10px;
-  }
-
-  .person-image {
-    width: 120px !important;
-  }
-}
 @keyframes glow {
   0% {
     box-shadow: 0 0 5px white;
@@ -989,9 +927,68 @@ img {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .home-body {
+    flex-direction: column;
+    justify-content: center !important;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .scroll-home {
+    flex-direction: column !important;
+    justify-content: unset !important;
+    align-items: unset !important;
+    margin: 0 !important;
+  }
+  .group {
     flex-direction: column;
-    justify-content: unset;
+  }
+
+  .scroll {
+    flex-direction: column;
+    justify-content: unset !important;
+  }
+
+  .purchase-section {
+    position: relative !important;
+    top: unset;
+    right: unset;
+    max-width: 100%;
+  }
+
+  .home-text-div {
+    margin: 15px !important;
+    padding: 0 15px;
+  }
+
+  .image-div {
+    flex-direction: column !important;
+  }
+
+  .home-image {
+    margin: 0 !important;
+    min-width: 150px;
+    width: 100%;
+    max-width: unset !important;
+  }
+
+  .learn-more-button {
+    margin: 0 10px;
+  }
+
+  .person-image {
+    width: 120px !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-div {
+    flex-direction: column !important;
+  }
+
+  .image-div {
+    width: 100% !important;
+    padding-top: 35px;
   }
 }

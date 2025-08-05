@@ -1,15 +1,10 @@
 "use client";
 import { useState, useContext } from "react";
-import { useRouter } from "next/navigation";
 import { Context } from "../context/appContext";
-import Swal from "sweetalert2";
 import Link from "next/link";
 
 export default function SuccessPage() {
   const { store, actions } = useContext(Context);
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const lang = store.lang;
   const isArabic = lang === "ar";
