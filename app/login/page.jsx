@@ -1,68 +1,74 @@
 "use client";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { Context } from "../context/appContext";
+import styles from "../login/login.css";
+import Navbar from "../components/Navbar";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const router = useRouter();
 
-  const logoutAction = actions.logoutAndClear; // ✅ FIXED: don't invoke immediately
+  const { user, authChecked } = store;
+  const isLoggedIn = !!user;
 
-  useEffect(() => {
-    // Clear both cookie names on load
-    document.cookie = "access_token=; Max-Age=0; path=/;";
-    document.cookie = "access_token_cookie=; Max-Age=0; path=/;";
-    actions.logoutAndClear(); // ✅ clear frontend state too
-  }, []);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const result = await actions.loginUser(email, password);
-    if (result.success) {
-      alert("Welcome!");
-      router.push("/");
-    } else {
-      alert(result.error);
-    }
-  };
+  const handleLogin = actions.handleLogin;
+  const handleLogout = actions.logoutAndClear;
+  const lang = store.lang;
+  const isArabic = lang === "ar";
+  const t = (obj) => obj?.[lang] || obj?.en || "";
 
   return (
-    <div style={{ maxWidth: "400px", margin: "3rem auto" }}>
-      <h2 style={{ textAlign: "center" }}>Login</h2>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
-        />
-        <br />
+    <>
+      <Navbar />
+      <p className="back-button" onClick={() => router.push("/")}>
+        {isArabic ? "العودة إلى كتاب الوصفات" : " ← Back to Home"}
+      </p>
+      <div className="login-page">
+        {authChecked && isLoggedIn ? (
+          <button className="home-nav-item" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <form onSubmit={(e) => handleLogin(e, email, password, router)}>
+            <label htmlFor="email">Email</label>
+            <input
+              required
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+            />
+            <br />
 
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="********"
-        />
-        <br />
+            <label htmlFor="password">Password</label>
+            <input
+              required
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="********"
+            />
+            <br />
 
-        <button type="submit" style={{ marginTop: "1rem" }}>
-          Login
-        </button>
-      </form>
-
-      <button onClick={logoutAction} style={{ marginTop: "1rem" }}>
-        Logout
-      </button>
-    </div>
+            <button
+              className="home-nav-item"
+              type="submit"
+              style={{ width: "100%", margin: "0" }}
+            >
+              Log in
+            </button>
+            <Link href="/forgotpassword" style={{ marginTop: "20px" }}>
+              <p className="quote">Forgot Password</p>
+            </Link>
+          </form>
+        )}
+      </div>
+    </>
   );
 }

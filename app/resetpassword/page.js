@@ -1,37 +1,116 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { resetPassword } from "../utils/api";
+"use client";
+import { useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import Swal from "sweetalert2";
+import styles from "./reset.css";
 
-export default function ResetPasswordPage() {
+const ResetPassword = () => {
   const router = useRouter();
-  const [token, setToken] = useState("");
-  const [password, setPassword] = useState("");
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const urlToken = router.query.token;
-    if (urlToken) setToken(urlToken);
-  }, [router.query]);
+    if (!token) {
+      Swal.fire({
+        icon: "error",
+        title: "Missing Token",
+        text: "The reset link is invalid or expired.",
+      });
+    }
+  }, [token]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res = await resetPassword(token, password);
-    if (res.message) {
-      alert("Password changed!");
-      router.push("/login");
-    } else {
-      alert(res.error || "Something went wrong.");
+  const handleResetPassword = async () => {
+    if (!newPassword || !confirmPassword) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Incomplete Fields",
+        text: "Please fill out both fields.",
+      });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return Swal.fire({
+        icon: "error",
+        title: "Password Mismatch",
+        text: "Passwords do not match.",
+      });
+    }
+
+    if (!token) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Link",
+        text: "Reset token is missing or expired.",
+      });
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/reset-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token, new_password: newPassword }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Password Reset",
+          text: "Your password was reset successfully!",
+        });
+        setTimeout(() => router.push("/"), 2000);
+      } else {
+        throw new Error(data.error || "Failed to reset password.");
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: err.message,
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="reset-password-container">
+      <h2>Reset Your Password</h2>
       <input
         type="password"
         placeholder="New password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={newPassword}
+        onChange={(e) => setNewPassword(e.target.value)}
+        className="form-input"
       />
-      <button type="submit">Reset Password</button>
-    </form>
+      <input
+        type="password"
+        placeholder="Confirm new password"
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        className="form-input"
+      />
+      <button
+        onClick={handleResetPassword}
+        disabled={loading}
+        className="submit-btn"
+      >
+        {loading ? "Resetting..." : "Reset Password"}
+      </button>
+    </div>
   );
-}
+};
+
+export default ResetPassword;

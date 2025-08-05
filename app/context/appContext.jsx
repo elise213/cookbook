@@ -17,15 +17,23 @@ const injectContext = (PassedComponent) => {
     // Define stable references for store/actions
     const getStore = () => stateRef.current?.store || {};
     const getActions = () => stateRef.current?.actions || {};
-    const setStore = (updatedStore) =>
+
+    const setStore = (updatedStore) => {
       setState((prevState) => {
-        const newState = {
-          store: { ...prevState.store, ...updatedStore },
-          actions: { ...prevState.actions },
+        const mergedStore = {
+          ...prevState.store,
+          ...updatedStore,
         };
-        stateRef.current = newState; // keep ref in sync
+
+        const newState = {
+          store: mergedStore,
+          actions: prevState.actions,
+        };
+
+        stateRef.current = newState;
         return newState;
       });
+    };
 
     // Initialize getState on first render
     useEffect(() => {
@@ -34,7 +42,9 @@ const injectContext = (PassedComponent) => {
       setState(initialState);
     }, []);
 
-    if (!state.store.lang) return null; // avoid flicker on hydration
+    // if (!state.store.authChecked) {
+    //   return <p>Loading...</p>;
+    // }
 
     return (
       <Context.Provider value={state}>

@@ -1,0 +1,59 @@
+form {
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-family: "Balmoon", cursive;
+  border: none;
+  z-index: 999;
+  border: none;
+}
+
+label {
+  font-family: "Balmoon", cursive;
+  letter-spacing: 1px;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px 20px 20px;
+  background-color: transparent !important;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 0;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("/img/paper2.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
+}
+.forgot-title {
+  font-family: "Balmoon", cursive;
+  text-align: center;
+  font-size: 25px;
+}

@@ -1,12 +1,13 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 import { Context } from "../../context/appContext";
-import styles from "../../styles/recipe.css";
-import { useRouter } from "next/navigation";
+import "./recipe.css";
+import Navbar from "@/app/components/Navbar";
+import Swal from "sweetalert2";
 
 const Recipe = () => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const { id } = useParams();
   const lang = store.lang;
   const isArabic = lang === "ar";
@@ -17,47 +18,56 @@ const Recipe = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!id || !recipe) return <div>Recipe not found.</div>;
+  if (!id || !recipe)
+    return (
+      <div className="recipe-not-found">
+        {isArabic ? "الوصفة غير موجودة" : "Recipe not found."}
+      </div>
+    );
+
+  const handlePrint = () => {
+    Swal.fire({
+      title: isArabic ? "كيف تريد الطباعة؟" : "How would you like to print?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: isArabic ? "مع الصور" : "With Pictures",
+      denyButtonText: isArabic ? "بدون صور" : "Without Pictures",
+      cancelButtonText: isArabic ? "إلغاء" : "Cancel",
+    }).then((result) => {
+      const images = document.querySelectorAll(".recipe-image");
+      images.forEach((img) => img.classList.remove("hide-image"));
+
+      if (result.isDenied) {
+        images.forEach((img) => img.classList.add("hide-image"));
+      }
+
+      // 🛠 Wait until modal closes before printing
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          Swal.close(); // force-close if needed
+          setTimeout(() => window.print(), 200);
+        });
+      }, 200);
+    });
+  };
 
   return (
-    <div className="recipe-page">
-      <div className="lang-toggle-container">
-        <button className="lang-toggle" onClick={actions.toggleLang}>
-          {isArabic ? "English" : "العربية"}
-        </button>
-      </div>
+    <>
+      <Navbar />
 
-      <div className="nav-buttons">
-        <button className="back-button" onClick={() => router.push("/study")}>
-          {isArabic ? "العودة إلى كتاب الوصفات" : "Back to Recipe Book"}
-        </button>
+      <p className="print-button" onClick={handlePrint} aria-label="Print">
+        🖨️ {isArabic ? "طباعة الوصفة" : "Print This Recipe"}
+      </p>
+      <p className="back-button" onClick={() => router.push("/recipes")}>
+        {isArabic ? "العودة إلى كتاب الوصفات" : "← Back to Recipe Book"}
+      </p>
 
-        <div className="print-controls">
-          <button
-            onClick={() => {
-              document
-                .querySelectorAll(".recipe-image")
-                .forEach((img) => (img.style.display = "block"));
-              window.print();
-            }}
-            className="print-button"
-          >
-            {isArabic ? "طباعة مع الصور" : "Print with Pictures"}
-          </button>
+      <main className={`recipe-page ${isArabic ? "arabic" : "english"}`}>
+        <div className="print-wrapper printable">
+          <article className="recipe-container ">
+            <h1 className="recipe-title">{recipe.title[lang]}</h1>
 
-          <button onClick={() => window.print()} className="print-button">
-            {isArabic ? "طباعة مع الصور" : "Print"}
-          </button>
-        </div>
-      </div>
-
-      <div className="recipe-container">
-        <div className="together">
-          <div className={`column ${isArabic ? "arabic" : "english"}`}>
-            {!isArabic && <p className=" alt-lang-title">{recipe.title.ar}</p>}
-            <p className="recipe-title dotted">{recipe.title[lang]}</p>
-
-            <div className={`meta-row ${isArabic ? "arabic" : "english"}`}>
+            <section className="meta-row">
               <div className="meta-item">
                 <img
                   src={store.icons.servings}
@@ -70,12 +80,14 @@ const Recipe = () => {
                     : `${recipe.servings} servings`}
                 </span>
               </div>
-              <div className="meta-item">
+
+              <div className="meta-item dotted">
                 <img src={store.icons.alarm} alt="Time" className="meta-icon" />
                 <span className="meta-text">
                   {isArabic ? `${recipe.hours} ساعات` : `${recipe.hours} hours`}
                 </span>
               </div>
+
               <div className="meta-item">
                 <img
                   src={
@@ -87,51 +99,50 @@ const Recipe = () => {
                   className="meta-icon"
                 />
                 <span className="meta-text">
-                  {recipe.method?.[lang] ||
-                    recipe.method?.en ||
-                    recipe.method ||
-                    ""}
+                  {recipe.method?.[lang] || recipe.method?.en || ""}
                 </span>
               </div>
-            </div>
-          </div>
-          <div className="column image">
-            <img
-              src={recipe.image}
-              alt={recipe.title[lang]}
-              className="recipe-image"
-            />
-          </div>
+            </section>
+
+            <section className="recipe-row-orcol">
+              <div>
+                {recipe.description && (
+                  <p className="description-text">
+                    {typeof recipe.description === "object"
+                      ? recipe.description[lang] || recipe.description.en
+                      : recipe.description}
+                  </p>
+                )}
+                <section className="ingredients-section">
+                  <h2 className="heading">
+                    {isArabic ? "المكونات" : "Ingredients"}
+                  </h2>
+                  <ul>
+                    {recipe.ingredients[lang].map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+              <img
+                src={recipe.image}
+                alt={recipe.title[lang]}
+                className="recipe-image"
+              />
+            </section>
+
+            <section className="directions-section">
+              <h2 className="heading">{isArabic ? "الخطوات" : "Directions"}</h2>
+              <ol>
+                {recipe.directions[lang].map((step, i) => (
+                  <li key={i}>{step}</li>
+                ))}
+              </ol>
+            </section>
+          </article>
         </div>
-        {/* <p className="description">{recipe.description[lang]}</p> */}
-        {/* <div className="recipe-grid"> */}
-        <div className="together">
-          <img src="/img/ing.jpg" alt="Time" className="ingredients-image" />
-          <div
-            className={`ingredients-section ${isArabic ? "arabic" : "english"}`}
-          >
-            <p className="heading">{isArabic ? "المكونات" : "Ingredients"}</p>
-            <ul>
-              {recipe.ingredients[lang].map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div
-          className={`together ${isArabic ? "arabic" : "english"}`}
-          style={{ flexDirection: "column" }}
-        >
-          <p className="heading">{isArabic ? "الخطوات" : "Directions"}</p>
-          <ol>
-            {recipe.directions[lang].map((step, i) => (
-              <li key={i}>{step}</li>
-            ))}
-          </ol>
-        </div>
-        {/* </div> */}
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 

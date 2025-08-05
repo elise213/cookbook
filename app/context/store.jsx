@@ -1,24 +1,21 @@
 "use client";
+
+const storedUser =
+  typeof window !== "undefined" ? localStorage.getItem("user") : null;
+const parsedUser = storedUser ? JSON.parse(storedUser) : null;
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      user: null,
-      authChecked: false,
-
-      activeEventId: null,
+      user: parsedUser,
+      authChecked: !!parsedUser,
       modalIsOpen: false,
       isNavOpen: false,
       showContactModal: false,
-      isLargeScreen: false,
-      isClient: false,
       lang:
         typeof window !== "undefined"
           ? localStorage.getItem("lang") || "en"
           : "en",
-
-      windowWidth: 0,
-      zeffyWarningText:
-        "A donation to the payment platform Zeffy will automatically populate at ~9% of your donation to this project. To prevent this charge, enter the amount of your donation to this project, choose Other from the dropdown menu in the Summary section, then enter the amount that you want to donate to Zeffy ($0 is fine).",
       content: [],
       icons: {
         bake: "/img/bake.png",
@@ -166,14 +163,48 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
 
     actions: {
+      addToCart: (item) => {
+        const store = getStore();
+        const updatedCart = [...store.cart, item];
+        setStore({ cart: updatedCart });
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      },
+
+      checkAuth: async () => {
+        try {
+          const resp = await fetch("http://localhost:5000/api/protected", {
+            credentials: "include",
+          });
+
+          if (!resp.ok) throw new Error("Not authenticated");
+
+          const data = await resp.json();
+          console.log("✅ checkAuth success:", data);
+
+          setStore({
+            user: data.user,
+            authChecked: true,
+          });
+          localStorage.setItem("user", JSON.stringify(data.user));
+          return true;
+        } catch (err) {
+          setStore({
+            user: null,
+            authChecked: true,
+          });
+
+          console.log("❌ checkAuth failed:", err.message);
+          return false;
+        }
+      },
       loginUser: async (email, password) => {
         try {
           const res = await fetch(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`,
             {
               method: "POST",
-              credentials: "include",
               headers: { "Content-Type": "application/json" },
+              credentials: "include",
               body: JSON.stringify({ email, password }),
             }
           );
@@ -181,7 +212,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = await res.json();
 
           if (res.ok) {
-            setStore({ user: data.user, authChecked: true });
+            setStore({
+              user: data.user,
+              authChecked: true,
+            });
+            localStorage.setItem("user", JSON.stringify(data.user));
+
             return { success: true, message: data.message };
           } else {
             return { success: false, error: data.error || "Login failed" };
@@ -190,77 +226,60 @@ const getState = ({ getStore, getActions, setStore }) => {
           return { success: false, error: "Something went wrong" };
         }
       },
+      handleLogin: async (e, email, password, router) => {
+        e.preventDefault();
+        try {
+          const response = await fetch("http://localhost:5000/api/login", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            setStore({ user: data.user, authChecked: true });
+            alert(data.message);
+            router.push("/");
+          } else {
+            alert(data.error || "Login failed");
+          }
+        } catch (err) {
+          console.error("Login error:", err);
+          alert("Something went wrong. Please try again.");
+        }
+      },
 
       logoutAndClear: () => {
         console.log("logout called");
         document.cookie = "access_token=; Max-Age=0; path=/;";
         document.cookie = "access_token_cookie=; Max-Age=0; path=/;";
         setStore({ user: null, authChecked: true });
+        localStorage.removeItem("user");
       },
 
-      checkAuth: async () => {
+      forgotPassword: async (email) => {
         try {
           const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/protected`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/forgot-password`,
             {
-              method: "GET",
+              method: "POST",
               credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email }),
             }
           );
 
           const data = await res.json();
 
-          if (res.ok) {
-            const userName = data.message.replace("Hello ", "");
-            setStore({ user: { name: userName }, authChecked: true });
-            return { userMessage: data.message }; // ✅ return this!
-          } else {
-            setStore({ user: null, authChecked: true });
-            return { error: data.error || "Unauthorized" }; // ✅ return this!
-          }
+          if (res.ok) return { success: true, resetLink: data.reset_link };
+          return {
+            success: false,
+            error: data.error || "Failed to send reset email",
+          };
         } catch (err) {
-          setStore({ user: null, authChecked: true });
-          return { error: "Something went wrong" }; // ✅ return this!
-        }
-      },
-
-      setLang: (lang) => setStore({ lang }),
-      toggleLang: () => {
-        const current = getStore().lang;
-        const newLang = current === "en" ? "ar" : "en";
-        setStore({ lang: newLang });
-        if (typeof window !== "undefined") {
-          localStorage.setItem("lang", newLang);
-        }
-      },
-
-      initializeScreenSize: () => {
-        setStore({
-          isLargeScreen: window.innerWidth > 1000,
-          isClient: true,
-          windowWidth: window.innerWidth,
-        });
-      },
-
-      updateScreenSize: () => {
-        setStore({
-          isLargeScreen: window.innerWidth > 1000,
-          windowWidth: window.innerWidth,
-        });
-      },
-
-      openModal: () => {
-        setStore({ modalIsOpen: true });
-      },
-      closeModal: () => {
-        setStore({ modalIsOpen: false });
-      },
-      toggleModal: (id = null) => {
-        const store = getStore();
-        if (id === null) {
-          setStore({ modalIsOpen: false, activeEventId: null });
-        } else {
-          setStore({ modalIsOpen: true, activeEventId: id });
+          return { success: false, error: "Something went wrong" };
         }
       },
 
@@ -270,12 +289,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ cart: savedCart });
         }
       },
-      addToCart: (item) => {
-        const store = getStore();
-        const updatedCart = [...store.cart, item];
-        setStore({ cart: updatedCart });
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      openModal: () => {
+        setStore({ modalIsOpen: true });
       },
+
       removeFromCart: (id) => {
         const store = getStore();
         const updatedCart = store.cart.filter((item) => item.id !== id);
@@ -283,9 +301,70 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem("cart", JSON.stringify(updatedCart));
       },
 
-      clearCart: () => {
-        setStore({ cart: [] });
-        localStorage.removeItem("cart");
+      resetPassword: async (token, new_password) => {
+        try {
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/reset-password`,
+            {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ token, new_password }),
+            }
+          );
+
+          if (res.ok) return { success: true };
+
+          const data = await res.json();
+          return { success: false, error: data.error || "Reset failed" };
+        } catch (err) {
+          return { success: false, error: "Something went wrong" };
+        }
+      },
+
+      setLang: (lang) => setStore({ lang }),
+
+      toggleLang: () => {
+        const current = getStore().lang;
+        const newLang = current === "en" ? "ar" : "en";
+        setStore({ lang: newLang });
+        if (typeof window !== "undefined") {
+          localStorage.setItem("lang", newLang);
+        }
+      },
+
+      toggleModal: (id = null) => {
+        const store = getStore();
+        if (id === null) {
+          setStore({ modalIsOpen: false, activeEventId: null });
+        } else {
+          setStore({ modalIsOpen: true, activeEventId: id });
+        }
+      },
+
+      createUser: async (is_org, name, email, password) => {
+        try {
+          const resp = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/createUser`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name,
+                email,
+                password,
+                is_org: is_org === "1",
+              }),
+            }
+          );
+
+          const data = await resp.json();
+          if (!resp.ok) throw new Error(data.error || "Unknown error");
+          return data;
+        } catch (err) {
+          console.error("Error creating user:", err);
+          throw err;
+        }
       },
     },
   };
