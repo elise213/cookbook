@@ -14,11 +14,6 @@ const PasswordGate = ({ children }) => {
       ? process.env.NEXT_PUBLIC_SITE_PASSWORD
       : null;
 
-  console.log(
-    "NEXT_PUBLIC_SITE_PASSWORD:",
-    process.env.NEXT_PUBLIC_SITE_PASSWORD
-  );
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const stored = sessionStorage.getItem("authenticated");
