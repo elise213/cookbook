@@ -330,13 +330,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       setLang: (lang) => setStore({ lang }),
 
-      toggleLang: () => {
-        const current = getStore().lang;
-        const newLang = current === "en" ? "ar" : "en";
-        setStore({ lang: newLang });
+      toggleLang: (langValue) => {
+        let newLang;
+
+        if (langValue) {
+          newLang = langValue;
+        } else {
+          const current = getStore().lang;
+          newLang = current === "en" ? "ar" : "en";
+        }
+
         if (typeof window !== "undefined") {
           localStorage.setItem("lang", newLang);
         }
+
+        setStore({ lang: newLang });
       },
 
       toggleModal: (id = null) => {

@@ -4,6 +4,7 @@ import { Context } from "./context/appContext";
 import { loadStripe } from "@stripe/stripe-js";
 import styles from "./globals.css";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -21,6 +22,16 @@ const Home = () => {
 
   const handleLogout = actions.logoutAndClear;
   const [loading, setLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const urlLang = searchParams.get("lang");
+
+  // Only run this once on load
+  useEffect(() => {
+    if (urlLang && (urlLang === "ar" || urlLang === "en")) {
+      actions.toggleLang(urlLang); // Make sure toggleLang accepts a value
+    }
+  }, [urlLang]);
 
   useEffect(() => {
     const body = document.body;
