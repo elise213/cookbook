@@ -47,19 +47,28 @@ const Home = () => {
   const handleCheckout = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: user?.email || null,
-          amount: Math.round(donation * 100),
-          lang: store.lang || "en",
-        }),
-      });
+      const res = await fetch(
+        "https://your-backend.com/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            amount: Math.round(donation * 100),
+            product_name: "Fatima’s Cookbook",
+            lang: store.lang || "en",
+          }),
+        }
+      );
 
       const data = await res.json();
-      const stripe = await stripePromise;
-      await stripe.redirectToCheckout({ sessionId: data.sessionId });
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("No URL returned from backend:", data);
+      }
     } catch (err) {
       console.error("Checkout error:", err);
     } finally {
