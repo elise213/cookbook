@@ -1,6 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "out"  # or ".next" for SSR; update as needed
+  publish = ".next"
+  
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 
 [build.environment]
   NEXT_PUBLIC_BACKEND_URL = "http://localhost:5000/api"

@@ -39,5 +39,8 @@
     "sweetalert2": "^11.7.27",
     "swiper": "^11.2.2",
     "tabletop": "^1.6.3"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.12.0"
   }
 }
