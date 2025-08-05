@@ -13,9 +13,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       isNavOpen: false,
       showContactModal: false,
       lang:
-        typeof window !== "undefined"
-          ? localStorage.getItem("lang") || "en"
+        typeof window !== "undefined" && localStorage.getItem("lang")
+          ? localStorage.getItem("lang")
           : "en",
+
       content: [],
       icons: {
         bake: "/img/bake.png",
@@ -331,19 +332,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       setLang: (lang) => setStore({ lang }),
 
       toggleLang: (langValue) => {
-        let newLang;
-
-        if (langValue) {
-          newLang = langValue;
-        } else {
-          const current = getStore().lang;
-          newLang = current === "en" ? "ar" : "en";
+        // Ignore event objects being passed accidentally
+        if (langValue && typeof langValue !== "string") {
+          langValue = null;
         }
+
+        const current = getStore().lang;
+        const newLang = langValue || (current === "en" ? "ar" : "en");
 
         if (typeof window !== "undefined") {
           localStorage.setItem("lang", newLang);
         }
 
+        console.log("Toggling language from:", current, "to:", newLang);
         setStore({ lang: newLang });
       },
 

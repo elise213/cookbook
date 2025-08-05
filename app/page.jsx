@@ -26,12 +26,22 @@ const Home = () => {
   const searchParams = useSearchParams();
   const urlLang = searchParams.get("lang");
 
-  // Only run this once on load
   useEffect(() => {
-    if (urlLang && (urlLang === "ar" || urlLang === "en")) {
-      actions.toggleLang(urlLang); // Make sure toggleLang accepts a value
+    if (
+      typeof window !== "undefined" &&
+      urlLang &&
+      (urlLang === "ar" || urlLang === "en")
+    ) {
+      const currentLang = localStorage.getItem("lang") || "en";
+
+      if (urlLang !== currentLang) {
+        actions.toggleLang(urlLang);
+      }
+      const url = new URL(window.location.href);
+      url.searchParams.delete("lang");
+      window.history.replaceState({}, "", url.pathname);
     }
-  }, [urlLang]);
+  }, []);
 
   useEffect(() => {
     const body = document.body;
@@ -196,7 +206,11 @@ const Home = () => {
                   {isArabic ? "" : "Logout"}
                 </p>
               )}
-              <div className="home-nav-item" onClick={actions.toggleLang}>
+              {/* <div className="home-nav-item" onClick={actions.toggleLang}> */}
+              <div
+                className="home-nav-item"
+                onClick={() => actions.toggleLang()}
+              >
                 {isArabic ? "English" : "العربية"}
               </div>
             </div>
