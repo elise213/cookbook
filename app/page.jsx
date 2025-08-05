@@ -47,6 +47,7 @@ const Home = () => {
 
   const handleCheckout = async () => {
     setLoading(true);
+
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/create-checkout-session`,
@@ -54,25 +55,35 @@ const Home = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
-          credentials: "include",
+          credentials: "include", // ✅ Required to send JWT cookie
           body: JSON.stringify({
-            amount: Math.round(donation * 100),
+            amount: Math.round(donation * 100), // amount in cents
             product_name: "Fatima’s Cookbook",
             lang: store.lang || "en",
           }),
         }
       );
 
+      // If unauthorized, show detailed error
+      if (res.status === 401) {
+        const errorData = await res.json();
+        console.error("Unauthorized:", errorData);
+        alert("You're not logged in. Please log in before checking out.");
+        return;
+      }
+
       const data = await res.json();
+
       if (data.url) {
         window.location.href = data.url;
       } else {
         console.error("No URL returned from backend:", data);
+        alert("Something went wrong starting the checkout.");
       }
     } catch (err) {
       console.error("Checkout error:", err);
+      alert("There was a problem with the checkout process.");
     } finally {
       setLoading(false);
     }
