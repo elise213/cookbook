@@ -70,7 +70,7 @@ const Home = () => {
   return (
     <>
       <div className={`home-body`}>
-        <div className="scroll">
+        <div className="scroll-home">
           <div className="home-image-div">
             <p className="page-title">
               {isArabic ? "كتاب طبخ فاطمة" : "Fatima's Cookbook"}
