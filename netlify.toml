@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "out"  # or ".next" for SSR; update as needed for your setup
+
+[build.environment]
+  NEXT_PUBLIC_BACKEND_URL = http://localhost:5000/api
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

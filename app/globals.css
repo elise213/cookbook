@@ -906,6 +906,7 @@ img {
 
   .scroll {
     flex-direction: column;
+    justify-content: unset !important;
   }
 
   .purchase-section {

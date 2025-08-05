@@ -217,6 +217,9 @@
 }
 
 @media (max-width: 500px) {
+  .about-content-div {
+    margin-top: 0px !important;
+  }
   .bio-container-first img {
     display: none !important;
   }

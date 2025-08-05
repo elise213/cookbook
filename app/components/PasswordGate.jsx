@@ -19,18 +19,21 @@ const PasswordGate = ({ children }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/check-password", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password: input }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/check-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ password: input }),
+        }
+      );
 
       const data = await res.json();
 
       if (data.success) {
-        sessionStorage.setItem("authenticated", "true"); // ✅ Store session
+        sessionStorage.setItem("authenticated", "true");
         setAuthenticated(true);
       } else {
         alert("Incorrect password");

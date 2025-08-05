@@ -1,11 +1,19 @@
-import axios from "axios";
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000/api";
 
-const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000/api",
-  withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+export async function apiFetch(endpoint, options = {}) {
+  const res = await fetch(`${BASE_URL}${endpoint}`, {
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    ...options,
+  });
 
-export default api;
+  if (!res.ok) {
+    const errData = await res.json();
+    throw new Error(errData.error || "API error");
+  }
+
+  return res.json();
+}

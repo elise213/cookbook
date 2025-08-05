@@ -48,13 +48,14 @@ const Home = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://your-backend.com/api/create-checkout-session",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/create-checkout-session`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
+          credentials: "include",
           body: JSON.stringify({
             amount: Math.round(donation * 100),
             product_name: "Fatima’s Cookbook",
