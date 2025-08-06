@@ -7,7 +7,7 @@ export const metadata = {
   title: "Fatima's Cookbook",
   description: "Recipes from Palestine",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/img/picnic.png",
   },
 };
 
