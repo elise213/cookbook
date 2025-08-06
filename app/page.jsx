@@ -206,7 +206,7 @@ const Home = () => {
                   {isArabic ? "" : "Logout"}
                 </p>
               )}
-              <Link href="/legal" passHref>
+              <Link href="/legalInfo" passHref>
                 <p className="home-nav-item">
                   {isArabic ? "المعلومات القانونية" : "Legal Info"}
                 </p>
