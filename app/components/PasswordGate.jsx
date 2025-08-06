@@ -51,8 +51,8 @@ const PasswordGate = ({ children }) => {
   return (
     <div className="password-gate">
       <form onSubmit={handleSubmit}>
-        <label>Enter Password:</label>
         <input
+          placeholder="password"
           type="password"
           value={input}
           onChange={(e) => setInput(e.target.value)}
