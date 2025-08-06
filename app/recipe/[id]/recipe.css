@@ -313,6 +313,7 @@ ul li {
     flex-direction: column;
   }
   .back-button {
-    display: none;
+    /* display: none; */
+    margin-top: 80px;
   }
 }

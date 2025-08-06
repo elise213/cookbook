@@ -1,16 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Context } from "../context/appContext";
 import Link from "next/link";
-import "../styles/navbar.css";
 import { usePathname } from "next/navigation";
-
-const routePaths = {
-  HOME: "/",
-  ABOUT: "/about",
-  RECIPES: "/recipes",
-  CONTACT: "/contact",
-};
+import { Context } from "../context/appContext";
+import "../styles/navbar.css";
 
 const translations = {
   en: {
@@ -29,8 +22,6 @@ const translations = {
 
 const AnimatedMenuItem = ({ index, href = null, label, onClick = null }) => {
   const [show, setShow] = useState(false);
-  const { store } = useContext(Context);
-  const lang = store.lang;
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => {
@@ -41,7 +32,7 @@ const AnimatedMenuItem = ({ index, href = null, label, onClick = null }) => {
   }, [index]);
 
   const content = (
-    <p className={` home-nav-item ${show ? "show" : ""}`} onClick={onClick}>
+    <p className={`home-nav-item ${show ? "show" : ""}`} onClick={onClick}>
       {label}
     </p>
   );
@@ -49,14 +40,18 @@ const AnimatedMenuItem = ({ index, href = null, label, onClick = null }) => {
   return href ? <Link href={href}>{content}</Link> : content;
 };
 
-const Navbar = ({}) => {
+const Navbar = () => {
   const { store, actions } = useContext(Context);
   const [visible, setVisible] = useState(true);
-  const lang = store.lang;
-  const isArabic = lang === "ar";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const prevScrollPos = useRef(0);
   const pathname = usePathname();
+
+  const lang = store.lang || "en";
+  const isArabic = lang === "ar";
+  const t = translations[lang] || translations["en"];
+  const routes = store.routes || {};
+  const isLoggedIn = !!store.user;
   const handleLogout = actions.logoutAndClear;
 
   useEffect(() => {
@@ -71,59 +66,67 @@ const Navbar = ({}) => {
   }, []);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const isLoggedIn = !!store.user;
+
   return (
     <>
-      <div className={`navbar-large `}>
+      {/* Desktop Navbar */}
+      <div className={`navbar-large ${visible ? "" : "hidden"}`}>
         <div className="navbar-items">
-          {Object.entries(routePaths).map(([label, path]) => (
-            <Link href={path} passHref key={label}>
-              <p className="home-nav-item">{translations[lang][label]}</p>
-            </Link>
-          ))}
-
-          {!isLoggedIn ? (
-            <>
-              <Link href="/login" passHref>
-                <p className="home-nav-item">
-                  {lang === "en" ? "SIGN IN" : "تسجيل الدخول"}
+          {Object.entries(routes).map(([label, path]) =>
+            t[label] ? (
+              <Link href={path} key={label}>
+                <p
+                  className={`home-nav-item ${
+                    pathname === path ? "active" : ""
+                  }`}
+                >
+                  {t[label]}
                 </p>
               </Link>
-            </>
+            ) : null
+          )}
+
+          {!isLoggedIn ? (
+            <Link href="/login">
+              <p className="home-nav-item">
+                {lang === "en" ? "SIGN IN" : "تسجيل الدخول"}
+              </p>
+            </Link>
           ) : (
-            <button
-              className="home-nav-item"
-              onClick={isLoggedIn ? handleLogout : null}
-            >
+            <button className="home-nav-item" onClick={handleLogout}>
               {lang === "en" ? "LOGOUT" : "تسجيل الخروج"}
             </button>
           )}
+
           <div className="home-nav-item" onClick={actions.toggleLang}>
             {isArabic ? "English" : "العربية"}
           </div>
         </div>
       </div>
 
+      {/* Mobile Navbar Overlay */}
       {isMobileMenuOpen && (
         <div className="mobile-menu-overlay" onClick={toggleMobileMenu}>
           <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
-            {Object.entries(routePaths).map(([key, href], i) => (
-              <AnimatedMenuItem
-                key={key}
-                index={i}
-                href={href}
-                label={translations[lang][key]}
-              />
-            ))}
+            {Object.entries(routes).map(([label, path], index) =>
+              t[label] ? (
+                <AnimatedMenuItem
+                  key={label}
+                  index={index}
+                  href={path}
+                  label={t[label]}
+                />
+              ) : null
+            )}
 
             <AnimatedMenuItem
-              index={Object.keys(routePaths).length}
+              index={Object.keys(routes).length}
               label={isArabic ? "English" : "العربية"}
               onClick={actions.toggleLang}
             />
 
             <AnimatedMenuItem
-              index={Object.keys(routePaths).length + 1}
+              index={Object.keys(routes).length + 1}
               label={
                 isLoggedIn
                   ? lang === "en"
@@ -134,13 +137,14 @@ const Navbar = ({}) => {
                   : "تسجيل الدخول"
               }
               href={!isLoggedIn ? "/login" : null}
-              onClick={isLoggedIn ? { handleLogout } : null}
+              onClick={isLoggedIn ? handleLogout : null}
             />
           </div>
         </div>
       )}
 
-      <div className={`hamburger `} onClick={toggleMobileMenu}>
+      {/* Hamburger Menu Button */}
+      <div className="hamburger" onClick={toggleMobileMenu}>
         ☰
       </div>
     </>

@@ -24,7 +24,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         servings: "/img/plate.png",
         noBake: "/img/stir.png",
       },
-
+      routes: {
+        HOME: "/",
+        ABOUT: "/about",
+        RECIPES: "/recipes",
+        CONTACT: "/contact",
+        LOGIN: "/login",
+      },
       recipes: [
         {
           id: 1,
