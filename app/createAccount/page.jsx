@@ -2,19 +2,61 @@
 import React, { useState, useRef, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { Context } from "../context/appContext";
-import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import styles from "./create.css";
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
 const SERVICE_ID = "service_5v912b5";
 const TEMPLATE_ID = "template_11p5p5t";
 const PUBLIC_KEY = "frmUHhhWUG9vtMRit";
 
+const translations = {
+  name: { en: "Name", ar: "الاسم" },
+  email: { en: "Email", ar: "البريد الإلكتروني" },
+  password: { en: "Password", ar: "كلمة المرور" },
+  register: { en: "Register", ar: "تسجيل" },
+  returnLogin: { en: "Return to Login", ar: "العودة إلى تسجيل الدخول" },
+  successTitle: { en: "Account Created", ar: "تم إنشاء الحساب" },
+  successTextOrg: {
+    en: "You now have an account. Organization verification is pending.",
+    ar: "لديك الآن حساب. جاري التحقق من المنظمة.",
+  },
+  successTextUser: {
+    en: "You now have an account. Please log in.",
+    ar: "تم إنشاء الحساب. الرجاء تسجيل الدخول.",
+  },
+  errorTitle: { en: "Registration Failed", ar: "فشل التسجيل" },
+  errorExists: {
+    en: "That email is already registered. Please log in or use a different email.",
+    ar: "هذا البريد الإلكتروني مسجل بالفعل. الرجاء تسجيل الدخول أو استخدام بريد إلكتروني آخر.",
+  },
+  errorGeneric: {
+    en: "An error occurred while creating your account.",
+    ar: "حدث خطأ أثناء إنشاء حسابك.",
+  },
+  verifySent: {
+    en: "Verification Email Sent",
+    ar: "تم إرسال بريد التحقق",
+  },
+  verifyText: {
+    en: "Your information has been sent for verification.",
+    ar: "تم إرسال معلوماتك للتحقق.",
+  },
+  verifyFail: {
+    en: "Failed to send verification email.",
+    ar: "فشل في إرسال البريد الإلكتروني للتحقق.",
+  },
+};
+
 const CreateAccount = ({ setLog, log }) => {
+  const { store, actions } = useContext(Context);
+  const lang = store.lang;
+  const isArabic = lang === "ar";
+  const t = (obj) => obj?.[lang] || obj?.en || "";
+
   const router = useRouter();
-  const { actions } = useContext(Context);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,11 +72,11 @@ const CreateAccount = ({ setLog, log }) => {
 
       Swal.fire({
         icon: "success",
-        title: "Account Created",
+        title: t(translations.successTitle),
         text:
           is_org === "1"
-            ? "You now have an account. Organization verification is pending."
-            : "You now have an account. Please log in.",
+            ? t(translations.successTextOrg)
+            : t(translations.successTextUser),
       });
 
       if (is_org === "1" && resourceName && resourceCity) {
@@ -43,16 +85,14 @@ const CreateAccount = ({ setLog, log }) => {
 
       router.push("/login");
     } catch (error) {
-      let message = "An error occurred while creating your account.";
-
+      let message = t(translations.errorGeneric);
       if (error.message === "Email already exists") {
-        message =
-          "That email is already registered. Please log in or use a different email.";
+        message = t(translations.errorExists);
       }
 
       Swal.fire({
         icon: "error",
-        title: "Registration Failed",
+        title: t(translations.errorTitle),
         text: message,
       });
     }
@@ -74,25 +114,29 @@ const CreateAccount = ({ setLog, log }) => {
       );
       Swal.fire({
         icon: "success",
-        title: "Verification Email Sent",
-        text: "Your information has been sent for verification.",
+        title: t(translations.verifySent),
+        text: t(translations.verifyText),
       });
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Failed to send verification email.",
+        text: t(translations.verifyFail),
       });
     }
   };
 
   return (
-    <div className="login-modal-content">
+    <div
+      className="login-modal-content"
+      dir={isArabic ? "rtl" : "ltr"}
+      style={isArabic ? { textAlign: "right" } : {}}
+    >
       <div className="login-modal-body">
         <form ref={formRef} onSubmit={handleRegister}>
           <div className="form-section">
             <label htmlFor="name" className="form-label less-margin">
-              Name
+              {t(translations.name)}
             </label>
             <input
               type="text"
@@ -107,7 +151,7 @@ const CreateAccount = ({ setLog, log }) => {
 
           <div className="form-section">
             <label htmlFor="email" className="form-label">
-              Email
+              {t(translations.email)}
             </label>
             <input
               type="email"
@@ -122,7 +166,7 @@ const CreateAccount = ({ setLog, log }) => {
 
           <div className="form-section">
             <label htmlFor="password" className="form-label">
-              Password
+              {t(translations.password)}
             </label>
             <input
               type="password"
@@ -134,17 +178,18 @@ const CreateAccount = ({ setLog, log }) => {
             />
           </div>
 
-          <Button
+          <button
             className="home-nav-item"
             variant="contained"
             color="primary"
             type="submit"
           >
-            Register
-          </Button>
+            {t(translations.register)}
+          </button>
         </form>
+
         <Link href="/login">
-          <span className="forgot-password">Return to Login</span>
+          <span className="forgot-password">{t(translations.returnLogin)}</span>
         </Link>
       </div>
     </div>

@@ -7,9 +7,12 @@ import Navbar from "../components/Navbar";
 import Link from "next/link";
 
 export default function LoginPage() {
+  const { store, actions } = useContext(Context);
+  const lang = store.lang;
+  const isArabic = lang === "ar";
+  const t = (obj) => obj?.[lang] || obj?.en || "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { store, actions } = useContext(Context);
   const router = useRouter();
 
   const { user, authChecked } = store;
@@ -17,9 +20,6 @@ export default function LoginPage() {
 
   const handleLogin = actions.handleLogin;
   const handleLogout = actions.logoutAndClear;
-  const lang = store.lang;
-  const isArabic = lang === "ar";
-  const t = (obj) => obj?.[lang] || obj?.en || "";
 
   return (
     <>

@@ -1,20 +1,48 @@
+form {
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-family: "Balmoon", cursive;
+  letter-spacing: 1px;
+}
+
 .login-modal-content {
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  min-height: 100vh;
-  background-color: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 0 20px 20px 20px;
+  background-color: transparent !important;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 0;
+}
+
+.login-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("/img/paper2.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
 }
 
 .login-modal-body {
-  background-color: #fff;
+  background-color: transparent;
   padding: 40px;
   max-width: 480px;
   width: 100%;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
 }
 
@@ -29,13 +57,14 @@
   color: #333;
   margin-bottom: 8px;
   font-weight: 500;
+  font-family: "Balmoon", cursive;
+  letter-spacing: 1px;
 }
 
 .form-input {
   padding: 10px 12px;
   font-size: 15px;
   border: 1px solid #ccc;
-
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -55,6 +84,8 @@
 .radio-label {
   font-size: 14px;
   color: #444;
+  font-family: "Balmoon", cursive;
+  letter-spacing: 1px;
 }
 
 .forgot-password {
@@ -65,8 +96,16 @@
   color: #666;
   cursor: pointer;
   transition: color 0.2s ease;
+  font-family: "Balmoon", cursive;
+  letter-spacing: 1px;
 }
 
 .forgot-password:hover {
   color: #222;
+}
+
+.forgot-title {
+  font-family: "Balmoon", cursive;
+  text-align: center;
+  font-size: 25px;
 }
