@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import styles from "./create.css";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
 
 const SERVICE_ID = "service_5v912b5";
 const TEMPLATE_ID = "template_11p5p5t";
