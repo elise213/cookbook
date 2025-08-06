@@ -206,6 +206,12 @@ const Home = () => {
                   {isArabic ? "" : "Logout"}
                 </p>
               )}
+              <Link href="/legal" passHref>
+                <p className="home-nav-item">
+                  {isArabic ? "المعلومات القانونية" : "Legal Info"}
+                </p>
+              </Link>
+
               {/* <div className="home-nav-item" onClick={actions.toggleLang}> */}
               <div
                 className="home-nav-item"
