@@ -5,6 +5,7 @@ import { Context } from "../../context/appContext";
 import "./recipe.css";
 import Navbar from "@/app/components/Navbar";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
 const Recipe = () => {
   const { store } = useContext(Context);
@@ -64,12 +65,11 @@ const Recipe = () => {
             marginTop: "80px",
           }}
         >
-          <p
-            className="back-button-recipe"
-            onClick={() => router.push("/recipes")}
-          >
-            {isArabic ? "العودة إلى كتاب الوصفات" : "← Back to Recipe Book"}
-          </p>
+          <Link href="/recipes">
+            <p className="back-button-recipe">
+              {isArabic ? "العودة إلى كتاب الوصفات" : "← Back to Recipe Book"}
+            </p>
+          </Link>
           <p className="print-button" onClick={handlePrint} aria-label="Print">
             🖨️ {isArabic ? "طباعة الوصفة" : "Print This Recipe"}
           </p>
