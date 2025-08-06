@@ -19,31 +19,29 @@ const About = () => {
               {isArabic ? (
                 <>
                   <p>
-                    نشأت فاطمة في مجتمع غني بالتقاليد العريقة والطعام الشهي في
-                    غزة. في مدينة رفح، كانت تطهو مع أطفالها الوصفات التي تعلمتها
-                    من والدتها وجدتها — حيث يحمل كل طبق إرثاً عميقاً، لم يكتبه
-                    شخص واحد، بل وُلد من أرض فلسطين.
+                    نشأت فاطمة في غزة، في مجتمع مليء بالتقاليد العريقة والطعام
+                    الشهي. تعلّمت من والدتها وجدتها وصفات لم تُكتب بقلم شخص
+                    واحد، بل وُلدت من أرض فلسطين.
                   </p>
                   <p>
-                    بعد أن قُصف منزلها، اضطرت فاطمة للفرار من غزة مع أطفالها
-                    وزوجها. هذا الكتاب هو احتفاء بالتراث الفلسطيني، وتحية لكل من
-                    حافظ عليه رغم كل الصعاب.
+                    بعد أن قُصف منزلها، فرت فاطمة من غزة مع أطفالها وزوجها.
+                    والداها وعائلة أخيها ما زالوا هناك. هذا الكتاب هو احتفاء
+                    بالتراث الفلسطيني، وتحية لكل من حافظ عليه رغم كل الصعاب.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    Fatima grew up in a community full of rich traditions and
-                    delicious food in Gaza. In Rafah, she would cook with her
-                    children the recipes she learned from her mother and
-                    grandmother — each dish carrying a legacy. The recipes
-                    weren’t written by any one person, but were born of the land
-                    of Palestine.
+                    Fatima grew up in Gaza, in a community full of rich
+                    traditions and delicious food. Fatima learned from her
+                    mother and grandmother — recipes not written by any one
+                    person, but born of the land of Palestine.
                   </p>
                   <p>
                     After her home was bombed, Fatima fled Gaza with her
-                    children and her husband. This cookbook is a celebration of
-                    Palestinian heritage and a tribute to all of those who have
+                    children and her husband. Her parents, and and her brother's
+                    family are still there. This cookbook is a celebration of
+                    Palestinian heritage, and a tribute to all of those who have
                     preserved it against all odds.
                   </p>
                 </>
