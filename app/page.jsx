@@ -200,13 +200,13 @@ const Home = () => {
             </div>
 
             <div className="home-nav">
-              {isLoggedIn && (
-                <Link href="/recipes" passHref>
-                  <p className="home-nav-item">
-                    {isArabic ? "تصفح الوصفات" : "BROWSE RECIPES"}
-                  </p>
-                </Link>
-              )}
+              {/* {isLoggedIn && ( */}
+              <Link href="/recipes" passHref>
+                <p className="home-nav-item">
+                  {isArabic ? "تصفح الوصفات" : "BROWSE RECIPES"}
+                </p>
+              </Link>
+              {/* )} */}
               <Link href="/about" passHref>
                 <p className="home-nav-item">
                   {isArabic ? "معلومات" : "ABOUT"}
