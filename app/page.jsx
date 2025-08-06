@@ -26,20 +26,42 @@ const Home = () => {
   const searchParams = useSearchParams();
   const urlLang = searchParams.get("lang");
 
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      urlLang &&
-      (urlLang === "ar" || urlLang === "en")
-    ) {
-      const currentLang = localStorage.getItem("lang") || "en";
+  // useEffect(() => {
+  //   if (
+  //     typeof window !== "undefined" &&
+  //     urlLang &&
+  //     (urlLang === "ar" || urlLang === "en")
+  //   ) {
+  //     const currentLang = localStorage.getItem("lang") || "en";
 
-      if (urlLang !== currentLang) {
-        actions.toggleLang(urlLang);
+  //     if (urlLang !== currentLang) {
+  //       actions.toggleLang(urlLang);
+  //     }
+  //     const url = new URL(window.location.href);
+  //     url.searchParams.delete("lang");
+  //     window.history.replaceState({}, "", url.pathname);
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get("lang");
+
+      if (urlLang === "ar" || urlLang === "en") {
+        const currentLang = localStorage.getItem("lang") || "en";
+
+        if (urlLang !== currentLang) {
+          actions.toggleLang(urlLang);
+        }
+
+        // Clean up the URL by removing the param
+        params.delete("lang");
+        const cleanUrl = `${window.location.pathname}${
+          params.toString() ? "?" + params.toString() : ""
+        }`;
+        window.history.replaceState({}, "", cleanUrl);
       }
-      const url = new URL(window.location.href);
-      url.searchParams.delete("lang");
-      window.history.replaceState({}, "", url.pathname);
     }
   }, []);
 
