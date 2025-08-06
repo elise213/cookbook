@@ -55,14 +55,25 @@ const Recipe = () => {
     <>
       <Navbar />
 
-      <p className="print-button" onClick={handlePrint} aria-label="Print">
-        🖨️ {isArabic ? "طباعة الوصفة" : "Print This Recipe"}
-      </p>
-      <p className="back-button" onClick={() => router.push("/recipes")}>
-        {isArabic ? "العودة إلى كتاب الوصفات" : "← Back to Recipe Book"}
-      </p>
-
       <main className={`recipe-page ${isArabic ? "arabic" : "english"}`}>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            maxWidth: "600px",
+            marginTop: "80px",
+          }}
+        >
+          <p
+            className="back-button-recipe"
+            onClick={() => router.push("/recipes")}
+          >
+            {isArabic ? "العودة إلى كتاب الوصفات" : "← Back to Recipe Book"}
+          </p>
+          <p className="print-button" onClick={handlePrint} aria-label="Print">
+            🖨️ {isArabic ? "طباعة الوصفة" : "Print This Recipe"}
+          </p>
+        </div>
         <div className="print-wrapper printable">
           <article className="recipe-container ">
             <h1 className="recipe-title">{recipe.title[lang]}</h1>
