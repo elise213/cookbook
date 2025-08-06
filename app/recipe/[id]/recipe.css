@@ -19,7 +19,6 @@
 
 .back-button-recipe {
   margin: 0;
-  /* height: auto; */
   display: flex;
   justify-content: flex-start;
   align-items: end;

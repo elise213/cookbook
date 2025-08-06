@@ -32,11 +32,7 @@ const Page = () => {
             <span className="quote">
               {lang === "en" ? "Recipes from Rafah" : "وصفات من فلسطين"}
             </span>
-            <img
-              src="img/picnic.png"
-              alt="Theosophy Hall Los Angeles"
-              className="phinx"
-            />
+            <img src="img/picnic.png" alt="picnic" className="picnic" />
           </div>
           <section className="grid-container2">
             {recipes.map((item, index) => (

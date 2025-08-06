@@ -115,7 +115,7 @@ const Home = () => {
             <img
               src="img/picnic.png"
               alt="Cookbook cover image"
-              className="phinx"
+              className="picnic"
             />
           </div>
           <div className="group">
@@ -211,8 +211,6 @@ const Home = () => {
                   {isArabic ? "المعلومات القانونية" : "Legal Info"}
                 </p>
               </Link>
-
-              {/* <div className="home-nav-item" onClick={actions.toggleLang}> */}
               <div
                 className="home-nav-item"
                 onClick={() => actions.toggleLang()}

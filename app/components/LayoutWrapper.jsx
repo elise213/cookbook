@@ -18,5 +18,6 @@ export default function LayoutWrapper({ children }) {
   // Optionally wait for authChecked here too
   if (!store?.authChecked) return <p>Loading...</p>;
 
-  return <PasswordGate>{children}</PasswordGate>;
+  // return <PasswordGate>{children}</PasswordGate>;
+  return <>{children}</>;
 }
