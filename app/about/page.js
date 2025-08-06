@@ -14,38 +14,36 @@ const About = () => {
       <NavBar />
       <div className="about-page">
         <div className="scroll">
-          {/* <p className="back-button" onClick={() => router.push("/")}>
-            {isArabic ? "العودة إلى كتاب الوصفات" : " ← Back to Home"}
-          </p> */}
           <div className="about-content-div">
             <div className="bio-text" dir={isArabic ? "rtl" : "ltr"}>
               {isArabic ? (
                 <>
                   <p>
-                    وُلِدت فاطمة في مدينة رفح جنوب قطاع غزة. نشأت في مجتمع غني
-                    بالتقاليد والطعام اللذيذ. في قلب منزلها في رفح، كانت تتعلم
-                    وصفات الطبخ من والدتها وجدتها — حيث تحمل كل وصفة إرثًا
-                    فلسطينيًا عريقًا.
+                    وُلِدت فاطمة في مدينة رفح، في مجتمع مليء بالتقاليد العريقة
+                    والطعام الشهي. كانت تطهو مع أطفالها الوصفات التي تعلمتها من
+                    والدتها وجدتها — كل طبق يحمل إرثاً فلسطينياً عميقاً، ليس من
+                    تأليف شخص واحد، بل وُلد من أرض فلسطين.
                   </p>
                   <p>
-                    بعد أن تم قصف منزلها، اضطرت فاطمة للفرار إلى مصر مع أطفالها
-                    وزوجها. هذا الكتاب هو احتفال بتراث فاطمة الفلسطيني، وتحية
-                    لأولئك الذين حافظوا عليه رغم كل المصاعب.
+                    بعد أن قُصف منزلها، فرت فاطمة من غزة مع أطفالها وزوجها. هذا
+                    الكتاب هو احتفاء بالتراث الفلسطيني، وتحية لكل من حافظ عليه
+                    رغم كل الصعاب.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    Fatima was born in Rafah, Gaza. She grew up in a community
-                    full of rich traditions and delicious food. In the heart of
-                    her home in Rafah, she learned recipes from her mother and
-                    grandmother — each dish carrying a legacy.
+                    Fatima was grew up in a community full of rich traditions
+                    and delicious food in Gaza. In Rafah she would cook with her
+                    children, therecipes she learned from her mother and
+                    grandmother — each dish carrying a legacy. Not written by
+                    any one person, but born of the land of Palestine.
                   </p>
                   <p>
-                    After her home was bombed, Fatima fled to Egypt with her
+                    After her home was bombed, Fatima fled Gaza with her
                     children and her husband. This cookbook is a celebration of
-                    Fatima's Palestinian heritage and a tribute to all of those
-                    who have preserved it against all odds.
+                    Palestinian heritage and a tribute to all of those who have
+                    preserved it against all odds.
                   </p>
                 </>
               )}
@@ -59,17 +57,17 @@ const About = () => {
                 {isArabic ? (
                   <>
                     <p>
-                      عند شرائك هذا الكتاب، فإنك تدعم والدي فاطمة وأخوها الذين
-                      ما زالوا في غزة، وتُسهم في مساعدة أطفالها على الالتحاق
-                      بالمدرسة في القاهرة.
+                      عند شرائك هذا الكتاب، فإنك تدعم عائلة فاطمة التي ما زالت
+                      في غزة، وتُسهم في مساعدة أطفالها على الالتحاق بالمدرسة في
+                      مصر.
                     </p>
                   </>
                 ) : (
                   <>
                     <p>
                       When you purchase the cookbook, you are supporting
-                      Fatima's parents and brother who are still in Gaza, and
-                      helping her children to attend school in Cairo.
+                      Fatima's family in Gaza, and helping her children to
+                      attend school in Egypt.
                     </p>
                   </>
                 )}
