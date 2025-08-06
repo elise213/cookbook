@@ -5,7 +5,7 @@ import LayoutWrapper from "./components/LayoutWrapper";
 
 export const metadata = {
   title: "Fatima's Cookbook",
-  description: "Recipes from Palestine",
+  description: "Recipes from Rafah",
   icons: {
     icon: "/img/picnic.png",
   },
