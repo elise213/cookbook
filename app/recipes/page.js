@@ -15,7 +15,7 @@ const Page = () => {
 
   return (
     <>
-      <Navbar version="2" />
+      <Navbar />
       <div className="study-page">
         <div
           className="scroll"
