@@ -4,18 +4,6 @@ form {
   flex-direction: column;
 }
 
-.back-button {
-  align-self: flex-start;
-  margin-bottom: 10px;
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-family: "Balmoon", cursive;
-  border: none;
-  z-index: 999;
-  border: none;
-}
-
 label {
   font-family: "Balmoon", cursive;
   letter-spacing: 1px;

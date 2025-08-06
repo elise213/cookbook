@@ -120,12 +120,6 @@ const Navbar = () => {
             )}
 
             <AnimatedMenuItem
-              index={Object.keys(routes).length}
-              label={isArabic ? "English" : "العربية"}
-              onClick={actions.toggleLang}
-            />
-
-            <AnimatedMenuItem
               index={Object.keys(routes).length + 1}
               label={
                 isLoggedIn
@@ -138,6 +132,12 @@ const Navbar = () => {
               }
               href={!isLoggedIn ? "/login" : null}
               onClick={isLoggedIn ? handleLogout : null}
+            />
+
+            <AnimatedMenuItem
+              index={Object.keys(routes).length}
+              label={isArabic ? "English" : "العربية"}
+              onClick={actions.toggleLang}
             />
           </div>
         </div>

@@ -219,6 +219,7 @@
 @media (max-width: 500px) {
   .about-content-div {
     margin-top: 0px !important;
+    padding-top: 0px;
   }
   .bio-container-first img {
     display: none !important;

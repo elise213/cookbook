@@ -231,9 +231,8 @@ body.no-scroll {
   height: 100vh;
   overflow-y: scroll;
   justify-content: center;
-  /* align-items: center; */
   box-sizing: border-box;
-  gap: 20px;
+  gap: 10px;
   padding: 20px 0;
 }
 
@@ -927,14 +926,10 @@ img {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .home-body {
-    flex-direction: column;
-    justify-content: center !important;
-  }
-}
-
 @media screen and (max-width: 600px) {
+  .home-body {
+    display: block !important;
+  }
   .scroll-home {
     flex-direction: column !important;
     justify-content: unset !important;
@@ -980,6 +975,11 @@ img {
   .person-image {
     width: 120px !important;
   }
+
+  .back-button {
+    margin-top: 40px;
+    position: relative !important;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -991,4 +991,16 @@ img {
     width: 100% !important;
     padding-top: 35px;
   }
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-family: "Balmoon", cursive;
+  border: none;
+  z-index: 999;
+  border: none;
 }

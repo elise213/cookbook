@@ -14,6 +14,9 @@ const About = () => {
       <NavBar />
       <div className="about-page">
         <div className="scroll">
+          {/* <p className="back-button" onClick={() => router.push("/")}>
+            {isArabic ? "العودة إلى كتاب الوصفات" : " ← Back to Home"}
+          </p> */}
           <div className="about-content-div">
             <div className="bio-text" dir={isArabic ? "rtl" : "ltr"}>
               {isArabic ? (
